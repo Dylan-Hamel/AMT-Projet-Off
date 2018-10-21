@@ -3,7 +3,7 @@
 
 <html>
 <body>
-<form method="post" action="/mvc-simple/login">
+<form method="post" action="/AMT-Projet/login">
     Login: </br><input type="text" name="username" value="<c:out value="${username}"/>">
     <br>
     Password: </br><input type="text" name="email" value="<c:out value="${email}"/>">
@@ -14,7 +14,7 @@
     <br>
     <input type="submit" value="Submit">
 </form>
-<form method="get" action="/mvc-simple/signin">
+<form method="get" action="/AMT-Projet/signin">
     <div class="error-msg">
         <c:if test="${not empty errorMessage}">
             <c:out value="${errorMessage}"/>

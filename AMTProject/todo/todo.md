@@ -13,6 +13,9 @@ Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
 ## Login :blowfish:
 
 * Page de login avec check dans le DB  ✅
+* Contrôler si l'utilisateur n'a pas eu un reset password
+* Contrôler si le compte de l'utilisateur est bien activé
+* Contrôler si compte administrateur ou développeur
 
 
 
@@ -26,13 +29,12 @@ As an application developer, I can access the web UI and register with the gamif
 
 
 
-##  Gestion utilisateurs
+##  Gestion utilisateurs:snail:
 
 * Un servlet et une page HTML dédiées
-
 * Activer,Désactiver / Supprimer / Changer le Password / Etc. un utilisateur depuis un compte administrateur
-
 * Créer le corps de la page HTML
+* Une classe pour l'envoi de mail avec reset de password
 
 ```
 As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message.
@@ -68,9 +70,13 @@ As an administrator, I can see a list of registered application developers, with
 
 * Un servlet et une page HTML dédiées
 
-  Page HTML pas encore faite.
+  Page HTML pas encore faite
 
-* Une des options demandées
+
+
+## More features !
+
+Une des options demandées
 
 ```
 SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
@@ -94,10 +100,11 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 
 
 
-## Sécurisé les pages si on est pas connecté
+## Sécuriser les pages si on est pas connecté
 
 - Création d'un "cookie" ou autre lors du login
 - Avec le Security Filter
+- Contrôle des droits de l'utilisateur ? admin ou pas
 
 ```
 "As an application developer, I can login and logout from the gamification service web UI. When I login, I have access to my profile information and to my list of applications. When I have logged out and try to access a protected page, I am redirected to the login page."
@@ -135,6 +142,7 @@ As a spiritual guide, I can clone the repo, move to a documented repository and 
 
 | As a **spiritual guide**, I find a report named `TESTING_FUNCTIONAL.md` which describes how to execute **automated functional tests**.  At the minimum, there should be a scenario with the following steps:  developer creates an account, developer logs in, developer creates 25  pages, developer browses the list of applications (3 pages of 10, 10 and  5 applications), developer logs out, developer tries to go back to the  list of applications and is redirected to login page. The tests should  include assertions, so that changing the code (e.g. introducing a bug)  breaks the code. The report should describe and document a concrete  example (with screenshots). | NFR-testability | 1.0  |
 | ------------------------------------------------------------ | --------------- | ---- |
-| As a **spiritual guide**, I find a report named `TESTING_NON_FUNCTIONAL_PAGINATION.md`which describes which **non-functional tests**  have been implemented and run. At the minimum, the report answers this  question: "What is the impact of using pagination between the business  and the resources tier?". The report should introduce the issue,  describe the design of an experiment, document the experimental results  and interpret the data. | NFR-testability | 1.0  |
-| As a spiritual guide, I find a report named `TESTING_NON_FUNCTIONAL_TRANSACTIONS`, which describes an experiment that has been done to prove that transactions work as expected with **Enterprise Java Beans** (especially in the case of rollbacks). The report describes the related code. |                 |      |
+| As a **spiritual guide**, I find a report named `TESTING_NON_FUNCTIONAL_PAGINATION.md`which describes which **non-functional tests**  have been implemented and run. At the minimum, the report answers this  question: "What is the impact of using pagination between the business  and the resources tier?". The report should introduce the issue, describe the design of an experiment, document the experimental results and interpret the data. | NFR-testability | 1.0  |
+| As a spiritual guide, I find a report named `TESTING_NON_FUNCTIONAL_TRANSACTIONS`, which describes an experiment that has been done to prove that transactions work as expected with **Enterprise Java Beans** (especially in the case of rollbacks). The report describes the related code. | NFR-reliability | 1.0  |
 
+Beware of cocurrency/thread-safe, synchronize
