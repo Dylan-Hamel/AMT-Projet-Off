@@ -8,6 +8,8 @@ Finish. Deadline to submit the deliverables: **Monday 05.11.2018 08:00 AM**.
 
 :snail: = Yannis
 
+:interrobang: = à discuter
+
 Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
 
 ## Login :blowfish:
@@ -103,7 +105,7 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 
 
 
-## Sécuriser les pages si on est pas connecté
+## Sécuriser les pages si on est pas connecté :blowfish:
 
 - Création d'un "cookie" ou autre lors du login
 - Avec le Security Filter
