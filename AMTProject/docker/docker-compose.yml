@@ -1,28 +1,28 @@
 version: '3'
 services:
   payara:
-    image: payara/server-full 
+    build: ./payara5 
     volumes:
      - ./../target/:/opt/payara5/deployments/
     ports:
-     - "8080:8080"
-     - "4848:4848"
+     - "48080:8080"
+     - "44848:4848"
     links:
      - mysql:db
   mysql:
     build: ./mysql
-	environment:
-		- MYSQL_ROOT_PASSWORD=adminpw
-	     - MYSQL_DATABASE=gamification
-	     - MYSQL_USER=gamification_user
-	     - MYSQL_PASSWORD=gam_us_2018
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=AMT-DB
+     - MYSQL_USER=amt
+     - MYSQL_PASSWORD=amt1234
     ports:
-     - "3306:3306"
+     - "43306:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
      - MYSQL_ROOT_PASSWORD=root
     ports:
-     - "6060:80"
+     - "48888:80"
     links:
      - mysql:db
