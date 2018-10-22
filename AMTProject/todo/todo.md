@@ -131,9 +131,14 @@ As a user, I have a good UI/UX experience (nice design, clear navigation, inform
 
 Il faut qu'on pense à garder pas mal de temps pour ce point.
 
-Ce sera compliqué de passer les information au serveur payara5 avec le docker-compose
+* Connecteur JDBC passer au Container ✅
 
-il faut passer le fichier de connexion jdbc + la DB
+* jdbc pool ✅
+
+* Connexion à la DB ✅
+
+* Lancer l'application sur les containers ✅ (login, register, resetpassword)
+
 
 ```
 As a spiritual guide, I can clone the repo, move to a documented repository and type docker-compose up to start the system. I can then access it with my browser.
