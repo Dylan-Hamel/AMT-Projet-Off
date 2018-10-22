@@ -1,25 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 
+The purpose of this page is to redirect users who are trying to access the
+following URL: http://localhost:8080/MVCDemo/. Because we have decided that all
+of our pages would be available under the /pages/ prefix, we redict them to
+/pages/home. If we were not doing that, users would get a 404.
 
-<html>
-<body>
-<form method="post" action="/AMT-Projet/login">
-    Login: </br><input type="text" name="username" value="<c:out value="${username}"/>">
-    <br>
-    Password: </br><input type="text" name="email" value="<c:out value="${email}"/>">
-    <br>
-    Password: </br><input type="text" name="password" value="<c:out value="${password}"/>">
-    <br>
-    Company: </br><input type="text" name="company" value="<c:out value="${company}"/>">
-    <br>
-    <input type="submit" value="Submit">
-</form>
-<form method="get" action="/AMT-Projet/signin">
-    <div class="error-msg">
-        <c:if test="${not empty errorMessage}">
-            <c:out value="${errorMessage}"/>
-        </c:if>
-    </div>
-</form>
-</body>
-</html>
+Notice that we use the Java Standard Tag Library for implementing the redirection.
+This is one of the methods available to us.
+--%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<c:redirect url="/login"/>

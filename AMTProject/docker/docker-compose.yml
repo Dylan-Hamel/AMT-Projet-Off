@@ -1,0 +1,28 @@
+version: '3'
+services:
+  payara:
+    build: ./payara5 
+    volumes:
+     - ./../target/:/opt/payara5/deployments/
+    ports:
+     - "48080:8080"
+     - "44848:4848"
+    links:
+     - mysql:db
+  mysql:
+    build: ./mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=AMT-DB
+     - MYSQL_USER=amt
+     - MYSQL_PASSWORD=amt1234
+    ports:
+     - "43306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+    ports:
+     - "48888:80"
+    links:
+     - mysql:db

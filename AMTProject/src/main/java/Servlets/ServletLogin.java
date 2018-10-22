@@ -68,11 +68,13 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
         System.out.println("[ServletLogin - doPost] userExist - " + userExist);
 
         if (!userExist) {
+            System.out.println("[ServletLogin - doPost] No Access -");
             request.setAttribute("errorMessage", errorMessage);
             request.setAttribute("email", email);
             request.setAttribute("password", password);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
+            System.out.println("[ServletLogin - doPost] Access -");
             response.sendRedirect("home");
         }
     }
