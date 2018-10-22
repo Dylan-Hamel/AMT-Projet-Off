@@ -14,13 +14,16 @@ Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
 
 * Page de login avec check dans le DB  ✅
 * Contrôler si l'utilisateur n'a pas eu un reset password
-* Contrôler si le compte de l'utilisateur est bien activé
-* Contrôler si compte administrateur ou développeur
+  * Le mot de passe est changé il faut se connecté avec le nouveau :interrobang:
+* Contrôler si le compte de l'utilisateur est bien activé ✅
+* Contrôler si compte administrateur ou développeur 
+  * à voir pour la sécurité création du cookie ou autre :interrobang:
 
 
 ## Créer un nouveau compte :blowfish:
 
 * Possibilité de créer un compte depuis la page ```/register```  ✅
+* Vérification que l'utilisateur n'existe pas encore
 
 ```
 As an application developer, I can access the web UI and register with the gamification service (create a developer account). I provide basic info (name, etc.), my e-mail address is my user identifier.
@@ -72,9 +75,12 @@ As an administrator, I can see a list of registered application developers, with
 
 ## Reset du password depuis la page de login :blowfish:
 
-* Un servlet et une page HTML dédiées
+* Un servlet et une page HTML dédiées ✅
 
-  Page HTML pas encore faite
+* Génération d'un nouveau password ✅
+
+* Envoie du nouveau password pas email :x:  à tester
+
 
 
 
@@ -89,9 +95,12 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 => trouver la deuxième.
 
 
-## Page de Logout
+
+## Page de Logout 
 
 * Déstruction du cookie
+
+
 
 
 ## Sécuriser les pages si on est pas connecté
@@ -106,7 +115,7 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 
 
 
-## Gestion des messages d'erreurs
+## Gestion des messages d'erreurs🐡🐙🐌
 
 Faire Joli :smiley:
 
@@ -130,9 +139,15 @@ As a spiritual guide, I can clone the repo, move to a documented repository and 
 
 
 
+## Commenter le code :blowfish::octopus::snail:
+
+* sIl faudra repasser partout pour documenter le truc
 
 
-## Autres
+
+
+
+## JMETER & TESTS
 
 | As a **spiritual guide**, I find a report named `TESTING_FUNCTIONAL.md` which describes how to execute **automated functional tests**.  At the minimum, there should be a scenario with the following steps:  developer creates an account, developer logs in, developer creates 25  pages, developer browses the list of applications (3 pages of 10, 10 and  5 applications), developer logs out, developer tries to go back to the  list of applications and is redirected to login page. The tests should  include assertions, so that changing the code (e.g. introducing a bug)  breaks the code. The report should describe and document a concrete  example (with screenshots). | NFR-testability | 1.0  |
 | ------------------------------------------------------------ | --------------- | ---- |
