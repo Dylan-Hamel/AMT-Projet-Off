@@ -18,7 +18,6 @@ Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
 * Contrôler si compte administrateur ou développeur
 
 
-
 ## Créer un nouveau compte :blowfish:
 
 * Possibilité de créer un compte depuis la page ```/register```  ✅
@@ -28,13 +27,19 @@ As an application developer, I can access the web UI and register with the gamif
 ```
 
 
-
 ##  Gestion utilisateurs:snail:
+
+* Modifer ses informations personnelles
+* Si administrateur éditer les paramètres des autres utilisateurs
 
 * Un servlet et une page HTML dédiées
 * Activer,Désactiver / Supprimer / Changer le Password / Etc. un utilisateur depuis un compte administrateur
 * Créer le corps de la page HTML
 * Une classe pour l'envoi de mail avec reset de password
+
+* Reset de password avec envoie d'email avec un nouveau password aléatoire
+  * Utiliser la classe qui sera créé pour le mot de passe oublié
+
 
 ```
 As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message.
@@ -45,8 +50,7 @@ As an administrator, I can reset a user password. The password is automatically 
 ```
 
 
-
-## Gestion Project :blowfish:
+## Gestion Project :octopus:
 
 - Un servlet et une page HTML dédiées
 
@@ -85,19 +89,9 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 => trouver la deuxième.
 
 
-
-## Gestion Profil
-
-- Modifer ses informations personnelles
-
-- Reset de password avec envoie d'email avec un nouveau password aléatoire
-
-
-
 ## Page de Logout
 
-
-
+* Déstruction du cookie
 
 
 ## Sécuriser les pages si on est pas connecté
@@ -122,7 +116,7 @@ As a user, I have a good UI/UX experience (nice design, clear navigation, inform
 
 
 
-## Docker-compose.yml
+## Docker-compose.yml  :blowfish:
 
 Il faut qu'on pense à garder pas mal de temps pour ce point.
 
