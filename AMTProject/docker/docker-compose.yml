@@ -1,0 +1,28 @@
+version: '3'
+services:
+  payara:
+    image: payara/server-full 
+    volumes:
+     - ./../target/:/opt/payara5/deployments/
+    ports:
+     - "8080:8080"
+     - "4848:4848"
+    links:
+     - mysql:db
+  mysql:
+    build: ./mysql
+	environment:
+		- MYSQL_ROOT_PASSWORD=adminpw
+	     - MYSQL_DATABASE=gamification
+	     - MYSQL_USER=gamification_user
+	     - MYSQL_PASSWORD=gam_us_2018
+    ports:
+     - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+    ports:
+     - "6060:80"
+    links:
+     - mysql:db

@@ -101,19 +101,27 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
             request.setAttribute("zip", zip);
             request.setAttribute("country", country);
 
-
             request.getRequestDispatcher("/register.jsp").forward(request, response);
         } else {
 
-            userDao.insertUser(firstname,lastname,email,password,address,zip,country);
-
-            response.sendRedirect("login");
+            // 1.Check if email is already exist
+            // 2.Insert une DB and if there is an issue error during insert
+            // 3.Else return to login page and user has been added
+            if (userDao.checkIfUserExist(email)) {
+                System.out.println("[ServletRegister - doPost] - 1");
+                errorMessage = "User already exists";
+                request.setAttribute("errorMessage", errorMessage);
+                request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
+            } else if (!userDao.insertUser(firstname,lastname,email,password,address,zip,country)) {
+                System.out.println("[ServletRegister - doPost] - 2");
+                errorMessage = "Error during insert";
+                request.setAttribute("errorMessage", errorMessage);
+                request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
+            } else {
+                System.out.println("[ServletRegister - doPost] - 3");
+                response.sendRedirect("login");
+            }
         }
-
-
-
-
-
     }
 
 

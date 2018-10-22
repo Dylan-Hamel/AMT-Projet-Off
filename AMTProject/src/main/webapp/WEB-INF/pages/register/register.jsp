@@ -53,6 +53,13 @@
                 <div class="card-body">
 
                     <h2 class="title">Registration</h2>
+					<form method="get" action="/AMT-Projet/register">
+						<div class="error-msg">
+							<c:if test="${not empty errorMessage}">
+								<c:out value="${errorMessage}"/>
+							</c:if>
+						</div>
+					</form>
                     <form method="POST" action="/AMT-Projet/register">
                         <div class="row row-space">
                             <div class="col-2">
@@ -116,6 +123,11 @@
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                         </div>
                     </form>
+					<form method="get" action="/AMT-Projet/login">
+						<div class="p-t-15">
+							<button class="btn btn--radius-2 btn--blue" type="submit">Return Login Page</button>
+						</div>
+					</form>
                 </div>
             </div>
         </div>
