@@ -32,7 +32,7 @@ As an application developer, I can access the web UI and register with the gamif
 ```
 
 
-##  Gestion utilisateurs:snail:
+##  Gestion utilisateurs:snail::blowfish:
 
 * Modifer ses informations personnelles
 * Si administrateur éditer les paramètres des autres utilisateurs
@@ -86,7 +86,7 @@ As an administrator, I can see a list of registered application developers, with
 
 
 
-## More features !
+## More features ! :blowfish:
 
 Une des options demandées
 
@@ -96,9 +96,13 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 
 => trouver la deuxième.
 
+Lors de la création d'un compte envoie d'une confirmation par email.
+
+Permet de réutiliser les classes déjà créées
 
 
-## Page de Logout 
+
+## Page de Logout :blowfish:
 
 * Déstruction du cookie
 
@@ -117,7 +121,7 @@ SPECIFY AND IMPLEMENT A FEATURE OF YOUR CHOICE.
 
 
 
-## Gestion des messages d'erreurs🐡🐙🐌
+## Gestion des messages d'erreurs🐙🐌
 
 Faire Joli :smiley:
 
@@ -154,7 +158,7 @@ As a spiritual guide, I can clone the repo, move to a documented repository and 
 
 
 
-## JMETER & TESTS
+## JMETER & JUnits 🐙🐌
 
 | As a **spiritual guide**, I find a report named `TESTING_FUNCTIONAL.md` which describes how to execute **automated functional tests**.  At the minimum, there should be a scenario with the following steps:  developer creates an account, developer logs in, developer creates 25  pages, developer browses the list of applications (3 pages of 10, 10 and  5 applications), developer logs out, developer tries to go back to the  list of applications and is redirected to login page. The tests should  include assertions, so that changing the code (e.g. introducing a bug)  breaks the code. The report should describe and document a concrete  example (with screenshots). | NFR-testability | 1.0  |
 | ------------------------------------------------------------ | --------------- | ---- |

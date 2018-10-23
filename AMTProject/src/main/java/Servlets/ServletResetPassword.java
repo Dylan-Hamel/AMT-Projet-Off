@@ -58,7 +58,10 @@ public class ServletResetPassword extends javax.servlet.http.HttpServlet {
                     // Update password In DB
                     userDao.updateUserPassword(email, password);
                     // Send new password by email
-                    SendEmail se = new SendEmail(email, password);
+                    String message = "New Password : " + password;
+                    String title = "[AMT-Project-2018] - New Password";
+
+                    SendEmail se = new SendEmail(email, title, message);
                     break;
                 }
             }

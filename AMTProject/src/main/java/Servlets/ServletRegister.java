@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.UserDAO;
+import Utils.SendEmail;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
@@ -115,10 +116,29 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
             } else if (!userDao.insertUser(firstname,lastname,email,password,address,zip,country)) {
                 System.out.println("[ServletRegister - doPost] - 2");
                 errorMessage = "Error during insert";
+
                 request.setAttribute("errorMessage", errorMessage);
                 request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
             } else {
                 System.out.println("[ServletRegister - doPost] - 3");
+
+                // send confirmation Email
+                String message = "Hi " + firstname + " " + lastname + " ,\n " +
+                        "Your account has been created \n" +
+                        "Below your account information : \n" +
+                        "Firstname : " + firstname + "\n" +
+                        "Lastname  : " + lastname + "\n" +
+                        "Password  : " + password + "\n" +
+                        "Address   : " + address + "\n" +
+                        "ZIP       : " + zip + "\n" +
+                        "country   : " + country + "\n";
+
+                System.out.println(message);
+
+                String title = "[AMT-Project-2018] - New Account";
+
+                SendEmail se = new SendEmail(email, title, message);
+
                 response.sendRedirect("login");
             }
         }

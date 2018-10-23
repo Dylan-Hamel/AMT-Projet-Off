@@ -16,7 +16,9 @@ public class User {
     }
 
     // CONSTRUCTOR
+    public User () {
 
+    }
 
     public User(String email, String firstname, String lastname, String password,
                 String address, String zip, String country, Boolean isAdmin, Boolean isEnable) {
@@ -103,4 +105,5 @@ public class User {
     public void setEnable(Boolean enable) {
         isEnable = enable;
     }
+
 }
