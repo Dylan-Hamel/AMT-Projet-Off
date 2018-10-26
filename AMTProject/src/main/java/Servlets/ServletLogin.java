@@ -79,9 +79,9 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
             System.out.println("[ServletLogin - doPost] home - enable    - " + user.getEnable());
 
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("/WEB-INF/pages/home/home.jsp").forward(request, response);
+//            request.getRequestDispatcher("/WEB-INF/pages/home/home.jsp").forward(request, response);
 
-            //response.sendRedirect("home");
+            response.sendRedirect("home");
         }
     }
 

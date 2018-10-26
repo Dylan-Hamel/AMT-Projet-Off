@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Stateless
@@ -183,4 +184,33 @@ public class UserDAO {
         }
         return false;
     }
+
+
+    public List<User> getAllUsersEmailAndStatus () {
+        List<User> usersEmailAndStatus = new LinkedList<User>();
+
+        try {
+            PreparedStatement ps = database.getConnection()
+                    .prepareStatement("SELECT email, enable  FROM " + TABLE_NAME + ";");
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+
+                String email = result.getString("email");
+                boolean enable = result.getBoolean("enable");
+
+                System.out.println("[UserDAO - getAllUsersEmailAndStatus] email - " + email);
+                System.out.println("[UserDAO - getAllUsersEmailAndStatus] enable - " + enable);
+
+                User user = new User(email, enable);
+                usersEmailAndStatus.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("[UserDAO - getAllUsersEmailAndStatus] return length - " + usersEmailAndStatus.size());
+        return usersEmailAndStatus;
+    }
+
+
+
 }

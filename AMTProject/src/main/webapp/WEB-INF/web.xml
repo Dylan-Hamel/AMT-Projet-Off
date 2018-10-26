@@ -60,15 +60,6 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>ServletProfil</servlet-name>
-    <servlet-class>Servlets.ServletProfil</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletProfil</servlet-name>
-    <url-pattern>/profil</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
     <servlet-name>ServletAdministrator</servlet-name>
     <servlet-class>Servlets.ServletAdministrator</servlet-class>
   </servlet>
@@ -84,6 +75,15 @@
   <servlet-mapping>
     <servlet-name>ServletLogout</servlet-name>
     <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletProjectAdd</servlet-name>
+    <servlet-class>Servlets.ServletProjectAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletProjectAdd</servlet-name>
+    <url-pattern>/projectadd</url-pattern>
   </servlet-mapping>
 
 </web-app>

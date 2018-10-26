@@ -15,123 +15,85 @@
 
     <!-- Title Page-->
     <title>AMT-Project - Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <style type="text/css">
-        <jsp:include page="/WEB-INF/pages/project/vendor/mdi-font/css/material-design-iconic-font.min.css"/>
-    </style>
-    <style type="text/css">
-        <jsp:include page="/WEB-INF/pages/project/vendor/font-awesome-4.7/css/font-awesome.min.css"/>
-    </style>
-    <!-- Icons font CSS-->
-    <!-- <link href="${pageContext.request.contextPath}/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"> -->
-    <!-- <link href="${pageContext.request.contextPath}/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"> -->
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <style type="text/css">
-        <jsp:include page="/WEB-INF/pages/project/vendor/select2/select2.min.css"/>
-    </style>
-    <style type="text/css">
-        <jsp:include page="/WEB-INF/pages/project/vendor/datepicker/daterangepicker.css"/>
-    </style>
-
-    <!-- Vendor CSS-->
-    <!-- <link href="${pageContext.request.contextPath}/vendor/select2/select2.min.css" rel="stylesheet" media="all">-->
-     <!--<link href="${pageContext.request.contextPath}/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">-->
-
-    <!-- Main CSS-->
-    <style type="text/css">
-        <jsp:include page="/WEB-INF/pages/project/css/main.css"/>
-    </style>
-    <!-- <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" media="all"> -->
 </head>
 
 <body>
-	<div id="header-wrapper">
-	<div id="header" class="container">
-		<div id="menu">
-			<ul>
-				<li class="current_page_item"><a href="home" accesskey="1" title="">Homepage</a></li>
-				<li><a href="profil" accesskey="1" title="">Settings</a></li>
-				<li><a href="administrator" accesskey="3" title="">Manage User</a></li>
-				<li><a href="logout" accesskey="3" title="">Logout</a></li>
-			</ul>
-		</div>
-	</div>
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-4">
-                <div class="card-body">
 
-                    <h2 class="title">HOME - Project</h2>
-					<form method="get" action="/AMT-Projet/register">
-						<div class="error-msg">
-							<c:if test="${not empty errorMessage}">
-								<c:out value="${errorMessage}"/>
-							</c:if>
-						</div>
-					</form>
-                    <form method="POST" action="/AMT-Projet/register">
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Firstname</label>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Lastname</label>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Email</label>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Password</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Address</label>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Zip</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Country</label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/AMT-Projet/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/AMT-Projet/project">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/AMT-Projet/logout">Logout</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+
+    <div>
+        <br>
+        <br>
+        <br>
+        <div class="header">
+            <h1 class="text-center">Your projects</h1>
+            <br>
+            <form method="get" action="/AMT-Projet/projectadd">
+				<div class="text-center">
+                	<button  class="btn btn-primary" data-toggle="modal" data-target="#appModal" type="submit">Create a new project</button>
+            	</div>
+			</form>
+            <br>
+        </div>
+
+
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">API Key</th>
+                <th scope="col">API Secret</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${projects}" var="proj">
+                <tr>
+                    <th>${proj.name}</th>
+                    <td width="30%">${proj.description}</td>
+                    <td width="15%">${proj.api_key}</td>
+                    <td width="20%">${proj.api_secret}</td>
+                    <td width="20%" class="text-center">
+                        <button type="button">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
-    <!-- Jquery JS-->
-    <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="${pageContext.request.contextPath}/vendor/select2/select2.min.js"></script>
-    <script src="${pageContext.request.contextPath}/vendor/datepicker/moment.min.js"></script>
-    <script src="${pageContext.request.contextPath}/vendor/datepicker/daterangepicker.js"></script>
+</div>
 
-    <!-- Main JS-->
-    <script src="${pageContext.request.contextPath}/js/global.js"></script>
-
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+</body>
 
 </html>
 <!-- end document-->

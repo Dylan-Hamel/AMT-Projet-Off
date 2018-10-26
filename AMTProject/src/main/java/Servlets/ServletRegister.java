@@ -102,7 +102,7 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
             request.setAttribute("zip", zip);
             request.setAttribute("country", country);
 
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
         } else {
 
             // 1.Check if email is already exist

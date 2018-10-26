@@ -1,10 +1,22 @@
 package Servlets;
 
+import Database.ProjectDAO;
+import Database.UserDAO;
+import Model.Project;
+import Model.User;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ServletProject extends javax.servlet.http.HttpServlet {
+
+    @EJB
+    private ProjectDAO projectDAO;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -17,6 +29,14 @@ public class ServletProject extends javax.servlet.http.HttpServlet {
 
         System.out.println("[ServletProject - doGet]");
 
+        User user = (User)request.getSession().getAttribute("user");
+
+        System.out.println("[ServletProject - doGet] user.email - " + user.getEmail());
+
+        ArrayList<Project> projects = new ArrayList<Project>();
+        projects = projectDAO.getAllProjectByUser(user.getEmail()) ;
+
+        request.setAttribute("projects", projects);
         request.getRequestDispatcher("/WEB-INF/pages/project/project.jsp").forward(request, response);
     }
 
