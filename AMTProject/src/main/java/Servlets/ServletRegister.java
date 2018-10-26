@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.UserDAO;
+import Utils.SendEmail;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
@@ -101,19 +102,46 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
             request.setAttribute("zip", zip);
             request.setAttribute("country", country);
 
-
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
         } else {
 
-            userDao.insertUser(firstname,lastname,email,password,address,zip,country);
+            // 1.Check if email is already exist
+            // 2.Insert une DB and if there is an issue error during insert
+            // 3.Else return to login page and user has been added
+            if (userDao.checkIfUserExist(email)) {
+                System.out.println("[ServletRegister - doPost] - 1");
+                errorMessage = "User already exists";
+                request.setAttribute("errorMessage", errorMessage);
+                request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
+            } else if (!userDao.insertUser(firstname,lastname,email,password,address,zip,country)) {
+                System.out.println("[ServletRegister - doPost] - 2");
+                errorMessage = "Error during insert";
 
-            response.sendRedirect("login");
+                request.setAttribute("errorMessage", errorMessage);
+                request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
+            } else {
+                System.out.println("[ServletRegister - doPost] - 3");
+
+                // send confirmation Email
+                String message = "Hi " + firstname + " " + lastname + " ,\n " +
+                        "Your account has been created \n" +
+                        "Below your account information : \n" +
+                        "Firstname : " + firstname + "\n" +
+                        "Lastname  : " + lastname + "\n" +
+                        "Password  : " + password + "\n" +
+                        "Address   : " + address + "\n" +
+                        "ZIP       : " + zip + "\n" +
+                        "country   : " + country + "\n";
+
+                System.out.println(message);
+
+                String title = "[AMT-Project-2018] - New Account";
+
+                SendEmail se = new SendEmail(email, title, message);
+
+                response.sendRedirect("login");
+            }
         }
-
-
-
-
-
     }
 
 

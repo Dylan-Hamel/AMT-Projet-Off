@@ -8,18 +8,27 @@ public class User {
     private String address;
     private String zip;
     private String country;
-    private Boolean isAdmin;
-    private Boolean isEnable;
+    private boolean isAdmin;
+    private boolean isEnable;
+
+    // CONSTRUCTOR
+
 
     public User(String email) {
 
     }
 
-    // CONSTRUCTOR
+    public User () {
 
+    }
+
+    public User(String email, boolean enable) {
+        this.email = email;
+        this.isEnable = enable;
+    }
 
     public User(String email, String firstname, String lastname, String password,
-                String address, String zip, String country, Boolean isAdmin, Boolean isEnable) {
+                String address, String zip, String country, boolean isAdmin, boolean isEnable) {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -88,7 +97,7 @@ public class User {
         this.password = password;
     }
 
-    public Boolean getAdmin() {
+    public boolean getAdmin() {
         return isAdmin;
     }
 
@@ -96,11 +105,12 @@ public class User {
         isAdmin = admin;
     }
 
-    public Boolean getEnable() {
+    public boolean getEnable() {
         return isEnable;
     }
 
     public void setEnable(Boolean enable) {
         isEnable = enable;
     }
+
 }

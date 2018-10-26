@@ -2,6 +2,7 @@ package Servlets;
 
 // Project
 import Database.UserDAO;
+import Model.User;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 // Externe
@@ -12,6 +13,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.Null;
 import java.io.IOException;
@@ -44,17 +46,7 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
         if (email == null || email.isEmpty()) {
             email = "";
         } else {
-            // Verify email address
             System.out.println("[ServletLogin - doPost] email - " + email);
-            /*try {
-                if (email == null)
-                    email = "";
-                InternetAddress emailAddr = new InternetAddress(email);
-                emailAddr.validate();
-            } catch (AddressException ex) {
-                errorMessage += "Error in email \r\n";
-            }
-            */
         }
 
         if (password == null || password.isEmpty()) {
@@ -68,11 +60,27 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
         System.out.println("[ServletLogin - doPost] userExist - " + userExist);
 
         if (!userExist) {
+            System.out.println("[ServletLogin - doPost] No Access -");
             request.setAttribute("errorMessage", errorMessage);
             request.setAttribute("email", email);
             request.setAttribute("password", password);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
+            System.out.println("[ServletLogin - doPost] Access -");
+            User user = userDao.getUserWithID(email);
+
+            System.out.println("[ServletLogin - doPost] home - firstname - " + user.getFirstname());
+            System.out.println("[ServletLogin - doPost] home - lastname  - " + user.getLastname());
+            System.out.println("[ServletLogin - doPost] home - email     - " + user.getEmail());
+            System.out.println("[ServletLogin - doPost] home - address   - " + user.getAddress());
+            System.out.println("[ServletLogin - doPost] home - zip       - " + user.getZip());
+            System.out.println("[ServletLogin - doPost] home - country   - " + user.getCountry());
+            System.out.println("[ServletLogin - doPost] home - admin     - " + user.getAdmin());
+            System.out.println("[ServletLogin - doPost] home - enable    - " + user.getEnable());
+
+            request.getSession().setAttribute("user", user);
+//            request.getRequestDispatcher("/WEB-INF/pages/home/home.jsp").forward(request, response);
+
             response.sendRedirect("home");
         }
     }
