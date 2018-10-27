@@ -4,25 +4,24 @@ import javax.mail.MessagingException;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Date;
 import java.util.Properties;
 import javax.mail.*;
 
 
 public class SendEmail {
 
-    public SendEmail (String userAdresseEmail, String password) {
+    // private static String smtp = "smtp.heig-vd.ch";
+    private static String send = "amt-labo-2018-@heig-vd.ch";
 
-        // Sender's email ID needs to be mentioned
-        String from = "amt-labo-2018-@heig-vd.ch";
-
-        // Assuming you are sending email from localhost
-        String host = "smtp.heig-vd.ch";
+    public SendEmail (String userAdresseEmail, String title, String msgBody) {
 
         // Get system properties
         Properties properties = System.getProperties();
 
         // Setup mail server
-        properties.setProperty("smtp.heig-vd.ch", host);
+        properties.put("mail.smtp.host", "smtp.heig-vd.ch");
+        properties.put("mail.smtp.port", 25);
 
         // Get the default Session object.
         javax.mail.Session session = javax.mail.Session.getDefaultInstance(properties);
@@ -32,16 +31,18 @@ public class SendEmail {
             MimeMessage message = new MimeMessage(session);
 
             // Set From: header field of the header.
-            message.setFrom(new InternetAddress(from));
+            message.setFrom(new InternetAddress(send));
 
             // Set To: header field of the header.
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(userAdresseEmail));
 
             // Set Subject: header field
-            message.setSubject("[AMT-Project-2018] - New Password");
+            message.setSubject(title);
 
             // Now set the actual message
-            message.setText("New Password : " + password);
+            message.setText(msgBody);
+
+            message.setSentDate(new Date());
 
             // Send message
             Transport.send(message);
@@ -49,6 +50,7 @@ public class SendEmail {
         } catch (MessagingException mex) {
             mex.printStackTrace();
         }
+
     }
     
 }
