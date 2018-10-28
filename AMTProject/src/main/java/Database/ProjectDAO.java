@@ -18,7 +18,7 @@ public class ProjectDAO {
 
     private final static String TABLE_NAME = "t_users_projects";
 
-    @Resource(lookup = "jdbc/amtProject")
+    @Resource(lookup = "java:/jdbc/amtProject")
     private DataSource database;
 
     public ArrayList<Project> getAllProjectByUser(String user) {

@@ -49,4 +49,4 @@ RUN echo "=> Starting WildFly server" && \
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
-#ADD apps-dist/AMTProject-1.0-SNAPSHOT.war $DEPLOYMENT_DIR
+#ADD apps-dist/AMTProjet.war $DEPLOYMENT_DIR
