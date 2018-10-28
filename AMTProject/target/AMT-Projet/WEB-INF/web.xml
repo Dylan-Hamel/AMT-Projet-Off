@@ -86,4 +86,14 @@
     <url-pattern>/projectadd</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ServletSetNewPassword</servlet-name>
+    <servlet-class>Servlets.ServletSetNewPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSetNewPassword</servlet-name>
+    <url-pattern>/setpassword</url-pattern>
+
+  </servlet-mapping>
+
 </web-app>

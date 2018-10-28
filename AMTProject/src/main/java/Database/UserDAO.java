@@ -145,6 +145,7 @@ public class UserDAO {
                 user.setCountry(result.getString("country"));
                 user.setAdmin(result.getBoolean("admin"));
                 user.setEnable(result.getBoolean("enable"));
+                user.setReset(result.getBoolean("reset"));
                 System.out.println("[UserDAO - getUserWithID] - " + user.getEmail());
                 return user;
             }
@@ -209,6 +210,72 @@ public class UserDAO {
         }
         System.out.println("[UserDAO - getAllUsersEmailAndStatus] return length - " + usersEmailAndStatus.size());
         return usersEmailAndStatus;
+    }
+
+
+    public boolean checkIfUserHaveResetedPassword (String email) {
+        boolean ok = false;
+
+        try {
+            PreparedStatement ps = database.getConnection()
+                    .prepareStatement("SELECT reset FROM " + TABLE_NAME +" WHERE email = ?;");
+            ps.setString(1, email);
+            ResultSet result = ps.executeQuery();
+            if (result.next()) {
+                System.out.println("[UserDAO - checkIfUserHaveResetedPassword]" + (result.getBoolean("reset")));
+                ok =  true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("[UserDAO - checkIfUserHaveResetedPassword] return - " + ok);
+        return ok;
+
+    }
+
+
+    public boolean setUserResetTo0 (String email) {
+        boolean ok = true;
+
+        try {
+
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("UPDATE " + TABLE_NAME + " SET reset = 0 WHERE email = ?;");
+            ps.setString(1, email);
+
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                throw new SQLException("Updates failed");
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+
+        return ok;
+    }
+
+    public boolean setUserResetTo1 (String email) {
+        boolean ok = true;
+
+        try {
+
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("UPDATE " + TABLE_NAME + " SET reset = 1 WHERE email = ?;");
+            ps.setString(1, email);
+
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                throw new SQLException("Updates failed");
+            }
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+
+        return ok;
     }
 
 
