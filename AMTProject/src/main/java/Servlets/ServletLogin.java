@@ -77,11 +77,17 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
             System.out.println("[ServletLogin - doPost] home - country   - " + user.getCountry());
             System.out.println("[ServletLogin - doPost] home - admin     - " + user.getAdmin());
             System.out.println("[ServletLogin - doPost] home - enable    - " + user.getEnable());
+            System.out.println("[ServletLogin - doPost] home - reset     - " + user.isReset());
 
             request.getSession().setAttribute("user", user);
-//            request.getRequestDispatcher("/WEB-INF/pages/home/home.jsp").forward(request, response);
 
-            response.sendRedirect("home");
+            if (user.isReset()) {
+                System.out.println("[ServletLogin - doPost] Call NEWPASSWORD" );
+                response.sendRedirect("setpassword");
+            } else {
+                System.out.println("[ServletLogin - doPost] Call HOME" );
+                response.sendRedirect("home");
+            }
         }
     }
 

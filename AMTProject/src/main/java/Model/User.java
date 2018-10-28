@@ -10,6 +10,7 @@ public class User {
     private String country;
     private boolean isAdmin;
     private boolean isEnable;
+    private boolean reset;
 
     // CONSTRUCTOR
 
@@ -40,7 +41,44 @@ public class User {
         this.isEnable = isEnable;
     }
 
-    // GETTERS AND SETTERS
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public boolean isEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(boolean enable) {
+        isEnable = enable;
+    }
+
+    public boolean isReset() {
+        return reset;
+    }
+
+    public void setReset(boolean reset) {
+        this.reset = reset;
+    }
+
+    public User(String email, String firstname, String lastname, String password, String address,
+                String zip, String country, boolean isAdmin, boolean isEnable, boolean reset) {
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.password = password;
+        this.address = address;
+        this.zip = zip;
+        this.country = country;
+        this.isAdmin = isAdmin;
+        this.isEnable = isEnable;
+        this.reset = reset;
+    }
+
     public String getAddress() {
         return address;
     }
