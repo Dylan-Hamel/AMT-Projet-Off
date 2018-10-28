@@ -40,6 +40,7 @@ public class User {
         this.isEnable = isEnable;
     }
 
+    // GETTERS AND SETTERS
     public String getAddress() {
         return address;
     }
@@ -64,7 +65,6 @@ public class User {
         this.country = country;
     }
 
-    // GETTERS AND SETTERS
     public String getEmail() {
         return email;
     }

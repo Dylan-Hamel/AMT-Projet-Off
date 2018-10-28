@@ -89,7 +89,7 @@ public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
                     e.printStackTrace();
 
                     // if error during generation => return to page
-                    errorMessage = "Error with API generatin";
+                    errorMessage = "Error with API generation";
                     request.setAttribute("errorMessage", errorMessage);
                     request.setAttribute("name", name);
                     request.setAttribute("description", description);
