@@ -14,7 +14,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>AMT-Project - Register</title>
+    <title>AMT-Project - Home</title>
 
     <style type="text/css">
         <jsp:include page="/WEB-INF/pages/home/vendor/mdi-font/css/material-design-iconic-font.min.css"/>
