@@ -35,7 +35,7 @@ public class ServletHome extends javax.servlet.http.HttpServlet {
 
         System.out.println("[ServletHome - doPost] Start");
 
-        String errorMessage = "";
+        String errorMessage;
 
         System.out.println("[ServletHome - doPost] firstname - " + request.getAttribute("firstname"));
         System.out.println("[ServletHome - doPost] lastname  - " + request.getAttribute("lastname"));
@@ -50,7 +50,6 @@ public class ServletHome extends javax.servlet.http.HttpServlet {
                 (String) request.getAttribute("address"), (String) request.getAttribute("zip"),
                 (String) request.getAttribute("country"));
 
-        request.setAttribute("errorMessage", errorMessage);
         request.setAttribute("firstname", (String) request.getAttribute("firstname"));
         request.setAttribute("lastname", (String) request.getAttribute("lastname"));
         request.setAttribute("email", (String) request.getAttribute("email"));
@@ -63,10 +62,12 @@ public class ServletHome extends javax.servlet.http.HttpServlet {
 
         if (queryOk) {
             errorMessage = "Update Success";
-            request.getRequestDispatcher("/WEB-INF/pages/register/home.jsp").forward(request, response);
+            request.setAttribute("errorMessage", errorMessage);
+            request.getRequestDispatcher("/WEB-INF/pages/home/home.jsp").forward(request, response);
         } else {
             errorMessage = "Error Update";
-            request.getRequestDispatcher("/WEB-INF/pages/register/home.jsp").forward(request, response);
+            request.setAttribute("errorMessage", errorMessage);
+            request.getRequestDispatcher("/WEB-INF/pages/home/home.jsp").forward(request, response);
         }
     }
 

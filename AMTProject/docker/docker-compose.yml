@@ -9,6 +9,7 @@ services:
      - "44848:4848"
     links:
      - mysql:db
+
   mysql:
     build: ./mysql
     environment:
@@ -18,6 +19,7 @@ services:
      - MYSQL_PASSWORD=amt1234
     ports:
      - "43306:3306"
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:

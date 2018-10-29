@@ -18,7 +18,7 @@ public class ProjectDAO {
 
     private final static String TABLE_NAME = "t_users_projects";
 
-    @Resource(lookup = "jdbc/amtProject")
+    @Resource(lookup = "java:/jdbc/amtProject")
     private DataSource database;
 
     public ArrayList<Project> getAllProjectByUser(String user) {
@@ -30,6 +30,7 @@ public class ProjectDAO {
             PreparedStatement prepare = database.getConnection().prepareStatement(sql);
             prepare.setString(1, user);
             ResultSet result = prepare.executeQuery();
+            prepare.close();
             while (result.next()) {
 
                 System.out.println("[ProjectDAO - findByUser] name - " + result.getString("name" ));
@@ -63,6 +64,7 @@ public class ProjectDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -88,6 +90,7 @@ public class ProjectDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,6 +109,7 @@ public class ProjectDAO {
                     .prepareStatement("SELECT * FROM projects WHERE name = ?;");
             ps.setString(1, name);
             ResultSet result = ps.executeQuery();
+            ps.close();
             if (result.next()) {
                 System.out.println("[ProjectDAO - checkIfProjecExist]" + (result.getString("email")));
                 ok =  true;
