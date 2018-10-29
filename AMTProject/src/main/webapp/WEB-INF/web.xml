@@ -93,7 +93,6 @@
   <servlet-mapping>
     <servlet-name>ServletSetNewPassword</servlet-name>
     <url-pattern>/setpassword</url-pattern>
-
   </servlet-mapping>
 
 </web-app>

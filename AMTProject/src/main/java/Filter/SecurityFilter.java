@@ -42,7 +42,6 @@ public class SecurityFilter implements Filter {
 
         // We use a filter for personnal page
         System.out.println("[SecurityFilter - doFilter] request.getAttribute(\"user\") - " + request.getAttribute("user"));
-        System.out.println("[SecurityFilter - doFilter] request.getAttribute(\"user\") - " + request.getAttribute("user"));
         if (request.getSession().getAttribute("user") == null) {
 
             System.out.println("[SecurityFilter - doFilter] Filter Section");
@@ -63,11 +62,11 @@ public class SecurityFilter implements Filter {
                     if (user != null && user.getAdmin()) {
                         filterChain.doFilter(request, servletResponse);
                     } else {
-                        httpServletResponse.sendRedirect(request.getContextPath() + "/profil");
+                        httpServletResponse.sendRedirect(request.getContextPath() + "/home");
                     }
                 } else {
                     if (request.getRequestURI().endsWith("/"))
-                        httpServletResponse.sendRedirect(request.getContextPath() + "/profil");
+                        httpServletResponse.sendRedirect(request.getContextPath() + "/home");
 
                     filterChain.doFilter(request, servletResponse);
                 }

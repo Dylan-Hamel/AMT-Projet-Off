@@ -17,7 +17,7 @@ public class UserDAO {
 
     private final static String TABLE_NAME = "users";
 
-    @Resource(lookup = "jdbc/amtProject")
+    @Resource(lookup = "java:/jdbc/amtProject")
     private DataSource database;
 
     public Boolean findIfEnableUserExist(String  email, String password) {
@@ -27,6 +27,7 @@ public class UserDAO {
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
+            ps.close();
             if (result.next()) {
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("email")));
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("firstname")));
@@ -49,6 +50,7 @@ public class UserDAO {
                     .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ?;");
             ps.setString(1, email);
             ResultSet result = ps.executeQuery();
+            ps.close();
             if (result.next()) {
                 System.out.println("[UserDAO - checkIfUserExist]" + (result.getString("email")));
                 ok =  true;
@@ -81,6 +83,7 @@ public class UserDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -98,6 +101,7 @@ public class UserDAO {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT email FROM " + TABLE_NAME + ";");
             ResultSet result = ps.executeQuery();
+            ps.close();
             while (result.next()) {
                 allEmailAdresses.add(result.getString("email"));
                 System.out.println("[UserDAO - getAllUsersEmailAddress] - " + result.getString("email") );
@@ -122,6 +126,7 @@ public class UserDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
+            ps.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -135,6 +140,7 @@ public class UserDAO {
             PreparedStatement prepare = database.getConnection().prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE email = ?");
             prepare.setString(1, email);
             ResultSet result = prepare.executeQuery();
+            prepare.close();
             if(result.next()) {
                 user.setFirstname(result.getString("firstname"));
                 user.setLastname(result.getString("lastname"));
@@ -179,6 +185,7 @@ public class UserDAO {
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
+            statement.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -194,6 +201,7 @@ public class UserDAO {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT email, enable  FROM " + TABLE_NAME + ";");
             ResultSet result = ps.executeQuery();
+            ps.close();
             while (result.next()) {
 
                 String email = result.getString("email");
@@ -212,10 +220,8 @@ public class UserDAO {
         return usersEmailAndStatus;
     }
 
-
     public boolean checkIfUserHaveResetedPassword (String email) {
         boolean ok = false;
-
         try {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT reset FROM " + TABLE_NAME +" WHERE email = ?;");
@@ -230,19 +236,13 @@ public class UserDAO {
         }
         System.out.println("[UserDAO - checkIfUserHaveResetedPassword] return - " + ok);
         return ok;
-
     }
-
-
     public boolean setUserResetTo0 (String email) {
         boolean ok = true;
-
         try {
-
             PreparedStatement ps = database.getConnection().prepareStatement
                     ("UPDATE " + TABLE_NAME + " SET reset = 0 WHERE email = ?;");
             ps.setString(1, email);
-
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
@@ -252,19 +252,14 @@ public class UserDAO {
             e.printStackTrace();
             ok = false;
         }
-
         return ok;
     }
-
     public boolean setUserResetTo1 (String email) {
         boolean ok = true;
-
         try {
-
             PreparedStatement ps = database.getConnection().prepareStatement
                     ("UPDATE " + TABLE_NAME + " SET reset = 1 WHERE email = ?;");
             ps.setString(1, email);
-
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
@@ -274,10 +269,7 @@ public class UserDAO {
             e.printStackTrace();
             ok = false;
         }
-
         return ok;
     }
-
-
 
 }
