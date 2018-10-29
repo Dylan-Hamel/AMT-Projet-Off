@@ -55,7 +55,7 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
             System.out.println("[ServletLogin - doPost] password - " + password);
         }
 
-        boolean userExist = userDao.findIfEnableUserExist(email, password);
+        boolean userExist = userDao.findIfUserExist(email, password);
         System.out.println("[ServletLogin - doPost] userExist - " + userExist);
 
         if (!userExist) {
@@ -80,7 +80,15 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
 
             request.getSession().setAttribute("user", user);
 
-            if (user.isReset()) {
+            if (!user.getEnable()) {
+                System.out.println("[ServletLogin - doPost] user disable " );
+
+                errorMessage = "Account Disabled";
+                request.setAttribute("errorMessage", errorMessage);
+
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+            } else if (user.isReset()) {
                 System.out.println("[ServletLogin - doPost] Call NEWPASSWORD" );
                 response.sendRedirect("setpassword");
             } else {

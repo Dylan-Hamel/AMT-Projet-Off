@@ -19,39 +19,60 @@ Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
 * Check la DB
 
   * Type
-
   * Structure
+  * Voir DB avec UNIQUE
+    * api_key / api_secret
+
 * Ajouter le Champ "PasswordChange" bool  ✅🐡 
 
   * Et gérer le reset de l'utilisateur ✅🐡 
-
   * new servlet ✅🐡 
-* Message d'erreurs:blowfish:
 
-  * As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message.:blowfish:
+* Message d'erreurs ✅🐡 
+
+  * As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message. ✅🐡 
+
 * Commenter le code
-* Bouton Delete dans Project:blowfish:
 
-  * Créer la requête dans ProjectDAO:blowfish:
 
-  * Implémenter la fonctionnalité dans DoPost:blowfish:
+
+* Design
+  * As a **user**, I have a good UI/UX experience (nice design, clear navigation, informative error messages, etc.)
+  * Faire Header du /home
+
+
+
+* Bouton Delete dans Project✅🐡 
+
+  * Créer la requête dans ProjectDAO✅🐡 
+
 * Bouton Delete dans User :octopus:
 
   * Créer la requête dans UserDAO:octopus:
-
   * Implémenter la fonctionnalité dans DoPost:octopus:
+
 * Bouton Enable dans User:octopus:
 
   * Créer la requête dans UserDAO:octopus:
   * Implémenter la fonctionnalité dans DoPost:octopus:
+  * **<u>As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message.</u>**
+  * **<u>As an administrator, I can reset a user password. The  password is automatically generated and sent by e-mail to the  application developer. When the developer logs in, he is obliged to  change his password immediately.</u>**
+
 * Page de changement de mot de passe✅🐡 
 
   * Créer la requête dans UserDAO✅🐡 
-
   * Implémenter la fonctionnalité dans DoPost✅🐡 
-* Project quand un nouveau est créé, vérifier que les clefs n'existent pas dans le DB:blowfish:
+
+* Project quand un nouveau est créé, vérifier que les clefs n'existent pas dans le DB ✅🐡 
+
+
+
 * Test JMETER, JUNITS:snail:
+
+
+
 * SecurityFilter:snail:
+  * When I have logged out and try to access a protected page, I am redirected to the login page.
 
 
 ​	
