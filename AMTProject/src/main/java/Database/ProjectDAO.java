@@ -18,7 +18,7 @@ public class ProjectDAO {
 
     private final static String TABLE_NAME = "t_users_projects";
 
-    @Resource(lookup = "java:/jdbc/amtProject")
+    @Resource(lookup = "jdbc/amtProject")
     private DataSource database;
 
     public ArrayList<Project> getAllProjectByUser(String user) {
@@ -30,7 +30,6 @@ public class ProjectDAO {
             PreparedStatement prepare = database.getConnection().prepareStatement(sql);
             prepare.setString(1, user);
             ResultSet result = prepare.executeQuery();
-            prepare.close();
             while (result.next()) {
 
                 System.out.println("[ProjectDAO - findByUser] name - " + result.getString("name" ));
@@ -64,7 +63,6 @@ public class ProjectDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
-            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -90,7 +88,6 @@ public class ProjectDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
-            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,7 +106,6 @@ public class ProjectDAO {
                     .prepareStatement("SELECT * FROM projects WHERE name = ?;");
             ps.setString(1, name);
             ResultSet result = ps.executeQuery();
-            ps.close();
             if (result.next()) {
                 System.out.println("[ProjectDAO - checkIfProjecExist]" + (result.getString("email")));
                 ok =  true;
@@ -121,6 +117,34 @@ public class ProjectDAO {
         System.out.println("[ProjectDAO - checkIfProjecExist] return - " + ok);
         return ok;
     }
+
+
+    public boolean deleteProjectFromJoinTableAndProject(String name) {
+        try {
+            PreparedStatement ps = database.getConnection()
+                    .prepareStatement("DELETE FROM " + TABLE_NAME + " WHERE project = ?;");
+            ps.setString(1, name);
+            if (ps.executeUpdate() == 0) {
+                    return false;
+            }
+
+            PreparedStatement psProject = database.getConnection()
+                    .prepareStatement("DELETE FROM projects  WHERE name = ?");
+            psProject.setString(1, name);
+
+            if (psProject.executeUpdate() == 0) {
+                return false;
+            }
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 
 
 

@@ -8,9 +8,28 @@
   <component name="ChangeListManager">
     <list default="true" id="e3bd6ba4-c9bd-47b4-8bce-72b43fd016a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Database/ProjectDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Database/ProjectDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Database/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Database/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletProject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletProject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/pages/project/project.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/pages/project/project.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/pages/project/project.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/pages/project/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database/ProjectDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database/ProjectDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletProject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletProject.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,10 +45,10 @@
         <counts>
           <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,7 +58,7 @@
           <entry key="css" value="4" />
           <entry key="html" value="3" />
           <entry key="iml" value="1" />
-          <entry key="java" value="120" />
+          <entry key="java" value="124" />
           <entry key="js" value="1" />
           <entry key="jsp" value="21" />
           <entry key="txt" value="1" />
@@ -53,7 +72,7 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="3" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="120" />
+          <entry key="JAVA" value="124" />
           <entry key="JSP" value="21" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
@@ -67,7 +86,7 @@
           <entry key="css" value="7" />
           <entry key="dummy" value="3" />
           <entry key="html" value="39" />
-          <entry key="java" value="10958" />
+          <entry key="java" value="11280" />
           <entry key="jsp" value="869" />
           <entry key="xhtml" value="6" />
           <entry key="xml" value="317" />
@@ -77,7 +96,7 @@
         <counts>
           <entry key="CSS" value="7" />
           <entry key="HTML" value="39" />
-          <entry key="JAVA" value="10955" />
+          <entry key="JAVA" value="11277" />
           <entry key="JSP" value="869" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="SQL" value="3" />
@@ -135,11 +154,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+            <state relative-caret-position="394">
+              <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,13 +167,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/ProjectUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+            <state relative-caret-position="210">
+              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding>
+                <element signature="e#305#306#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="121" column="55" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -162,8 +202,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="85" column="39" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
+            <state relative-caret-position="411">
+              <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,32 +211,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="33" selection-end-column="87" />
+            <state relative-caret-position="227">
+              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -204,7 +226,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="870">
               <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -216,7 +238,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
+            <state relative-caret-position="1395">
               <caret line="105" column="26" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="26" />
               <folding>
                 <element signature="e#1023#1024#0" expanded="true" />
@@ -239,7 +261,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
+            <state relative-caret-position="199">
               <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -251,7 +273,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utils/GenratePassword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2278">
+            <state relative-caret-position="2010">
               <caret line="140" selection-start-line="140" selection-end-line="140" />
             </state>
           </provider>
@@ -283,6 +305,8 @@
       <find>upd</find>
       <find>update</find>
       <find>getAttr</find>
+      <find>ps.cl</find>
+      <find>close</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -309,11 +333,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Filter/SecurityFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/ProjectUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Project.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java" />
         <option value="$PROJECT_DIR$/src/main/java/Database/ProjectUserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/GenerateAPIKey.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp" />
@@ -323,11 +345,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Model/User.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java" />
       </list>
     </option>
   </component>
@@ -367,6 +391,11 @@
       <select />
     </treeState>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/apache-jmeter-5.0/bin/report-template/sbadmin2-1.0.7/bower_components/flot/package.json" />
+    </packageJsonPaths>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
@@ -378,7 +407,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -410,6 +438,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Filter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -432,6 +468,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -555,11 +592,12 @@
       <workItem from="1540557548304" duration="12715000" />
       <workItem from="1540645638487" duration="6059000" />
       <workItem from="1540816214711" duration="2935000" />
+      <workItem from="1540836260095" duration="2834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75979000" />
+    <option name="totallyTimeSpent" value="78813000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -571,11 +609,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Web" order="0" sideWeight="0.50127226" side_tool="true" weight="0.23390558" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49872774" visible="true" weight="0.24295302" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49872774" visible="true" weight="0.23319027" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -587,16 +625,16 @@
       <window_info anchor="bottom" id="Application Servers" order="2" weight="0.32951653" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32951653" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.611588" visible="true" weight="0.4707379" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.611588" visible="true" weight="0.44402036" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.32951653" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.119592875" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32951653" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.38841203" side_tool="true" weight="0.43256998" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.42239186" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.19720101" />
       <window_info anchor="right" id="CDI" order="0" />
       <window_info anchor="right" id="Bean Validation" order="1" />
       <window_info anchor="right" id="JSF" order="2" />
@@ -608,7 +646,7 @@
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
-      <window_info anchor="right" id="Maven Projects" order="11" visible="true" weight="0.102684565" />
+      <window_info anchor="right" id="Maven Projects" order="11" visible="true" weight="0.080829754" />
       <window_info anchor="right" x="92" y="92" width="2050" height="1031" id="DSM" order="12" type="FLOATING" />
       <window_info anchor="right" id="Module Dependencies" order="13" weight="0.3299817" />
     </layout>
@@ -749,20 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/ProjectUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/sql/ResultSet.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -837,30 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="33" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/GenratePassword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -868,36 +868,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
+        <state relative-caret-position="1005">
           <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -905,9 +878,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="870">
           <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -917,7 +904,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
+        <state relative-caret-position="1395">
           <caret line="105" column="26" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="26" />
           <folding>
             <element signature="e#1023#1024#0" expanded="true" />
@@ -936,20 +923,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/GenratePassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2010">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/ProjectUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding>
+            <element signature="e#305#306#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="85" column="39" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
+        <state relative-caret-position="411">
+          <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="394">
+          <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="132" column="53" selection-start-line="132" selection-start-column="53" selection-end-line="132" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="121" column="55" selection-start-line="121" selection-start-column="19" selection-end-line="121" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -959,7 +1003,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>AMT-Projet:war</last-edited>
+          <last-edited>AMTProject:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -972,7 +1016,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web (AMT-Projet)|Web</last-edited>
+          <last-edited>Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1007,11 +1051,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>AMT-Projet</last-edited>
+          <last-edited>AMTProject</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -55,7 +55,6 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
             System.out.println("[ServletLogin - doPost] password - " + password);
         }
 
-
         boolean userExist = userDao.findIfEnableUserExist(email, password);
         System.out.println("[ServletLogin - doPost] userExist - " + userExist);
 

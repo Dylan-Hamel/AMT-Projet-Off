@@ -17,17 +17,17 @@ public class UserDAO {
 
     private final static String TABLE_NAME = "users";
 
-    @Resource(lookup = "java:/jdbc/amtProject")
+    @Resource(lookup = "jdbc/amtProject")
     private DataSource database;
 
     public Boolean findIfEnableUserExist(String  email, String password) {
+        System.out.println("[UserDAO - findIfEnableUserExist] - Start");
         try {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ? AND password = ? AND enable=1;");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
-            ps.close();
             if (result.next()) {
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("email")));
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("firstname")));
@@ -50,7 +50,6 @@ public class UserDAO {
                     .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ?;");
             ps.setString(1, email);
             ResultSet result = ps.executeQuery();
-            ps.close();
             if (result.next()) {
                 System.out.println("[UserDAO - checkIfUserExist]" + (result.getString("email")));
                 ok =  true;
@@ -101,7 +100,6 @@ public class UserDAO {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT email FROM " + TABLE_NAME + ";");
             ResultSet result = ps.executeQuery();
-            ps.close();
             while (result.next()) {
                 allEmailAdresses.add(result.getString("email"));
                 System.out.println("[UserDAO - getAllUsersEmailAddress] - " + result.getString("email") );
@@ -126,7 +124,6 @@ public class UserDAO {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
-            ps.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,7 +137,6 @@ public class UserDAO {
             PreparedStatement prepare = database.getConnection().prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE email = ?");
             prepare.setString(1, email);
             ResultSet result = prepare.executeQuery();
-            prepare.close();
             if(result.next()) {
                 user.setFirstname(result.getString("firstname"));
                 user.setLastname(result.getString("lastname"));
@@ -201,7 +197,6 @@ public class UserDAO {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT email, enable  FROM " + TABLE_NAME + ";");
             ResultSet result = ps.executeQuery();
-            ps.close();
             while (result.next()) {
 
                 String email = result.getString("email");
