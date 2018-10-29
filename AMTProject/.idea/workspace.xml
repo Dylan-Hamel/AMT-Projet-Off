@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3bd6ba4-c9bd-47b4-8bce-72b43fd016a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home/home.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,7 +65,7 @@
           <entry key="css" value="7" />
           <entry key="dummy" value="3" />
           <entry key="html" value="39" />
-          <entry key="java" value="12271" />
+          <entry key="java" value="12308" />
           <entry key="jsp" value="869" />
           <entry key="xhtml" value="6" />
           <entry key="xml" value="317" />
@@ -78,7 +75,7 @@
         <counts>
           <entry key="CSS" value="7" />
           <entry key="HTML" value="39" />
-          <entry key="JAVA" value="12268" />
+          <entry key="JAVA" value="12305" />
           <entry key="JSP" value="869" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="SQL" value="3" />
@@ -139,8 +136,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1089">
-              <caret line="204" column="13" selection-start-line="204" selection-start-column="13" selection-end-line="204" selection-end-column="13" />
+            <state relative-caret-position="257">
+              <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -574,12 +571,12 @@
       <workItem from="1540557548304" duration="12715000" />
       <workItem from="1540645638487" duration="6059000" />
       <workItem from="1540816214711" duration="2935000" />
-      <workItem from="1540836260095" duration="6146000" />
+      <workItem from="1540836260095" duration="6698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82125000" />
+    <option name="totallyTimeSpent" value="82677000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,7 +592,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Web" order="0" sideWeight="0.50127226" side_tool="true" weight="0.23390558" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49872774" visible="true" weight="0.23319027" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49872774" visible="true" weight="0.23319027" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -607,7 +604,7 @@
       <window_info anchor="bottom" id="Application Servers" order="2" weight="0.32951653" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32951653" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.611588" visible="true" weight="0.24936387" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.611588" visible="true" weight="0.38804072" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -973,8 +970,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1089">
-          <caret line="204" column="13" selection-start-line="204" selection-start-column="13" selection-end-line="204" selection-end-column="13" />
+        <state relative-caret-position="257">
+          <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

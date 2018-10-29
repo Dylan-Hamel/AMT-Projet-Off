@@ -26,6 +26,7 @@ public class UserDAO {
      */
     public Boolean findIfUserExist(String  email, String password) {
         System.out.println("[UserDAO - findIfEnableUserExist] - Start");
+        boolean ok = false;
         try {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ? AND password = ? ;");
@@ -37,12 +38,13 @@ public class UserDAO {
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("firstname")));
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("lastname")));
 
-                return true;
+                ok = true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return ok;
     }
 
     /*
