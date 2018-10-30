@@ -74,8 +74,17 @@ Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
 * SecurityFilter:snail:
   * When I have logged out and try to access a protected page, I am redirected to the login page.
 
-
 ​	
+
+* Créer un tableau pour les Users et Project
+  * As an **administrator**, I can see a list of registered  application developers, with their details. The user interface is designed to work well even if the application developer has created  1'000 applications (pagination). 
+
+
+
+* à tester
+  * As a **spiritual guide**, I can clone the repo, move to a documented repository and type `docker-compose up` to start the system. I can then access it with my browser.
+
+
 
 ## Login :blowfish:
 
