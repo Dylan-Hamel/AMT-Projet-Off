@@ -1,3 +1,5 @@
 AMTProject/.idea/workspace.xml
 AMTProject/target/*
 *.class
+AMTProject/payara5/*
+AMTProject/wildfly-14.0.1.Final/*
