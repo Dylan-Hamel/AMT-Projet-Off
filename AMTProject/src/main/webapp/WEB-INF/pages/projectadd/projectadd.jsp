@@ -66,7 +66,7 @@
                                 <div class="input-group">
                                     <label class="label">Project Name</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="name">
+                                        <input class="input--style-4" type="text" name="name" id="name">
                                     </div>
                                 </div>
                             </div>
@@ -76,13 +76,13 @@
                                 <div class="input-group">
                                     <label class="label">Description</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="description">
+                                        <input class="input--style-4" type="text" name="description" id="description">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit" id="bAddApp">Submit</button>
                         </div>
                     </form>
 					<form method="get" action="/AMT-Projet/project">

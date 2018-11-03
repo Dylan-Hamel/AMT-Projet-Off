@@ -37,6 +37,16 @@ The report should describe and document a concrete example (with screenshots).
      */
 
     private final String baseUrl = "http://localhost:8080/AMT-Project/";
+    private final String newUserFirstName = "test";
+    private final String newUserLastName = "test";
+    private final String newUserEmail = "test";
+    private final String newUserAddress = "test";
+    private final String newUserZip = "test";
+    private final String newUserCountry = "test";
+    private final String newUserPWD = "test";
+
+    private final String newAppName = "test";
+    private final String newAppDescription = "test";
 
     @Page
     public LoginPage loginPage;
@@ -82,12 +92,44 @@ The report should describe and document a concrete example (with screenshots).
     public void itShouldBePossibleToGetProjectsListAfterSignin() {
         goTo(projectPage);
         loginPage.isAt(); // we have not logged in, so we should be redirected
-        loginPage.typeEmailAddress("a@a.com");
-        loginPage.typePassword("any password");
+        loginPage.typeEmailAddress(newUserEmail);
+        loginPage.typePassword(newUserPWD);
         loginPage.clickSignin();
         projectPage.isAt(); // we should be redirected toward the original target after signin
         //projectPage.clickOnNextPage();
         //projectPage.changeNumberOfRow(5);
+    }
+
+    @Test
+    @ProbeTest(tags = "WebUI")
+    public void itShouldBePossibleToCreateANewAppAfterSignin() {
+        goTo(projectPage);
+        loginPage.isAt(); // we have not logged in, so we should be redirected
+        loginPage.typeEmailAddress(newUserEmail);
+        loginPage.typePassword(newUserPWD);
+        loginPage.clickSignin();
+        projectPage.isAt(); // we should be redirected toward the original target after signin
+        projectPage.clickOnCreateNewApp();
+        projectAddPage.isAt();
+        projectAddPage.typeName(newAppName);
+        projectAddPage.typeDescription(newAppDescription);
+        projectAddPage.clickAddApp();
+    }
+
+    @Test
+    @ProbeTest(tags = "WebUI")
+    public void itShouldBePossibleToCreateANewUser() {
+        goTo(registerPage);
+        registerPage.isAt();
+        registerPage.typeFirstName(newUserFirstName);
+        registerPage.typeLastName(newUserLastName);
+        registerPage.typeEmailAddress(newUserEmail);
+        registerPage.typeAddress(newUserAddress);
+        registerPage.typeZip(newUserZip);
+        registerPage.typeCountry(newUserCountry);
+        registerPage.typePassword(newUserPWD);
+        registerPage.clickRegister();
+        loginPage.isAt(); // we should be redirected toward the login target after register
     }
 
 

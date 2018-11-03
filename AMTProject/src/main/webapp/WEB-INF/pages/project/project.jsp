@@ -50,7 +50,7 @@
             <br>
             <form method="get" action="/AMT-Projet/projectadd">
 				<div class="text-center">
-                	<button  class="btn btn-primary" data-toggle="modal" data-target="#appModal" type="submit">Create a new project</button>
+                	<button  class="btn btn-primary" data-toggle="modal" data-target="#appModal" id="bAddApp" type="submit">Create a new project</button>
             	</div>
 			</form>
             <br>

@@ -66,7 +66,7 @@
                                 <div class="input-group">
                                     <label class="label">Firstname</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="firstname" value="<c:out value="${firstname}"/>">
+                                        <input class="input--style-4" type="text" name="firstname" id="firstName" value="<c:out value="${firstname}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="input-group">
                                     <label class="label">Lastname</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="lastname" value="<c:out value="${lastname}"/>">
+                                        <input class="input--style-4" type="text" name="lastname" id="lastName" value="<c:out value="${lastname}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                 <div class="input-group">
                                     <label class="label">Email</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="email" name="email" value="<c:out value="${email}"/>">
+                                        <input class="input--style-4" type="email" name="email" id="email" value="<c:out value="${email}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                 <div class="input-group">
                                     <label class="label">Password</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="password" name="password" value="<c:out value="${password}"/>">
+                                        <input class="input--style-4" type="password" name="password" id="password" value="<c:out value="${password}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -101,13 +101,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Address</label>
-                                    <input class="input--style-4" type="text" name="address" value="<c:out value="${address}"/>">
+                                    <input class="input--style-4" type="text" name="address" id="address" value="<c:out value="${address}"/>">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Zip</label>
-                                    <input class="input--style-4" type="text" name="zip" value="<c:out value="${zip}"/>">
+                                    <input class="input--style-4" type="text" name="zip" id="zip" value="<c:out value="${zip}"/>">
                                 </div>
                             </div>
                         </div>
@@ -115,12 +115,12 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Country</label>
-                                    <input class="input--style-4" type="text" name="country" value="<c:out value="${country}"/>">
+                                    <input class="input--style-4" type="text" name="country" id="country" value="<c:out value="${country}"/>">
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" id="bRegister" type="submit">Submit</button>
                         </div>
                     </form>
 					<form method="get" action="/AMT-Projet/login">

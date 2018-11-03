@@ -113,7 +113,7 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
                 errorMessage = "User already exists";
                 request.setAttribute("errorMessage", errorMessage);
                 request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
-            } else if (!userDao.insertUser(firstname,lastname,email,password,address,zip,country)) {
+            } else if (!userDao.insertUser(firstname, lastname, email, password, address, zip, country)) {
                 System.out.println("[ServletRegister - doPost] - 2");
                 errorMessage = "Error during insert";
 
