@@ -26,6 +26,7 @@ public abstract class AbstractFluentPage extends FluentPage {
     private final static String menuItemProject = "#project";
     private final static String menuItemAdministrator = "#administrator";
     private final static String menuItemLogout = "#logout";
+    private final String baseUrl = "http://192.168.99.100:9090/AMT-Projet";
 
     /**
      * This method illustrates two aspects of the Page Object pattern.

@@ -1,6 +1,9 @@
 package Test.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.in;
 
 public class LoginPage extends AbstractFluentPage {
     private final static String inputEmail = "#email"; // id in the html code
@@ -13,7 +16,10 @@ public class LoginPage extends AbstractFluentPage {
     }
 
     public void typeEmailAddress(String email) {
+        await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
+        await().atMost(2, TimeUnit.SECONDS).until($(inputEmail)).displayed();
         $(inputEmail).fill().with(email);
+
     }
 
     public void typePassword(String password) {
@@ -30,6 +36,6 @@ public class LoginPage extends AbstractFluentPage {
     }
 
     public String getUrl() {
-        return "/login";
+        return getBaseUrl() + "/login";
     }
 }

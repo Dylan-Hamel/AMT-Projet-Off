@@ -5,7 +5,6 @@ import Test.pages.LoginPage;
 import Test.pages.ProjectAddPage;
 import Test.pages.ProjectPage;
 import Test.pages.RegisterPage;
-import io.probedock.client.annotations.ProbeTest;
 //import org.fluentlenium.adapter.FluentTest;
 import org.fluentlenium.adapter.junit.FluentTest;
 import org.junit.Test;
@@ -29,7 +28,7 @@ The tests should include assertions, so that changing the code (e.g. introducing
 The report should describe and document a concrete example (with screenshots).
      */
 
-    private final String baseUrl = "http://localhost:8080/AMT-Project/";
+    private final String baseUrl = "http://192.168.99.100:9090/AMT-Projet";
     private final String newUserFirstName = "test";
     private final String newUserLastName = "test";
     private final String newUserEmail = "test";
@@ -60,14 +59,14 @@ The report should describe and document a concrete example (with screenshots).
         getConfiguration().setScreenshotMode(TriggerMode.AUTOMATIC_ON_FAIL);
         getConfiguration().setHtmlDumpMode(TriggerMode.AUTOMATIC_ON_FAIL);
         getConfiguration().setWebDriver("firefox");
+        setBaseUrl(baseUrl);
     }
 
 
     @Test
-    @ProbeTest(tags = "WebUI")
     public void itShouldNotBePossibleToSigninWithAnInvalidEmail() {
-        goTo(loginPage);
-        //loginPage.go();
+        //goTo(baseUrl + "/login");
+        loginPage.go();
         loginPage.isAt();
         /*
         loginPage.typeEmailAddress("not a valid email");
@@ -80,10 +79,9 @@ The report should describe and document a concrete example (with screenshots).
 
     // 1 - developer creates an account
     @Test
-    @ProbeTest(tags = "WebUI")
     public void itShouldBePossibleToCreateANewUser() {
-        goTo(registerPage);
-        //registerPage.go();
+        //goTo(baseUrl + registerPage);
+        registerPage.go();
         registerPage.isAt();
         /*
         registerPage.typeFirstName(newUserFirstName);
@@ -105,26 +103,24 @@ The report should describe and document a concrete example (with screenshots).
 
     // 2 - developer logs in
     @Test
-    @ProbeTest(tags = "WebUI")
     public void successfulSigninShouldBringUserToHomePage() {
-        goTo(loginPage);
-        //loginPage.go();
+        //goTo(baseUrl + loginPage);
+        loginPage.go();
         loginPage.isAt();
-        /*
+
         loginPage.typeEmailAddress("a@a.com");
         loginPage.typePassword("any password");
         loginPage.clickSignin();
-        */
-        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+
+        //loginPage.fillAndSignIn(newUserEmail, newUserPWD);
         homePage.isAt();
     }
 
     // 3 - developer creates 25 pages
     @Test
-    @ProbeTest(tags = "WebUI")
     public void itShouldBePossibleToCreateANewAppAfterSignin() {
-        goTo(projectPage);
-        //projectPage.go();
+        //goTo(baseUrl + projectPage);
+        projectPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         /*
         loginPage.typeEmailAddress(newUserEmail);
@@ -150,10 +146,9 @@ The report should describe and document a concrete example (with screenshots).
 
     // 4 - developer browses the list of applications (3 pages of 10, 10 and 5 applications)
     @Test
-    @ProbeTest(tags = "WebUI")
     public void itShouldBePossibleToGetProjectsListAfterSignIn() {
-        goTo(projectPage);
-        //projectPage.go();
+        //goTo(baseUrl + projectPage);
+        projectPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         /*
         loginPage.typeEmailAddress(newUserEmail);
@@ -172,10 +167,9 @@ The report should describe and document a concrete example (with screenshots).
     // 5 - developer logs out
     // 6 - developer tries to go back to the list of applications and is redirected to login page
     @Test
-    @ProbeTest(tags = "WebUI")
     public void itShouldBeImpossibleToGetProjectsListAfterSignOut() {
-        goTo(projectPage);
-        // projectPage.go();
+        //goTo(baseUrl + projectPage);
+        projectPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         loginPage.fillAndSignIn(newUserEmail, newUserPWD);
         projectPage.go();

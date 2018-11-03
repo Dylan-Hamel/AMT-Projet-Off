@@ -18,13 +18,13 @@ public class HomePage extends AbstractFluentPage {
 
     @Override
     public void isAt() {
-        assertThat(window().title()).isEqualTo("Welcome");
+        assertThat(window().title()).isEqualTo("AMT-Project - Home");
     }
 
     public void checkLoggedInUserInfos(String... paramsOrdered){
         int i = 0;
         for (String param : paramsOrdered) {
-            assertThat($(homePageFields[i]).value()).isEqualTo(param);
+            assertThat($(homePageFields[i]).values().get(0)).isEqualTo(param);
         }
     }
 
