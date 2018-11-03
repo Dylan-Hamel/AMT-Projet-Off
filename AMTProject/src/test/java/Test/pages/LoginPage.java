@@ -9,22 +9,27 @@ public class LoginPage extends AbstractFluentPage {
 
     @Override
     public void isAt() {
-        assertThat(title()).isEqualTo("AMT-Project - Login");
+        assertThat(window().title()).isEqualTo("AMT-Project - Login");
     }
 
     public void typeEmailAddress(String email) {
-        fill(inputEmail).with(email);
+        $(inputEmail).fill().with(email);
     }
 
     public void typePassword(String password) {
-        fill(inputPassword).with(password);
+        $(inputPassword).fill().with(password);
     }
 
     public void clickSignin() {
-        click(buttonSignin);
+        $(buttonSignin).submit();
+    }
+
+    public void fillAndSignIn(String... paramsOrdered){
+        $("input").fill().with(paramsOrdered);
+        $(buttonSignin).submit();
     }
 
     public String getUrl() {
-        return "/";
+        return "/login";
     }
 }

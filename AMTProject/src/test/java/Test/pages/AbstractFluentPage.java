@@ -2,6 +2,7 @@ package Test.pages;
 
 import org.fluentlenium.core.FluentPage;
 
+
 /**
  * Most pages served by the application have the same structure: they have the
  * same header (with a navigation menu) and the same footer. These elements, and
@@ -21,10 +22,10 @@ public abstract class AbstractFluentPage extends FluentPage {
      * referenced in the test). Note that there are other types of locators. See:
      * http://www.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-api-commands-and-operations
      */
-    private final static String menuExamples = "menu"; // this is the HTML id of the menu
-    private final static String menuItemProject = "project";
-    private final static String menuItemAdministrator = "administrator";
-    private final static String menuItemLogout = "logout";
+    private final static String menuExamples = "#menu"; // this is the HTML id of the menu
+    private final static String menuItemProject = "#project";
+    private final static String menuItemAdministrator = "#administrator";
+    private final static String menuItemLogout = "#logout";
 
     /**
      * This method illustrates two aspects of the Page Object pattern.
@@ -37,18 +38,18 @@ public abstract class AbstractFluentPage extends FluentPage {
      * change the Page and not all the tests that use it).
      */
     public void goToProjectPageViaMenu() {
-        click(menuExamples);
-        click(menuItemProject);
+        $(menuExamples).click();
+        $(menuItemProject).click();
     }
 
     public void goToAdministratorPageViaMenu() {
-        click(menuExamples);
-        click(menuItemAdministrator);
+        $(menuExamples).click();
+        $(menuItemAdministrator).click();
     }
 
     public void goToLogoutPageViaMenu() {
-        click(menuExamples);
-        click(menuItemLogout);
+        $(menuExamples).click();
+        $(menuItemLogout).click();
     }
 
 }

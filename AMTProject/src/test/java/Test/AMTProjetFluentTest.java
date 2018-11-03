@@ -6,30 +6,23 @@ import Test.pages.ProjectAddPage;
 import Test.pages.ProjectPage;
 import Test.pages.RegisterPage;
 import io.probedock.client.annotations.ProbeTest;
-import org.fluentlenium.adapter.FluentTest;
+//import org.fluentlenium.adapter.FluentTest;
+import org.fluentlenium.adapter.junit.FluentTest;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.fluentlenium.core.annotation.Page;
-
-
-import org.fluentlenium.core.FluentPage;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import static org.assertj.core.api.Assertions.assertThat;
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class AMTProjetFluentTest extends FluentTest {
     /*
     `TESTING_FUNCTIONAL.md`
-developer creates an account
-developer logs in
-developer creates 25 pages
-developer browses the list of applications (3 pages of 10, 10 and 5 applications)
-developer logs out
-developer tries to go back to the list of applications and is redirected to login page
+1 - developer creates an account
+2 - developer logs in
+3 - developer creates 25 pages
+4 - developer browses the list of applications (3 pages of 10, 10 and 5 applications)
+5 - developer logs out
+6 - developer tries to go back to the list of applications and is redirected to login page
 
 The tests should include assertions, so that changing the code (e.g. introducing a bug) breaks the code.
 
@@ -49,78 +42,50 @@ The report should describe and document a concrete example (with screenshots).
     private final String newAppDescription = "test";
 
     @Page
-    public LoginPage loginPage;
+    private LoginPage loginPage;
 
     @Page
-    public HomePage homePage;
+    private HomePage homePage;
 
     @Page
-    public ProjectAddPage projectAddPage;
+    private ProjectAddPage projectAddPage;
 
     @Page
-    public ProjectPage projectPage;
+    private ProjectPage projectPage;
 
     @Page
-    public RegisterPage registerPage;
+    private RegisterPage registerPage;
 
+    public AMTProjetFluentTest() {
+        getConfiguration().setScreenshotMode(TriggerMode.AUTOMATIC_ON_FAIL);
+        getConfiguration().setHtmlDumpMode(TriggerMode.AUTOMATIC_ON_FAIL);
+        getConfiguration().setWebDriver("firefox");
+    }
 
 
     @Test
     @ProbeTest(tags = "WebUI")
     public void itShouldNotBePossibleToSigninWithAnInvalidEmail() {
-        goTo(baseUrl);
+        goTo(loginPage);
+        //loginPage.go();
         loginPage.isAt();
+        /*
         loginPage.typeEmailAddress("not a valid email");
         loginPage.typePassword("any password");
         loginPage.clickSignin();
+        */
+        loginPage.fillAndSignIn("not a valid email", "any password");
         loginPage.isAt();
     }
 
-    @Test
-    @ProbeTest(tags = "WebUI")
-    public void successfulSigninShouldBringUserToHomePage() {
-        goTo(baseUrl);
-        loginPage.isAt();
-        loginPage.typeEmailAddress("a@a.com");
-        loginPage.typePassword("any password");
-        loginPage.clickSignin();
-        homePage.isAt();
-    }
-
-    @Test
-    @ProbeTest(tags = "WebUI")
-    public void itShouldBePossibleToGetProjectsListAfterSignin() {
-        goTo(projectPage);
-        loginPage.isAt(); // we have not logged in, so we should be redirected
-        loginPage.typeEmailAddress(newUserEmail);
-        loginPage.typePassword(newUserPWD);
-        loginPage.clickSignin();
-        projectPage.isAt(); // we should be redirected toward the original target after signin
-        //projectPage.clickOnNextPage();
-        //projectPage.changeNumberOfRow(5);
-    }
-
-    @Test
-    @ProbeTest(tags = "WebUI")
-    public void itShouldBePossibleToCreateANewAppAfterSignin() {
-        goTo(projectPage);
-        loginPage.isAt(); // we have not logged in, so we should be redirected
-        loginPage.typeEmailAddress(newUserEmail);
-        loginPage.typePassword(newUserPWD);
-        loginPage.clickSignin();
-        projectPage.isAt(); // we should be redirected toward the original target after signin
-        projectPage.clickOnCreateNewApp();
-        projectAddPage.isAt();
-        projectAddPage.typeName(newAppName);
-        projectAddPage.typeDescription(newAppDescription);
-        projectAddPage.clickAddApp();
-    }
-
+    // 1 - developer creates an account
     @Test
     @ProbeTest(tags = "WebUI")
     public void itShouldBePossibleToCreateANewUser() {
         goTo(registerPage);
+        //registerPage.go();
         registerPage.isAt();
+        /*
         registerPage.typeFirstName(newUserFirstName);
         registerPage.typeLastName(newUserLastName);
         registerPage.typeEmailAddress(newUserEmail);
@@ -129,20 +94,112 @@ The report should describe and document a concrete example (with screenshots).
         registerPage.typeCountry(newUserCountry);
         registerPage.typePassword(newUserPWD);
         registerPage.clickRegister();
+        */
+        registerPage.fillAndRegister(newUserFirstName, newUserLastName, newUserEmail, newUserPWD, newUserAddress, newUserZip, newUserCountry);
         loginPage.isAt(); // we should be redirected toward the login target after register
+        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        homePage.isAt();
+        homePage.checkLoggedInUserInfos(newUserFirstName, newUserLastName, newUserEmail, newUserPWD, newUserAddress, newUserZip, newUserCountry);
     }
 
 
+    // 2 - developer logs in
+    @Test
+    @ProbeTest(tags = "WebUI")
+    public void successfulSigninShouldBringUserToHomePage() {
+        goTo(loginPage);
+        //loginPage.go();
+        loginPage.isAt();
+        /*
+        loginPage.typeEmailAddress("a@a.com");
+        loginPage.typePassword("any password");
+        loginPage.clickSignin();
+        */
+        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        homePage.isAt();
+    }
+
+    // 3 - developer creates 25 pages
+    @Test
+    @ProbeTest(tags = "WebUI")
+    public void itShouldBePossibleToCreateANewAppAfterSignin() {
+        goTo(projectPage);
+        //projectPage.go();
+        loginPage.isAt(); // we have not logged in, so we should be redirected
+        /*
+        loginPage.typeEmailAddress(newUserEmail);
+        loginPage.typePassword(newUserPWD);
+        loginPage.clickSignin();
+        */
+        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        projectPage.go();
+        projectPage.isAt(); // we should be redirected toward the original target after signin
+        projectPage.clickOnCreateNewApp();
+        projectAddPage.isAt();
+        for(int i = 1; i <= 25; i++) {
+            projectAddPage.typeName(newAppName + i);
+            projectAddPage.typeDescription(newAppDescription + i);
+            projectAddPage.clickAddApp();
+        }
+
+        /*
+        takeScreenShot();
+        takeHtmlDump();
+        */
+    }
+
+    // 4 - developer browses the list of applications (3 pages of 10, 10 and 5 applications)
+    @Test
+    @ProbeTest(tags = "WebUI")
+    public void itShouldBePossibleToGetProjectsListAfterSignIn() {
+        goTo(projectPage);
+        //projectPage.go();
+        loginPage.isAt(); // we have not logged in, so we should be redirected
+        /*
+        loginPage.typeEmailAddress(newUserEmail);
+        loginPage.typePassword(newUserPWD);
+        loginPage.clickSignin();
+        */
+        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        projectPage.go();
+        projectPage.isAt();
+        projectPage.clickOnNextPage();
+        projectPage.clickOnNextPage();
+        projectPage.changeNumberOfRow(5);
+    }
+
+
+    // 5 - developer logs out
+    // 6 - developer tries to go back to the list of applications and is redirected to login page
+    @Test
+    @ProbeTest(tags = "WebUI")
+    public void itShouldBeImpossibleToGetProjectsListAfterSignOut() {
+        goTo(projectPage);
+        // projectPage.go();
+        loginPage.isAt(); // we have not logged in, so we should be redirected
+        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        projectPage.go();
+        projectPage.isAt();
+        projectPage.goToLogoutPageViaMenu();
+        loginPage.isAt();
+        goTo(projectPage);
+        loginPage.isAt();
+    }
+
+
+    /*
     @Override
     public WebDriver getDefaultDriver() {
         return new FirefoxDriver();
         //System.setProperty("webdriver.chrome.driver", "/Users/admin/Downloads/chromedriver");
         //return new ChromeDriver();
     }
+    */
 
+    /*
     @Override
     public String getDefaultBaseUrl() {
         return baseUrl;
     }
-
+    */
 }

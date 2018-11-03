@@ -10,22 +10,22 @@ public class ProjectAddPage extends AbstractFluentPage {
 
     @Override
     public void isAt() {
-        assertThat(title()).isEqualTo("AMT-Project - Project Add");
+        assertThat(window().title()).isEqualTo("AMT-Project - Project Add");
     }
 
     public void typeName(String name) {
-        fill(inputName).with(name);
+        $(inputName).fill().with(name);
     }
 
     public void typeDescription(String description) {
-        fill(inputDescription).with(description);
+        $(inputDescription).fill().with(description);
     }
 
     public void clickAddApp() {
-        click(buttonAddApp);
+        $(buttonAddApp).submit();
     }
 
     public String getUrl() {
-        return "/";
+        return "/projectadd";
     }
 }

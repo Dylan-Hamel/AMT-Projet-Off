@@ -1,7 +1,9 @@
 package Test.pages;
 
-import org.fluentlenium.core.annotation.AjaxElement;
+//import org.fluentlenium.core.;
 import org.fluentlenium.core.domain.FluentWebElement;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,24 +11,34 @@ public class ProjectPage extends AbstractFluentPage {
 
     private final static String buttonAddApp = "#bAddApp"; // id in the html code
     private final static String nbOfRow = "#nbOfRow";
+    private final static String dataTable = "#dataTable";
+    private final static String nextPage = "#dataTableNext";
 
-    @AjaxElement
-    FluentWebElement myAjaxElement;
+    //FluentWebElement dataTable = find("table");
 
     @Override
     public void isAt() {
-        assertThat(title()).isEqualTo("AMT-Project - Project");
+        assertThat(window().title()).isEqualTo("AMT-Project - Project");
     }
 
-    public void changeNumberOFRow(int nbOfRows) {
-        // fill(nbOfRow).with(nbOfRows);
+    public void changeNumberOfRow(int nbOfRows) {
+        await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
+        await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
+        $(nbOfRow).fillSelect().withValue("" + nbOfRows);
+    }
+
+    public void clickOnNextPage() {
+        await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
+        await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
+        $(nextPage).click();
+        await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
     }
 
     public void clickOnCreateNewApp() {
-        click(buttonAddApp);
+        $(buttonAddApp).click();
     }
 
     public String getUrl() {
-        return "/";
+        return "/project";
     }
 }

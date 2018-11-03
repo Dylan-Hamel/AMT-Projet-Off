@@ -15,42 +15,47 @@ public class RegisterPage extends AbstractFluentPage {
 
     @Override
     public void isAt() {
-        assertThat(title()).isEqualTo("AMT-Project - Register");
+        assertThat(window().title()).isEqualTo("AMT-Project - Register");
     }
 
     public void typeFirstName(String firstName) {
-        fill(inputFirstName).with(firstName);
+        $(inputFirstName).fill().with(firstName);
     }
 
     public void typeLastName(String lastName) {
-        fill(inputLastName).with(lastName);
+        $(inputLastName).fill().with(lastName);
     }
 
     public void typeEmailAddress(String email) {
-        fill(inputEmail).with(email);
+        $(inputEmail).fill().with(email);
     }
 
     public void typeAddress(String address) {
-        fill(inputAddress).with(address);
+        $(inputAddress).fill().with(address);
     }
 
     public void typeZip(String zip) {
-        fill(inputZip).with(zip);
+        $(inputZip).fill().with(zip);
     }
 
     public void typeCountry(String country) {
-        fill(inputCountry).with(country);
+        $(inputCountry).fill().with(country);
     }
 
     public void typePassword(String password) {
-        fill(inputPassword).with(password);
+        $(inputPassword).fill().with(password);
     }
 
     public void clickRegister() {
-        click(buttonRegister);
+        $(buttonRegister).submit();
+    }
+
+    public void fillAndRegister(String... paramsOrdered){
+        $("input").fill().with(paramsOrdered);
+        $(buttonRegister).submit();
     }
 
     public String getUrl() {
-        return "/";
+        return "/register";
     }
 }
