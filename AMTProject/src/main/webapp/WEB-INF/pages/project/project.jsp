@@ -75,9 +75,7 @@
                     <td width="15%">${proj.api_key}</td>
                     <td width="20%">${proj.api_secret}</td>
                     <td width="20%" class="text-center">
-                        <button type="button">
-                            Delete
-                        </button>
+                        <a href="${pageContext.servletContext.contextPath}/project?action=delete&proj_name=${proj.name}" class="dropdown-item">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

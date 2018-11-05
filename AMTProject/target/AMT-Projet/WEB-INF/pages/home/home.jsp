@@ -95,7 +95,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Email</label>
+                                    <label class="label"> </label>
                                     <div class="input-group-icon">
                                         <input class="input--style-4" type="email" name="email" disabled="disabled" value="<c:out value="${user.email}"/>">
                                     </div>

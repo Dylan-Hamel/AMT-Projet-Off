@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.ProjectDAO;
+import Database.ProjectInterface;
 import Database.UserDAO;
 import Model.Project;
 import Model.User;
@@ -17,8 +18,8 @@ import java.util.List;
 
 public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private ProjectDAO projectDAO;
+    @EJB(beanName = "ProjectDAO")
+    ProjectInterface projectDAO;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -83,8 +84,25 @@ public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
                 String api_key = "";
                 String api_secret = "";
                 try {
+
+                    ArrayList<String> allAPIKey = projectDAO.getAllAPIKey();
+                    ArrayList<String> allAPISecret = projectDAO.getAllAPISecret();
+
+
                     api_key = gak.generate(128);
                     api_secret = gak.generate(192);
+
+                    // We check if key is unique
+                    while (allAPIKey.contains(api_key)) {
+                        api_key = gak.generate(128);
+                    }
+
+                    // We check if key if secret is unique
+                    while (allAPISecret.contains(api_secret)) {
+                        api_secret = gak.generate(192);
+                    }
+
+
                 } catch (NoSuchAlgorithmException e) {
                     e.printStackTrace();
 

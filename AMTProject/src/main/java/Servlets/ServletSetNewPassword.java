@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.UserDAO;
+import Database.UserInterface;
 import Model.User;
 import Utils.GenratePassword;
 import Utils.SendEmail;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 public class ServletSetNewPassword extends javax.servlet.http.HttpServlet {
 
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
 
     @Override
     protected void doGet (javax.servlet.http.HttpServletRequest request,
@@ -75,16 +76,6 @@ public class ServletSetNewPassword extends javax.servlet.http.HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/pages/setpassword/setpassword.jsp").forward(request, response);
 
             }
-
-
-
         }
-
-
-
-
-
     }
-
-
 }

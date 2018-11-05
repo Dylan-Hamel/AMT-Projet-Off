@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.ProjectDAO;
+import Database.ProjectInterface;
 import Database.UserDAO;
 import Model.Project;
 import Model.User;
@@ -15,8 +16,8 @@ import java.util.List;
 
 public class ServletProject extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private ProjectDAO projectDAO;
+    @EJB(beanName = "ProjectDAO")
+    ProjectInterface projectDAO;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -28,6 +29,22 @@ public class ServletProject extends javax.servlet.http.HttpServlet {
                           javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("[ServletProject - doGet]");
+        System.out.println("[ServletProject - doGet] request.getParameter(\"action\") = " + request.getParameter("action"));
+
+        String req = "";
+
+        if (request.getParameter("action") != null)
+            req = request.getParameter("action");
+
+        if (req.equals("delete")) {
+
+            System.out.println("[ServletProject - doGet] DELETE");
+            System.out.println("[ServletProject - doGet] proj_name = " + (request.getParameter("proj_name")));
+
+            projectDAO.deleteProjectFromJoinTableAndProject(request.getParameter("proj_name"));
+
+        }
+
 
         User user = (User)request.getSession().getAttribute("user");
 
