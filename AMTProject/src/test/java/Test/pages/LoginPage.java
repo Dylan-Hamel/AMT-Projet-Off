@@ -9,6 +9,7 @@ public class LoginPage extends AbstractFluentPage {
     private final static String inputEmail = "#email"; // id in the html code
     private final static String inputPassword = "#password"; // id in the html code
     private final static String buttonSignin = "#bSignIn"; // id in the html code
+    private final static String formSignIn = "#fSignIn";
 
     @Override
     public void isAt() {
@@ -17,7 +18,7 @@ public class LoginPage extends AbstractFluentPage {
 
     public void typeEmailAddress(String email) {
         await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
-        await().atMost(2, TimeUnit.SECONDS).until($(inputEmail)).displayed();
+        // await().atMost(2, TimeUnit.SECONDS).until($(inputEmail)).displayed();
         $(inputEmail).fill().with(email);
 
     }
@@ -27,12 +28,14 @@ public class LoginPage extends AbstractFluentPage {
     }
 
     public void clickSignin() {
-        $(buttonSignin).submit();
+        // $(formSignIn).submit();
+        $(buttonSignin).click();
     }
 
     public void fillAndSignIn(String... paramsOrdered){
         $("input").fill().with(paramsOrdered);
-        $(buttonSignin).submit();
+        // $(formSignIn).submit();
+        $(buttonSignin).click();
     }
 
     public String getUrl() {

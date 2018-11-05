@@ -31,7 +31,7 @@ The report should describe and document a concrete example (with screenshots).
     private final String baseUrl = "http://192.168.99.100:9090/AMT-Projet";
     private final String newUserFirstName = "test";
     private final String newUserLastName = "test";
-    private final String newUserEmail = "test";
+    private final String newUserEmail = "test@test.test";
     private final String newUserAddress = "test";
     private final String newUserZip = "test";
     private final String newUserCountry = "test";
@@ -108,11 +108,11 @@ The report should describe and document a concrete example (with screenshots).
         loginPage.go();
         loginPage.isAt();
 
-        loginPage.typeEmailAddress("a@a.com");
-        loginPage.typePassword("any password");
-        loginPage.clickSignin();
+        //loginPage.typeEmailAddress("yannis@me.me");
+        //loginPage.typePassword("123123");
+        //loginPage.clickSignin();
 
-        //loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
         homePage.isAt();
     }
 

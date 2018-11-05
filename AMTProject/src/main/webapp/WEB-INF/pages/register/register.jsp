@@ -60,7 +60,7 @@
 							</c:if>
 						</div>
 					</form>
-                    <form method="POST" action="/AMT-Projet/register">
+                    <form method="POST" id="registerForm" action="/AMT-Projet/register">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">

@@ -12,6 +12,7 @@ public class RegisterPage extends AbstractFluentPage {
     private final static String inputZip = "#zip"; // id in the html code
     private final static String inputCountry = "#country"; // id in the html code
     private final static String buttonRegister = "#bRegister"; // id in the html code
+    private final static String registerForm = "#registerForm";
 
     @Override
     public void isAt() {
@@ -52,7 +53,8 @@ public class RegisterPage extends AbstractFluentPage {
 
     public void fillAndRegister(String... paramsOrdered){
         $("input").fill().with(paramsOrdered);
-        $(buttonRegister).submit();
+        //$(registerForm).submit();
+        $(buttonRegister).click();
     }
 
     public String getUrl() {

@@ -1,0 +1,5 @@
+Line 1: the DAO is a SLSB. This is particularly important from
+a transaction demarcation point of view. The container starts a
+transaction whenever a business method is called and commits it
+if the method returns a result. If the method throws an exception,
+then the container rollbacks the transaction.
