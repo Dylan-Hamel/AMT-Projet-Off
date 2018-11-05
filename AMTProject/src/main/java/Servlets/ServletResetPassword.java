@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.UserDAO;
+import Database.UserInterface;
 import Utils.GenratePassword;
 import Utils.SendEmail;
 
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 public class ServletResetPassword extends javax.servlet.http.HttpServlet {
 
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

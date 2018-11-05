@@ -2,28 +2,20 @@ package Servlets;
 
 // Project
 import Database.UserDAO;
+import Database.UserInterface;
 import Model.User;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 // Externe
 import javax.ejb.EJB;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpSession;
-import javax.validation.constraints.AssertFalse;
-import javax.validation.constraints.Null;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class ServletLogin extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

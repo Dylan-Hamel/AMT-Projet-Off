@@ -61,19 +61,21 @@
             </tr>
             </thead>
             <tbody>
-				<c:forEach items="${_users}" var="u">
-	                <tr>
-	                    <th>${u.email}</th>
-	                    <td width="30%">${u.enable}</td>
-	                    <td width="20%" class="text-center">
-	                        <input type="checkbox" name="changeStatus" value="4"> Change
-	                    </td>
-	                    <td width="20%" class="text-center">
-	                        <button type="button">
-	                            Reset
-	                        </button>
-	                    </td>
-	                </tr>
+                <c:forEach items="${_users}" var="u">
+                    <tr>
+                        <form method="POST" action="/AMT-Projet/administrator">
+                            <th>${u.email}</th>
+                            <td width="30%"><input type="checkbox" name="ckEnable" value="${u.email}" ${u.enable == true ? 'checked' : ''}> isEnable</td>
+                            <td width="20%" class="text-center">
+                                <input type="checkbox" name="ckResetPW" value="${u.email}" > Reset Password
+								</br>
+                                <input type="checkbox" name="ckDelete" value="${u.email}" > Delete
+                            </td>
+                            <td width="20%" class="text-center">
+                                <button class="btn btn--radius-2 btn--blue" type="submit">Submit changes</button>
+                            </td>
+                        </form>
+                    </tr>
                 </c:forEach>
             </tbody>
         </table>

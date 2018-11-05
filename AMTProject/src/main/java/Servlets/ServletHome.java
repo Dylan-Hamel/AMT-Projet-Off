@@ -1,6 +1,7 @@
 package Servlets;
 
 import Database.UserDAO;
+import Database.UserInterface;
 import Model.User;
 
 import javax.ejb.EJB;
@@ -11,8 +12,8 @@ import java.io.IOException;
 
 public class ServletHome extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

@@ -14,5 +14,4 @@ public class ServletLogout extends javax.servlet.http.HttpServlet {
         System.out.println("[ServletLogout - doGet]");
         response.sendRedirect(request.getContextPath() + "/login");
     }
-
 }
