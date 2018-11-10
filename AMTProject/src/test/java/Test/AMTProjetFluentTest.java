@@ -1,5 +1,6 @@
 package Test;
 
+import Database.UserDAO;
 import Test.pages.HomePage;
 import Test.pages.LoginPage;
 import Test.pages.ProjectAddPage;
@@ -9,6 +10,8 @@ import Test.pages.RegisterPage;
 import org.fluentlenium.adapter.junit.FluentTest;
 import org.junit.Test;
 import org.fluentlenium.core.annotation.Page;
+
+import javax.ejb.EJB;
 //import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -39,6 +42,9 @@ The report should describe and document a concrete example (with screenshots).
 
     private final String newAppName = "test";
     private final String newAppDescription = "test";
+
+    @EJB
+    private UserDAO userDao;
 
     @Page
     private LoginPage loginPage;
@@ -80,6 +86,9 @@ The report should describe and document a concrete example (with screenshots).
     // 1 - developer creates an account
     @Test
     public void itShouldBePossibleToCreateANewUser() {
+        // first remove existing user
+        // userDao.deleteUser(newUserEmail);
+
         //goTo(baseUrl + registerPage);
         registerPage.go();
         registerPage.isAt();
