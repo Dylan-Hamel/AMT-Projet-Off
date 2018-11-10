@@ -10,23 +10,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 @Stateless
-public class ProjectDAO {
+public class ProjectDAO implements ProjectInterface {
 
     private final static String TABLE_NAME_JOIN = "t_users_projects";
     private final static String TABLE_NAME = "projects";
 
 
-    @Resource(lookup = "java:/jdbc/amtProject")
+    @Resource(lookup = "jdbc/amtProject")
     private DataSource database;
 
 
     /*
      *
      */
+    @Override
     public ArrayList<Project> getAllProjectByUser(String user) {
         ArrayList<Project> projects = new ArrayList<Project>();
         try {
@@ -55,7 +54,8 @@ public class ProjectDAO {
     /*
      * Insert into Projects table
      */
-    public boolean insertProjet (String name, String description, String api_key, String api_secret) {
+    @Override
+    public boolean insertProjet(String name, String description, String api_key, String api_secret) {
         boolean ok = true;
 
         try {
@@ -85,7 +85,8 @@ public class ProjectDAO {
     /*
      * Insert into Projects t_users_projects
      */
-    public boolean insertProjetUser (String email, String project) {
+    @Override
+    public boolean insertProjetUser(String email, String project) {
         boolean ok = true;
 
         try {
@@ -113,6 +114,7 @@ public class ProjectDAO {
     /*
 
      */
+    @Override
     public Boolean checkIfProjectExist(String name) {
         boolean ok = false;
 
@@ -138,6 +140,7 @@ public class ProjectDAO {
      * This function will delete a project from t_user_project table and projects table
      * t_user_project is a table which join users and projects
      */
+    @Override
     public boolean deleteProjectFromJoinTableAndProject(String name) {
         try {
             PreparedStatement ps = database.getConnection()
@@ -167,6 +170,7 @@ public class ProjectDAO {
     /*
 
      */
+    @Override
     public ArrayList<String> getAllAPIKey() {
         ArrayList<String> allAPIKey = new ArrayList<String>();
         try {
@@ -188,6 +192,7 @@ public class ProjectDAO {
     /*
 
      */
+    @Override
     public ArrayList<String> getAllAPISecret() {
         ArrayList<String> allAPISecret = new ArrayList<String>();
         try {

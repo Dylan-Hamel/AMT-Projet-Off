@@ -59,11 +59,11 @@ CREATE TABLE `t_users_projects` (
 INSERT INTO `t_users_projects` (`id`, `email`, `project`) VALUES
 (1, 'jean@me.me', 'Dylan-Test01'),
 (2, 'jean@me.me', 'Dylan-Test02'),
-(5, 'jean@me.me', 'test-insert'),
-(9, 'jean@me.me', 'test02'),
-(10, 'jean@me.me', 'testest'),
-(11, 'jean@me.me', 'Test-123123'),
-(12, 'jean@me.me', 'yannis');
+(3, 'jean@me.me', 'test-insert'),
+(4, 'jean@me.me', 'test02'),
+(5, 'jean@me.me', 'testest'),
+(6, 'jean@me.me', 'Test-123123'),
+(7, 'jean@me.me', 'yannis');
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,8 @@ INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `address`, `z
 ('Dylan', 'Hamel', 'dylan.hamel@outlook.com', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 0, 1, 0),
 ('Dylan', 'Hamel', 'dylan@me.me', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 1, 0, 0),
 ('Jean', 'Dupond', 'jean@me.me', '123123', 'Rue des Ponts 10', '1122', 'France', 0, 1, 0),
-('Yannis', 'Ansermoz', 'yannis@me.me', '123123', 'Rue du Plaisir 33', '1400', 'Suisse', 1, 1, 0);
+('Yannis', 'Ansermoz', 'yannis@me.me', '123123', 'Rue du Plaisir 33', '1400', 'Suisse', 1, 1, 0),
+('test', 'test', 'test@test.test', 'test', 'test', 'test', 'test', 0, 1, 0);
 
 --
 -- Indexes for dumped tables

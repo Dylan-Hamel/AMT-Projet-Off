@@ -2,28 +2,20 @@ package Servlets;
 
 // Project
 import Database.UserDAO;
+import Database.UserInterface;
 import Model.User;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 // Externe
 import javax.ejb.EJB;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpSession;
-import javax.validation.constraints.AssertFalse;
-import javax.validation.constraints.Null;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class ServletLogin extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -55,7 +47,6 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
             System.out.println("[ServletLogin - doPost] password - " + password);
         }
 
-
         boolean userExist = userDao.findIfUserExist(email, password);
         System.out.println("[ServletLogin - doPost] userExist - " + userExist);
 
@@ -81,7 +72,15 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
 
             request.getSession().setAttribute("user", user);
 
-            if (user.isReset()) {
+            if (!user.getEnable()) {
+                System.out.println("[ServletLogin - doPost] user disable " );
+
+                errorMessage = "Account Disabled";
+                request.setAttribute("errorMessage", errorMessage);
+
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+            } else if (user.isReset()) {
                 System.out.println("[ServletLogin - doPost] Call NEWPASSWORD" );
                 response.sendRedirect("setpassword");
             } else {
@@ -93,7 +92,7 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
 
     @Override
     protected void doGet (javax.servlet.http.HttpServletRequest request,
-                           javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
+                          javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("[ServletLogin - doGet]");
 

@@ -1,7 +1,6 @@
 package Servlets;
 
-import Database.ProjectDAO;
-import Database.UserDAO;
+import Database.ProjectInterface;
 import Model.Project;
 import Model.User;
 
@@ -15,8 +14,8 @@ import java.util.List;
 
 public class ServletProject extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private ProjectDAO projectDAO;
+    @EJB(beanName = "ProjectDAO")
+    ProjectInterface projectDAO;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

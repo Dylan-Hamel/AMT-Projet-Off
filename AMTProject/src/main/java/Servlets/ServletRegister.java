@@ -1,6 +1,6 @@
 package Servlets;
 
-import Database.UserDAO;
+import Database.UserInterface;
 import Utils.SendEmail;
 
 import javax.ejb.EJB;
@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class ServletRegister extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
