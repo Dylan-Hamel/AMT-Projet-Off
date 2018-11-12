@@ -38,6 +38,11 @@ public class LoginPage extends AbstractFluentPage {
         $(buttonSignin).click();
     }
 
+    public String getErrorMsg(){
+        return $("error-msg").get(0).text();
+        //return $("error-msg").get(0).value();
+    }
+
     public String getUrl() {
         return getBaseUrl() + "/login";
     }

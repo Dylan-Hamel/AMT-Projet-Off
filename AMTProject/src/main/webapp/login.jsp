@@ -75,7 +75,7 @@
 					</div>
 				</form>
 				<form method="get" action="/AMT-Projet/login">
-					<div class="error-msg">
+					<div class="error-msg" id="error-msg">
 						<c:if test="${not empty errorMessage}">
 							<c:out value="${errorMessage}"/>
 						</c:if>

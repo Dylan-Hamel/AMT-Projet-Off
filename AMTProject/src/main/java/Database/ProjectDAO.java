@@ -18,7 +18,7 @@ public class ProjectDAO implements ProjectInterface {
     private final static String TABLE_NAME = "projects";
 
 
-    @Resource(lookup = "jdbc/amtProject")
+    @Resource(lookup = "java:/jdbc/amtProject")
     private DataSource database;
 
 

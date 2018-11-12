@@ -43,6 +43,9 @@ The report should describe and document a concrete example (with screenshots).
     private final String newAppName = "test";
     private final String newAppDescription = "test";
 
+    private final String loginErrorMsg = "Error in EMAIL/PASSWORD";
+    private final String accountDisabledMsg = "Account Disabled";
+
     @EJB
     private UserDAO userDao;
 
@@ -81,6 +84,7 @@ The report should describe and document a concrete example (with screenshots).
         */
         loginPage.fillAndSignIn("not a valid email", "any password");
         loginPage.isAt();
+        assert(loginPage.getErrorMsg().equals(loginErrorMsg));
     }
 
     // 1 - developer creates an account
