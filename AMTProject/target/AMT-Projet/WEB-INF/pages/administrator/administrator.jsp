@@ -26,13 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/AMT-Projet/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/AMT-Projet/home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/AMT-Projet/project">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User</a>
+                    <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/AMT-Projet/logout">Logout</a>

@@ -26,10 +26,10 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/AMT-Projet/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/AMT-Projet/home">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/AMT-Projet/project">Projects</a>
+                    <a class="nav-link disabled" href="/AMT-Projet/project">Projects<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User</a>
@@ -65,6 +65,7 @@
                 <th scope="col">API Key</th>
                 <th scope="col">API Secret</th>
                 <th scope="col">Action</th>
+                <th scope="col">Details</th>
             </tr>
             </thead>
             <tbody>
@@ -77,6 +78,10 @@
                     <td width="20%" class="text-center">
                         <a href="${pageContext.servletContext.contextPath}/project?action=delete&proj_name=${proj.name}" class="dropdown-item">Delete</a>
                     </td>
+                    <td width="20%" class="text-center">
+                        <a class="nav-link disabled" href="/AMT-Projet/projectedit?proj_name=${proj.name}&proj_descr=${proj.description}&proj_api_key=${proj.api_key}&proj_api_secret=${proj.api_secret}">Edit</a>
+                    </td>
+
                 </tr>
             </c:forEach>
             </tbody>

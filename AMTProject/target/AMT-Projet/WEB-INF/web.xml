@@ -95,4 +95,13 @@
     <url-pattern>/setpassword</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ServletProjectEdit</servlet-name>
+    <servlet-class>Servlets.ServletProjectEdit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletProjectEdit</servlet-name>
+    <url-pattern>/projectedit</url-pattern>
+  </servlet-mapping>
+
 </web-app>

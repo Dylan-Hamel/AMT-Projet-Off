@@ -42,4 +42,9 @@ public interface ProjectInterface {
 
      */
     ArrayList<String> getAllAPISecret();
+
+    /*
+
+     */
+    boolean updateProjectDescription (String name, String description);
 }
