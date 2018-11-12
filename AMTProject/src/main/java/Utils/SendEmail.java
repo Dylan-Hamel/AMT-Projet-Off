@@ -22,7 +22,9 @@ public class SendEmail implements SendEmailInterface {
     // private static String smtp = "smtp.heig-vd.ch";
     // private static String send = "amt-labo-2018-@heig-vd.ch";
 
-    public void sendEmail (String userAdresseEmail, String title, String msgBody) {
+    public boolean sendEmail (String userAdresseEmail, String title, String msgBody) {
+
+        session.setDebug(true);
 
         try {
             // Create a default MimeMessage object.
@@ -47,6 +49,8 @@ public class SendEmail implements SendEmailInterface {
             System.out.println("Sent message successfully....");
         } catch (MessagingException mex) {
             mex.printStackTrace();
+            return false;
         }
+        return true;
     }
 }

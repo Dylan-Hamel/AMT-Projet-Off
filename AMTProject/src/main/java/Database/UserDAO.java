@@ -182,6 +182,7 @@ public class UserDAO implements UserInterface {
                 user.setEnable(result.getBoolean("enable"));
                 user.setReset(result.getBoolean("reset"));
                 System.out.println("[UserDAO - getUserWithID] - " + user.getEmail());
+                ps.close();
                 return user;
             }
             ps.close();
