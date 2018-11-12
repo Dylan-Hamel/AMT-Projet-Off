@@ -45,16 +45,25 @@ public class ServletProject extends javax.servlet.http.HttpServlet {
 
         //projects = projectDAO.getAllProjectByUser(user.getEmail());
 
-        projects = projectDAO.getProjectByUser(user.getEmail(),nbOfRecords, nbOfRecords*numPage);
         int nbOfProjects = projectDAO.countProjectByUser(user.getEmail());
+        int numFirst = nbOfRecords*numPage + 1;
+        if(nbOfProjects < nbOfRecords*numPage){
+            projects = projectDAO.getProjectByUser(user.getEmail(), nbOfRecords, nbOfProjects - nbOfRecords);
+            numFirst = nbOfProjects - nbOfRecords + 1;
+            numPage = nbOfProjects / nbOfRecords;
+        }
+        else {
+            projects = projectDAO.getProjectByUser(user.getEmail(), nbOfRecords, nbOfRecords * numPage);
+        }
 
-        request.setAttribute("projects", projects);
-        request.setAttribute("nbProjects", nbOfProjects);
-        request.setAttribute("numFirst", nbOfRecords*numPage + 1);
         int numLast = nbOfRecords*numPage + nbOfRecords;
         if(numLast > nbOfProjects){
             numLast = nbOfProjects;
         }
+
+        request.setAttribute("projects", projects);
+        request.setAttribute("nbProjects", nbOfProjects);
+        request.setAttribute("numFirst", numFirst);
         request.setAttribute("numLast", numLast);
         request.setAttribute("nbRecords", nbOfRecords);
         request.setAttribute("pageNum", numPage+1);
