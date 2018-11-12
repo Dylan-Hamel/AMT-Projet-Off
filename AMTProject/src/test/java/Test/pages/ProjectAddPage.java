@@ -6,7 +6,8 @@ public class ProjectAddPage extends AbstractFluentPage {
 
     private final static String inputName = "#name"; // id in the html code
     private final static String inputDescription = "#description"; // id in the html code
-    private final static String buttonAddApp = "#bAddApp"; // id in the html code
+    private final static String buttonAddApp = "#bAddApp";
+    private final static String formAddApp = "#fAddApp";
 
     @Override
     public void isAt() {
@@ -22,7 +23,8 @@ public class ProjectAddPage extends AbstractFluentPage {
     }
 
     public void clickAddApp() {
-        $(buttonAddApp).submit();
+        //$(formAddApp).submit();
+        $(buttonAddApp).click();
     }
 
     public String getUrl() {

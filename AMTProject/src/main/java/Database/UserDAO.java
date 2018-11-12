@@ -40,6 +40,7 @@ public class UserDAO implements UserInterface {
 
                 ok = true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -62,6 +63,7 @@ public class UserDAO implements UserInterface {
                 System.out.println("[UserDAO - checkIfUserExist]" + (result.getString("email")));
                 ok =  true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -92,6 +94,7 @@ public class UserDAO implements UserInterface {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
@@ -120,6 +123,7 @@ public class UserDAO implements UserInterface {
                 allEmailAdresses.add(result.getString("email"));
                 System.out.println("[UserDAO - getAllUsersEmailAddress] - " + result.getString("email") );
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -133,6 +137,7 @@ public class UserDAO implements UserInterface {
      */
     @Override
     public boolean updateUserPassword(String email, String password) {
+        boolean ok = false;
         try {
 
             PreparedStatement ps = database.getConnection().prepareStatement
@@ -142,13 +147,17 @@ public class UserDAO implements UserInterface {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
+            } else {
+                ps.close();
+                ok = true;
             }
-            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
-        return false;
+        return ok;
     }
 
     /*
@@ -175,6 +184,7 @@ public class UserDAO implements UserInterface {
                 System.out.println("[UserDAO - getUserWithID] - " + user.getEmail());
                 return user;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -186,6 +196,7 @@ public class UserDAO implements UserInterface {
      */
     @Override
     public boolean update(String firstname, String lastname, String email, String password, String address, String zip, String country) {
+        boolean ok = false;
         try {
             String sql = "UPDATE " +
                     TABLE_NAME +
@@ -207,13 +218,18 @@ public class UserDAO implements UserInterface {
 
             // Check Result
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
+            } else {
+                ok = true;
+                ps.close();
             }
-            return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
-        return false;
+        return ok;
     }
 
     /*
@@ -241,6 +257,7 @@ public class UserDAO implements UserInterface {
                 User user = new User(email, enable);
                 usersEmailAndStatus.add(user);
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -263,6 +280,7 @@ public class UserDAO implements UserInterface {
                 System.out.println("[UserDAO - checkIfUserHaveResetedPassword]" + (result.getBoolean("reset")));
                 ok =  true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -284,7 +302,8 @@ public class UserDAO implements UserInterface {
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("Updates failed");
             }
-            return true;
+            ps.close();
+            ok =  true;
         } catch (SQLException e) {
             e.printStackTrace();
             ok = false;
@@ -326,11 +345,14 @@ public class UserDAO implements UserInterface {
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Delete Failed");
             }
+            ps.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
         return ok;
     }
@@ -350,11 +372,14 @@ public class UserDAO implements UserInterface {
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
+            ps.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
         return ok;
     }
@@ -370,11 +395,14 @@ public class UserDAO implements UserInterface {
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
+            ps.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
         return ok;
     }
