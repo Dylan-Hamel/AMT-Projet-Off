@@ -66,7 +66,7 @@
                                 <div class="input-group">
                                     <label class="label">Project Name (id)</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="project_name" disabled="disabled" value="<c:out value="${name}"/>">
+                                        <input class="input--style-4" type="text" name="project_name"readonly="readonly" value="<c:out value="${name}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                 <div class="input-group">
                                     <label class="label">API KEY</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="api_key" disabled="disabled" value="<c:out value="${apikey}"/>">
+                                        <input class="input--style-4" type="text" name="api_key" readonly="readonly" value="<c:out value="${apikey}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                                 <div class="input-group">
                                     <label class="label">API SECRET</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="api_secret" disabled="disabled" value="<c:out value="${apisecr}"/>">
+                                        <input class="input--style-4" type="text" name="api_secret" readonly="readonly" value="<c:out value="${apisecr}"/>">
                                     </div>
                                 </div>
                             </div>

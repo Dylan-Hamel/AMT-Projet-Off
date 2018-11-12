@@ -5,8 +5,10 @@ import Database.UserInterface;
 import Model.User;
 import Utils.GenratePassword;
 import Utils.SendEmail;
+import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -17,6 +19,9 @@ public class ServletSetNewPassword extends javax.servlet.http.HttpServlet {
 
     @EJB(beanName ="UserDAO")
     UserInterface userDao;
+
+    @EJB(beanName = "SendEmail")
+    SendEmailInterface se;
 
     @Override
     protected void doGet (javax.servlet.http.HttpServletRequest request,
@@ -65,7 +70,7 @@ public class ServletSetNewPassword extends javax.servlet.http.HttpServlet {
                 String message = "New Password : " + password1;
                 String title = "[AMT-Project-2018] - New Password";
 
-                SendEmail se = new SendEmail(user.getEmail(), title, message);
+                se.sendEmail(user.getEmail(), title, message);
 
                 System.out.println("[ServletLogin - doPost] Call HOME" );
                 response.sendRedirect("home");

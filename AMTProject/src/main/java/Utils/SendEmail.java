@@ -1,5 +1,8 @@
 package Utils;
 
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.mail.MessagingException;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -7,31 +10,26 @@ import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.*;
+import javax.sql.DataSource;
 
 
-public class SendEmail {
+@Stateless
+public class SendEmail implements SendEmailInterface {
+
+    @Resource(lookup = "smtp-server")
+    private Session session;
 
     // private static String smtp = "smtp.heig-vd.ch";
-    private static String send = "amt-labo-2018-@heig-vd.ch";
+    // private static String send = "amt-labo-2018-@heig-vd.ch";
 
-    public SendEmail (String userAdresseEmail, String title, String msgBody) {
-
-        // Get system properties
-        Properties properties = System.getProperties();
-
-        // Setup mail server
-        properties.put("mail.smtp.host", "smtp.heig-vd.ch");
-        properties.put("mail.smtp.port", 25);
-
-        // Get the default Session object.
-        javax.mail.Session session = javax.mail.Session.getDefaultInstance(properties);
+    public void sendEmail (String userAdresseEmail, String title, String msgBody) {
 
         try {
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
 
             // Set From: header field of the header.
-            message.setFrom(new InternetAddress(send));
+            // message.setFrom(new InternetAddress(send));
 
             // Set To: header field of the header.
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(userAdresseEmail));
@@ -50,7 +48,5 @@ public class SendEmail {
         } catch (MessagingException mex) {
             mex.printStackTrace();
         }
-
     }
-    
 }

@@ -15,6 +15,9 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
     @EJB(beanName ="UserDAO")
     UserInterface userDao;
 
+    @EJB(beanName = "SendEmail")
+    SendEmailInterface se;
+
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -104,7 +107,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                         "Have a nice and sunny day \n";
                 System.out.println(message);
                 String title = "[AMT-Project-2018] - Password Reset";
-                SendEmail se = new SendEmail(ckResetPW, title, message);
+                se.sendEmail(ckResetPW, title, message);
                 response.sendRedirect("login");
             }
         }
