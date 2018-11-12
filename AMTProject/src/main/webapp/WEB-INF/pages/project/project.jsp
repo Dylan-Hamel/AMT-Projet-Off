@@ -86,8 +86,31 @@
             </c:forEach>
             </tbody>
         </table>
+        <select id="nbProjects" onchange="changeNbOfProjects(this.value)">
+            <option value="5" ${nbRecords == 5 ? 'selected' : ''}>5</option>
+            <option value="10" ${nbRecords == 10 ? 'selected' : ''}>10</option>
+            <option value="15" ${nbRecords == 15 ? 'selected' : ''}>15</option>
+        </select>
+        Page ${pageNum} : ${numFirst}-${numLast} / ${nbProjects}
+        <c:if test="${numFirst > 1}">
+            <button onclick="changePage(${pageNum - 2})">Page précédente</button>
+        </c:if>
+        <c:if test="${nbProjects > numLast}">
+            <button onclick="changePage(${pageNum})">Page suivante</button>
+        </c:if>
     </div>
 </div>
+
+<script>
+    function changeNbOfProjects(val) {
+        window.location="project?nbRecords="+val+"&numPage=0";
+    }
+    function changePage(val) {
+        var e = document.getElementById("nbProjects");
+        var nbProjects = e.options[e.selectedIndex].value;
+        window.location="project?nbRecords="+nbProjects+"&numPage="+val;
+    }
+</script>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

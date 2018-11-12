@@ -13,6 +13,16 @@ public interface ProjectInterface {
     ArrayList<Project> getAllProjectByUser(String user);
 
     /*
+     *
+     */
+    ArrayList<Project> getProjectByUser(String user, int nbOfRecords, int beginRecord);
+
+    /*
+     *
+     */
+    int countProjectByUser(String user);
+
+    /*
      * Insert into Projects table
      */
     boolean insertProjet(String name, String description, String api_key, String api_secret);

@@ -182,6 +182,7 @@ public class UserDAO implements UserInterface {
                 user.setEnable(result.getBoolean("enable"));
                 user.setReset(result.getBoolean("reset"));
                 System.out.println("[UserDAO - getUserWithID] - " + user.getEmail());
+                ps.close();
                 return user;
             }
             ps.close();
@@ -300,6 +301,7 @@ public class UserDAO implements UserInterface {
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
@@ -324,8 +326,10 @@ public class UserDAO implements UserInterface {
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
+            ps.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

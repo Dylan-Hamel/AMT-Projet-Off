@@ -52,6 +52,62 @@ public class ProjectDAO implements ProjectInterface {
         return projects;
     }
 
+
+    /*
+     *
+     */
+    @Override
+    public ArrayList<Project> getProjectByUser(String user, int nbOfRecords, int beginRecord) {
+        ArrayList<Project> projects = new ArrayList<Project>(nbOfRecords);
+        try {
+            String sql = "SELECT * FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
+                    "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
+                    "WHERE " + TABLE_NAME_JOIN + ".email = ? LIMIT ?, ?;";
+            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            ps.setString(1, user);
+            ps.setInt(2, beginRecord);
+            ps.setInt(3, nbOfRecords);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+
+                System.out.println("[ProjectDAO - findByUser] name - " + result.getString("name" ));
+
+                Project project = new Project(result.getString("name"),
+                        result.getString("description"),
+                        result.getString("api_key"),
+                        result.getString("api_secret"));
+                projects.add(project);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return projects;
+    }
+
+    /*
+     *
+     */
+    @Override
+    public int countProjectByUser(String user) {
+        int nbProjects = 0;
+        try {
+            String sql = "SELECT COUNT(*) AS nbProjets FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
+                    "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
+                    "WHERE " + TABLE_NAME_JOIN + ".email = ?;";
+            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            ps.setString(1, user);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+                nbProjects = Integer.parseInt(result.getString("nbProjets"));
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nbProjects;
+    }
+
     /*
      * Insert into Projects table
      */
@@ -71,6 +127,7 @@ public class ProjectDAO implements ProjectInterface {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
@@ -101,6 +158,7 @@ public class ProjectDAO implements ProjectInterface {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
