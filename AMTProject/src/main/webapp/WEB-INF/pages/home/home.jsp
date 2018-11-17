@@ -96,7 +96,7 @@
             <div class="card card-4">
                 <div class="card-body">
 
-                    <h2 class="title">HOME - Profil Descritpion</h2>
+                    <h2 class="title">HOME - Profile Description</h2>
                     <h4> Modify your profil - ${user.email}</h4>
                     </br>
                     <form method="get" action="/AMT-Projet/home">

@@ -61,7 +61,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
 
         if (ckDelete != null){
             System.out.println("[ServletAdministrator - doPost] ckDelete - " + email);
-            boolean deleteSQL = userDao.deletUser(email);
+            boolean deleteSQL = userDao.deleteUser(email);
             if(!deleteSQL) {
                 errorMessage += "Account has been not deleted \n";
             }else {

@@ -78,7 +78,7 @@ public interface UserInterface {
     /*
      *
      */
-    public boolean deletUser (String email);
+    public boolean deleteUser (String email);
 
 
 }

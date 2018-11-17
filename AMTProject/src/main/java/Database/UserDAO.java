@@ -349,18 +349,14 @@ public class UserDAO implements UserInterface {
      *
      */
     // @TransactionAttribute(REQUIRES_NEW)
-    public boolean deletUser (String email) {
+    public boolean deleteUser (String email) {
         boolean ok = false;
         try {
             PreparedStatement ps = database.getConnection().prepareStatement
                     ("DELETE FROM " + TABLE_NAME + " WHERE email = ?;");
             ps.setString(1, email);
 
-            /*
-                manque appel à réasignation de projet
-            */
             projectDAO.reassignProjectOfUser(email);
-
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {

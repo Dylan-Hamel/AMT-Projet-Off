@@ -14,6 +14,10 @@ SET time_zone = "+00:00";
 -- Database: `AMT-DB`
 --
 
+-- DROP DATABASE `AMT-DB`;
+-- CREATE DATABASE `AMT-DB`;
+-- USE `AMT-DB`;
+
 -- --------------------------------------------------------
 
 --
@@ -32,13 +36,33 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`name`, `description`, `api_key`, `api_secret`) VALUES
-('Dylan-test01', 'Test project 01', 'QBg4uuH2Nsc45dMr', 'Bh5mbRGB6y54Kz5HMsnaBcPr8LCT4tAz'),
-('Dylan-test02', 'Test project 02', 'TCmMvQSjXCqK4Bgq', 'yBeG8v9PfDVA9Gu2Nk5QLzRSLsFcHCSr'),
-('Test-123123', '123123123', '9c504cdc65339d4b83c72b3d284b2efd', 'fbbbf00c622214079e3d32c074c6e439aabb9e9d68af1431'),
-('test-insert', '05', 'b5a8b049f8f813e9', 'a1cddf700ed52094'),
-('test02', '32', 'e9009acc770a236b3c144241e5dabfa7', '59bdf01458da1ab6c8a141441a3c42f3042fb22d9990b6f1'),
-('testest', '123', '2bc75d59a5d292147f05d5124e64a21b', '9d907a1a1d8078c160905860a01f7216740db83f82dd472f'),
-('yannis', 'yannis project', 'e978044c6416acd2ddf22ab9d8606030', 'b4994ce510962df7d53089dc3121b13e391fcdb912b82fd8');
+('testAppN1', 'testAppDesc1', '2bc75d59a5d292147f05d5124e64a211', '9d907a1a1d8078c160905860a01f7216740db83f82dd4721'),
+('testAppN2', 'testAppDesc2', '2bc75d59a5d292147f05d5124e64a212', '9d907a1a1d8078c160905860a01f7216740db83f82dd4722'),
+('testAppN3', 'testAppDesc3', '2bc75d59a5d292147f05d5124e64a213', '9d907a1a1d8078c160905860a01f7216740db83f82dd4723'),
+('testAppN4', 'testAppDesc4', '2bc75d59a5d292147f05d5124e64a214', '9d907a1a1d8078c160905860a01f7216740db83f82dd4724'),
+('testAppN5', 'testAppDesc5', '2bc75d59a5d292147f05d5124e64a215', '9d907a1a1d8078c160905860a01f7216740db83f82dd4725'),
+('testAppN6', 'testAppDesc6', '2bc75d59a5d292147f05d5124e64a216', '9d907a1a1d8078c160905860a01f7216740db83f82dd4726'),
+('testAppN7', 'testAppDesc7', '2bc75d59a5d292147f05d5124e64a217', '9d907a1a1d8078c160905860a01f7216740db83f82dd4727'),
+('testAppN8', 'testAppDesc8', '2bc75d59a5d292147f05d5124e64a218', '9d907a1a1d8078c160905860a01f7216740db83f82dd4728'),
+('testAppN9', 'testAppDesc9', '2bc75d59a5d292147f05d5124e64a219', '9d907a1a1d8078c160905860a01f7216740db83f82dd4729'),
+('testAppN10', 'testAppDesc10', '2bc75d59a5d292147f05d5124e64a221', '9d907a1a1d8078c160905860a01f7216740db83f82dd4731'),
+('testAppN11', 'testAppDesc11', '2bc75d59a5d292147f05d5124e64a222', '9d907a1a1d8078c160905860a01f7216740db83f82dd4732'),
+('testAppN12', 'testAppDesc12', '2bc75d59a5d292147f05d5124e64a223', '9d907a1a1d8078c160905860a01f7216740db83f82dd4733'),
+('testAppN13', 'testAppDesc13', '2bc75d59a5d292147f05d5124e64a224', '9d907a1a1d8078c160905860a01f7216740db83f82dd4734'),
+('testAppN14', 'testAppDesc14', '2bc75d59a5d292147f05d5124e64a225', '9d907a1a1d8078c160905860a01f7216740db83f82dd4735'),
+('testAppN15', 'testAppDesc15', '2bc75d59a5d292147f05d5124e64a226', '9d907a1a1d8078c160905860a01f7216740db83f82dd4736'),
+('testAppN16', 'testAppDesc16', '2bc75d59a5d292147f05d5124e64a227', '9d907a1a1d8078c160905860a01f7216740db83f82dd4737'),
+('testAppN17', 'testAppDesc17', '2bc75d59a5d292147f05d5124e64a228', '9d907a1a1d8078c160905860a01f7216740db83f82dd4738'),
+('testAppN18', 'testAppDesc18', '2bc75d59a5d292147f05d5124e64a229', '9d907a1a1d8078c160905860a01f7216740db83f82dd4739'),
+('testAppN19', 'testAppDesc19', '2bc75d59a5d292147f05d5124e64a231', '9d907a1a1d8078c160905860a01f7216740db83f82dd4741'),
+('testAppN20', 'testAppDesc20', '2bc75d59a5d292147f05d5124e64a232', '9d907a1a1d8078c160905860a01f7216740db83f82dd4742'),
+('testAppN21', 'testAppDesc21', '2bc75d59a5d292147f05d5124e64a233', '9d907a1a1d8078c160905860a01f7216740db83f82dd4743'),
+('testAppN22', 'testAppDesc22', '2bc75d59a5d292147f05d5124e64a234', '9d907a1a1d8078c160905860a01f7216740db83f82dd4744'),
+('testAppN23', 'testAppDesc23', '2bc75d59a5d292147f05d5124e64a235', '9d907a1a1d8078c160905860a01f7216740db83f82dd4745'),
+('testAppN24', 'testAppDesc24', '2bc75d59a5d292147f05d5124e64a236', '9d907a1a1d8078c160905860a01f7216740db83f82dd4746'),
+('testAppN25', 'testAppDesc25', '2bc75d59a5d292147f05d5124e64a237', '9d907a1a1d8078c160905860a01f7216740db83f82dd4747'),
+('dylan1', 'dylan1', '2bc75d59a5d292147f05d5124e64a332', '9d907a1a1d8078c160905860a01f7216740db83f82dd4888'),
+('yannis1', 'yannis1', '2bc75d59a5d292147f05d5124e64a333', '9d907a1a1d8078c160905860a01f7216740db83f82dd4889');
 
 -- --------------------------------------------------------
 
@@ -57,13 +81,33 @@ CREATE TABLE `t_users_projects` (
 --
 
 INSERT INTO `t_users_projects` (`id`, `email`, `project`) VALUES
-(1, 'jean@me.me', 'Dylan-Test01'),
-(2, 'jean@me.me', 'Dylan-Test02'),
-(3, 'jean@me.me', 'test-insert'),
-(4, 'jean@me.me', 'test02'),
-(5, 'jean@me.me', 'testest'),
-(6, 'jean@me.me', 'Test-123123'),
-(7, 'jean@me.me', 'yannis');
+(1, 'test@test.test', 'testAppN1'),
+(2, 'test@test.test', 'testAppN2'),
+(3, 'test@test.test', 'testAppN3'),
+(4, 'test@test.test', 'testAppN4'),
+(5, 'test@test.test', 'testAppN5'),
+(6, 'test@test.test', 'testAppN6'),
+(7, 'test@test.test', 'testAppN7'),
+(8, 'test@test.test', 'testAppN8'),
+(9, 'test@test.test', 'testAppN9'),
+(10, 'test@test.test', 'testAppN10'),
+(11, 'test@test.test', 'testAppN11'),
+(12, 'test@test.test', 'testAppN12'),
+(13, 'test@test.test', 'testAppN13'),
+(14, 'test@test.test', 'testAppN14'),
+(15, 'test@test.test', 'testAppN15'),
+(16, 'test@test.test', 'testAppN16'),
+(17, 'test@test.test', 'testAppN17'),
+(18, 'test@test.test', 'testAppN18'),
+(19, 'test@test.test', 'testAppN19'),
+(20, 'test@test.test', 'testAppN20'),
+(21, 'test@test.test', 'testAppN21'),
+(22, 'test@test.test', 'testAppN22'),
+(23, 'test@test.test', 'testAppN23'),
+(24, 'test@test.test', 'testAppN24'),
+(25, 'test@test.test', 'testAppN25'),
+(26, 'compte.dylan.hamel@gmail.com', 'dylan1'),
+(27, 'yannis@me.me', 'yannis1');
 
 -- --------------------------------------------------------
 
@@ -90,16 +134,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`, `reset`) VALUES
 ('Dylan', 'Hamel', 'compte.dylan.hamel@gmail.com', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 0, 1, 0),
-('Dylan', 'Hamel', 'd@d.ch', '1122', 'Rue des chats 1', '1233', 'Suisse', 1, 1, 1),
-('Diane', 'Latchoin', 'diane@dfinet.ch', '123123', 'Rue 123123', '1111', 'Suisse', 0, 1, 0),
-('Didier', 'Drogba', 'didier@me.me', 'l6J8sD9P', 'Rue des Alpes 99', '1111', 'Suisse', 0, 1, 0),
-('Dylan', 'Hamel', 'dy@d.ch', '123123', 'Rue des chats 1', '1233', 'Suisse', 1, 1, 1),
-('Dylan', 'Hamel', 'dylan.hamel@heig-vd.ch', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 0, 1, 0),
-('Dylan', 'Hamel', 'dylan.hamel@outlook.com', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 0, 1, 0),
-('Dylan', 'Hamel', 'dylan@me.me', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 1, 0, 0),
-('Jean', 'Dupond', 'jean@me.me', '123123', 'Rue des Ponts 10', '1122', 'France', 0, 1, 0),
 ('Yannis', 'Ansermoz', 'yannis@me.me', '123123', 'Rue du Plaisir 33', '1400', 'Suisse', 1, 1, 0),
-('test', 'test', 'test@test.test', 'test', 'test', 'test', 'test', 0, 1, 0);
+('testFN', 'testLN', 'test@test.test', 'testPWD', 'testAdd', 'testZIP', 'testCountry', 0, 1, 0);
 
 --
 -- Indexes for dumped tables

@@ -14,6 +14,10 @@ SET time_zone = "+00:00";
 -- Database: `AMT-DB`
 --
 
+-- DROP DATABASE `AMT-DB`;
+-- CREATE DATABASE `AMT-DB`;
+-- USE `AMT-DB`;
+
 -- --------------------------------------------------------
 
 --
@@ -56,7 +60,9 @@ INSERT INTO `projects` (`name`, `description`, `api_key`, `api_secret`) VALUES
 ('testAppN22', 'testAppDesc22', '2bc75d59a5d292147f05d5124e64a234', '9d907a1a1d8078c160905860a01f7216740db83f82dd4744'),
 ('testAppN23', 'testAppDesc23', '2bc75d59a5d292147f05d5124e64a235', '9d907a1a1d8078c160905860a01f7216740db83f82dd4745'),
 ('testAppN24', 'testAppDesc24', '2bc75d59a5d292147f05d5124e64a236', '9d907a1a1d8078c160905860a01f7216740db83f82dd4746'),
-('testAppN25', 'testAppDesc25', '2bc75d59a5d292147f05d5124e64a237', '9d907a1a1d8078c160905860a01f7216740db83f82dd4747');
+('testAppN25', 'testAppDesc25', '2bc75d59a5d292147f05d5124e64a237', '9d907a1a1d8078c160905860a01f7216740db83f82dd4747'),
+('dylan1', 'dylan1', '2bc75d59a5d292147f05d5124e64a332', '9d907a1a1d8078c160905860a01f7216740db83f82dd4888'),
+('yannis1', 'yannis1', '2bc75d59a5d292147f05d5124e64a333', '9d907a1a1d8078c160905860a01f7216740db83f82dd4889');
 
 -- --------------------------------------------------------
 
@@ -99,7 +105,9 @@ INSERT INTO `t_users_projects` (`id`, `email`, `project`) VALUES
 (22, 'test@test.test', 'testAppN22'),
 (23, 'test@test.test', 'testAppN23'),
 (24, 'test@test.test', 'testAppN24'),
-(25, 'test@test.test', 'testAppN25');
+(25, 'test@test.test', 'testAppN25'),
+(26, 'compte.dylan.hamel@gmail.com', 'dylan1'),
+(27, 'yannis@me.me', 'yannis1');
 
 -- --------------------------------------------------------
 
