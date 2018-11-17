@@ -2,6 +2,7 @@ package Servlets;
 
 import Database.UserInterface;
 import Utils.SendEmail;
+import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
@@ -12,6 +13,9 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
 
     @EJB(beanName ="UserDAO")
     UserInterface userDao;
+
+    @EJB(beanName ="SendEmail")
+    SendEmailInterface se;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -137,7 +141,7 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
 
                 String title = "[AMT-Project-2018] - New Account";
 
-                SendEmail se = new SendEmail(email, title, message);
+                se.sendEmail(email, title, message);
 
                 response.sendRedirect("login");
             }

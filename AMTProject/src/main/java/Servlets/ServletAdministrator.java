@@ -15,6 +15,8 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
     @EJB(beanName ="UserDAO")
     UserInterface userDao;
 
+    @EJB(beanName ="SendEmail")
+    SendEmailInterface se;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -48,36 +50,32 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
         String email = request.getParameter("email");
         System.out.println("[ServletAdministrator - submited user - " + email);
         String ckEnable = request.getParameter("ckEnable");
-        System.out.println("[ServletAdministrator - submited user - " + ckEnable);
+        System.out.println("[ServletAdministrator - enable user - " + ckEnable);
         String ckDelete = request.getParameter("ckDelete");
-        System.out.println("[ServletAdministrator - submited user - " + ckDelete);
+        System.out.println("[ServletAdministrator - delete user - " + ckDelete);
         String ckResetPW = request.getParameter("ckResetPW");
-        System.out.println("[ServletAdministrator - submited user - " + ckResetPW);
+        System.out.println("[ServletAdministrator - resetPW user - " + ckResetPW);
 
         String errorMessage = "";
 
         // Delete
-
-
         if (ckDelete != null){
             System.out.println("[ServletAdministrator - doPost] ckDelete - " + email);
+            User user = userDao.getUserWithID(email);
             boolean deleteSQL = userDao.deleteUser(email);
             if(!deleteSQL) {
                 errorMessage += "Account has been not deleted \n";
             }else {
-                User user = userDao.getUserWithID(email);
-
                 // send confirmation Email
                 String message = "Hi " + user.getFirstname() + " " + user.getLastname() + " ,\n " +
                         "Your account has been deleted.\n\n" +
                         "Have a nice day. \n";
                 System.out.println(message);
                 String title = "[AMT-Project-2018] - deleted account";
-                SendEmail se = new SendEmail(email, title, message);
+                se.sendEmail(email, title, message);
                 response.sendRedirect("administrator");
             }
         }else{
-
             // Reset Password
             if (ckResetPW != null) {
                 System.out.println("[ServletAdministrator - doPost] ckResetPW - " + email);
@@ -108,7 +106,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                         "Have a nice and sunny day \n";
                 System.out.println(message);
                 String title = "[AMT-Project-2018] - Password Reset";
-                SendEmail se = new SendEmail(email, title, message);
+                se.sendEmail(email, title, message);
                 response.sendRedirect("administrator");
 
             }else{
@@ -126,7 +124,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                                 "Have a nice day. \n";
                         System.out.println(message);
                         String title = "[AMT-Project-2018] - enabled account";
-                        SendEmail se = new SendEmail(email, title, message);
+                        se.sendEmail(email, title, message);
                         response.sendRedirect("administrator");
                     }
                 } else {
@@ -140,13 +138,11 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                                 "Have a nice day. \n";
                         System.out.println(message);
                         String title = "[AMT-Project-2018] - disabled account";
-                        SendEmail se = new SendEmail(email, title, message);
+                        se.sendEmail(email, title, message);
                         response.sendRedirect("administrator");
                     }
                 }
             }
-
-
 
         }
 

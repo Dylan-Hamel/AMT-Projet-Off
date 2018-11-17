@@ -17,7 +17,7 @@ public class LoginPage extends AbstractFluentPage {
     }
 
     public void typeEmailAddress(String email) {
-        await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
+        // await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
         // await().atMost(2, TimeUnit.SECONDS).until($(inputEmail)).displayed();
         $(inputEmail).fill().with(email);
 
@@ -39,7 +39,7 @@ public class LoginPage extends AbstractFluentPage {
     }
 
     public String getErrorMsg(){
-        return $("error-msg").get(0).text();
+        return el(".error-msg").html().trim();
         //return $("error-msg").get(0).value();
     }
 

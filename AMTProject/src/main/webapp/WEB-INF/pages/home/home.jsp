@@ -112,7 +112,7 @@
                                 <div class="input-group">
                                     <label class="label">Firstname</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="firstname" value="<c:out value="${user.firstname}"/>">
+                                        <input class="input--style-4" type="text" id="firstname" name="firstname" value="<c:out value="${user.firstname}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 <div class="input-group">
                                     <label class="label">Lastname</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="lastname" value="<c:out value="${user.lastname}"/>">
+                                        <input class="input--style-4" type="text" id="lastname" name="lastname" value="<c:out value="${user.lastname}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                 <div class="input-group">
                                     <label class="label">Email</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="email" name="email" disabled="disabled" value="<c:out value="${user.email}"/>">
+                                        <input class="input--style-4" type="email" id="email" name="email" disabled="disabled" value="<c:out value="${user.email}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -147,13 +147,13 @@
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Address</label>
-                                    <input class="input--style-4" type="text" name="address" value="<c:out value="${user.address}"/>">
+                                    <input class="input--style-4" type="text" id="address" name="address" value="<c:out value="${user.address}"/>">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Zip</label>
-                                    <input class="input--style-4" type="text" name="zip" value="<c:out value="${user.zip}"/>">
+                                    <input class="input--style-4" type="text" id="zip" name="zip" value="<c:out value="${user.zip}"/>">
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Country</label>
-                                    <input class="input--style-4" type="text" name="country" value="<c:out value="${user.country}"/>">
+                                    <input class="input--style-4" type="text" id="country" name="country" value="<c:out value="${user.country}"/>">
                                 </div>
                             </div>
                         </div>

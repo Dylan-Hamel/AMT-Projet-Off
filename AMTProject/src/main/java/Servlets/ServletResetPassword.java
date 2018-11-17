@@ -3,6 +3,7 @@ package Servlets;
 import Database.UserInterface;
 import Utils.GenratePassword;
 import Utils.SendEmail;
+import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
@@ -15,6 +16,9 @@ public class ServletResetPassword extends javax.servlet.http.HttpServlet {
 
     @EJB(beanName ="UserDAO")
     UserInterface userDao;
+
+    @EJB(beanName ="SendEmail")
+    SendEmailInterface se;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -62,7 +66,7 @@ public class ServletResetPassword extends javax.servlet.http.HttpServlet {
                             "This password must be changed at the next login";
                     String title = "[AMT-Project-2018] - New Password";
 
-                    SendEmail se = new SendEmail(email, title, message);
+                    se.sendEmail(email, title, message);
 
                     // Set Reset in DB to 0
                     userDao.setUserResetTo1(email);

@@ -32,9 +32,13 @@ The report should describe and document a concrete example (with screenshots).
      */
 
     private final String baseUrl = "http://192.168.99.100:9090/AMT-Projet";
+
+    private final String existingUserEmail = "test@test.test";
+    private final String existingUserPWD = "testPWD";
+
     private final String newUserFirstName = "testFN";
     private final String newUserLastName = "testLN";
-    private final String newUserEmail = "test@test.test";
+    private final String newUserEmail = "test2@test.test";
     private final String newUserAddress = "testAdd";
     private final String newUserZip = "testZIP";
     private final String newUserCountry = "testCountry";
@@ -91,7 +95,7 @@ The report should describe and document a concrete example (with screenshots).
     @Test
     public void itShouldBePossibleToCreateANewUser() {
         // first remove existing user
-        // userDao.deleteUser(newUserEmail);
+        //userDao.deleteUser(newUserEmail);
 
         //goTo(baseUrl + registerPage);
         registerPage.go();
@@ -110,7 +114,7 @@ The report should describe and document a concrete example (with screenshots).
         loginPage.isAt(); // we should be redirected toward the login target after register
         loginPage.fillAndSignIn(newUserEmail, newUserPWD);
         homePage.isAt();
-        homePage.checkLoggedInUserInfos(newUserFirstName, newUserLastName, newUserEmail, newUserPWD, newUserAddress, newUserZip, newUserCountry);
+        homePage.checkLoggedInUserInfos(newUserFirstName, newUserLastName, newUserEmail, newUserAddress, newUserZip, newUserCountry);
     }
 
 
@@ -125,7 +129,7 @@ The report should describe and document a concrete example (with screenshots).
         //loginPage.typePassword("123123");
         //loginPage.clickSignin();
 
-        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        loginPage.fillAndSignIn(existingUserEmail, existingUserPWD);
         homePage.isAt();
     }
 
@@ -133,7 +137,7 @@ The report should describe and document a concrete example (with screenshots).
     @Test
     public void itShouldBePossibleToCreateANewAppAfterSignin() {
         //goTo(baseUrl + projectPage);
-        projectPage.go();
+        //projectPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         /*
         loginPage.typeEmailAddress(newUserEmail);
@@ -161,7 +165,7 @@ The report should describe and document a concrete example (with screenshots).
     @Test
     public void itShouldBePossibleToGetProjectsListAfterSignIn() {
         //goTo(baseUrl + projectPage);
-        projectPage.go();
+        //projectPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         /*
         loginPage.typeEmailAddress(newUserEmail);

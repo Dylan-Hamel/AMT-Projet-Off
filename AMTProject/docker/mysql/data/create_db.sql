@@ -125,7 +125,7 @@ CREATE TABLE `users` (
   `country` varchar(255) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `enable` tinyint(1) NOT NULL,
-  `reset` tinyint(1) NOT NULL
+  `reset` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -135,7 +135,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`, `reset`) VALUES
 ('Dylan', 'Hamel', 'compte.dylan.hamel@gmail.com', '123123', 'Rue de Savoie 3B', '1196', 'Suisse', 0, 1, 0),
 ('Yannis', 'Ansermoz', 'yannis@me.me', '123123', 'Rue du Plaisir 33', '1400', 'Suisse', 1, 1, 0),
-('testFN', 'testLN', 'test@test.test', 'testPWD', 'testAdd', 'testZIP', 'testCountry', 0, 1, 0);
+('testFN', 'testLN', 'test@test.test', 'testPWD', 'testAdd', 'testZIP', 'testCountry', 0, 1, 0),
+('backup', 'backup', 'backup@backup.backup', 'backup', 'backup', 'backup', 'backup', 0, 0, 0);
 
 --
 -- Indexes for dumped tables

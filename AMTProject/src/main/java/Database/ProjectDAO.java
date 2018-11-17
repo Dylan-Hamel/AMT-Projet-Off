@@ -18,7 +18,7 @@ public class ProjectDAO implements ProjectInterface {
 
     private final static String TABLE_NAME_JOIN = "t_users_projects";
     private final static String TABLE_NAME = "projects";
-    private final static String EMAIL_ASSIGN = "test@test.test";
+    private final static String EMAIL_ASSIGN = "backup@backup.backup";
 
 
     @Resource(lookup = "java:/jdbc/amtProject")
@@ -245,15 +245,9 @@ public class ProjectDAO implements ProjectInterface {
                             "' WHERE email = ?;");
             ps.setString(1, email);
 
-            /*
-            // Check SQL Execution
-            if (ps.executeUpdate() == 0) {
-                ps.close();
-                throw new SQLException("Reassign failed");
-            }
-            */
-            ps.close();
+            // throw new RuntimeException("Reassign failed - rollback test");
 
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok = false;

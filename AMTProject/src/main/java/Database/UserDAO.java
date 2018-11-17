@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.EJB;
+import javax.ejb.TransactionAttributeType;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -89,8 +90,8 @@ public class UserDAO implements UserInterface {
         try {
             PreparedStatement ps = database.getConnection().prepareStatement(
                     "INSERT INTO " + TABLE_NAME +
-                            "(`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`)" +
-                            " VALUES  (? , ? , ?, ?, ?, ?, ?, '0', '1');");
+                            "(`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`, `reset`)" +
+                            " VALUES  (? , ? , ?, ?, ?, ?, ?, '0', '1', '0');");
             ps.setString(1, firstname);
             ps.setString(2, lastname);
             ps.setString(3, email);
@@ -348,7 +349,7 @@ public class UserDAO implements UserInterface {
     /*
      *
      */
-    // @TransactionAttribute(REQUIRES_NEW)
+    //@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public boolean deleteUser (String email) {
         boolean ok = false;
         try {

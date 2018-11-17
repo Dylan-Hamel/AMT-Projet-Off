@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class HomePage extends AbstractFluentPage {
 
-    String[] homePageFields = {"#firstname", "#lastname", "#email", "#pwd", "#address", "#zip", "#country"};
+    String[] homePageFields = {"#firstname", "#lastname", "#email", "#address", "#zip", "#country"};
 
     @Override
     public void isAt() {
