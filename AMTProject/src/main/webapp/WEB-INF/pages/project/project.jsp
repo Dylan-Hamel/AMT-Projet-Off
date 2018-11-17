@@ -57,7 +57,7 @@
         </div>
 
 
-        <table class="table">
+        <table class="table" id="dataTable">
             <thead class="thead-light">
             <tr>
                 <th scope="col">Name</th>
@@ -93,10 +93,10 @@
         </select>
         Page ${pageNum} : ${numFirst}-${numLast} / ${nbProjects}
         <c:if test="${numFirst > 1}">
-            <button onclick="changePage(${pageNum - 2})">Page précédente</button>
+            <button id="dataTablePrevious" onclick="changePage(${pageNum - 2})">Page précédente</button>
         </c:if>
         <c:if test="${nbProjects > numLast}">
-            <button onclick="changePage(${pageNum})">Page suivante</button>
+            <button id="dataTableNext" onclick="changePage(${pageNum})">Page suivante</button>
         </c:if>
     </div>
 </div>

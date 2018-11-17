@@ -4,6 +4,8 @@ import Model.User;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.EJB;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,8 +14,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import static javax.ejb.TransactionAttributeType.REQUIRES_NEW;
+
 @Stateless
 public class UserDAO implements UserInterface {
+
+    @EJB(beanName ="ProjectDAO")
+    ProjectInterface projectDAO;
 
     private final static String TABLE_NAME = "users";
 
@@ -341,12 +348,20 @@ public class UserDAO implements UserInterface {
     /*
      *
      */
+    // @TransactionAttribute(REQUIRES_NEW)
     public boolean deletUser (String email) {
         boolean ok = false;
         try {
             PreparedStatement ps = database.getConnection().prepareStatement
                     ("DELETE FROM " + TABLE_NAME + " WHERE email = ?;");
             ps.setString(1, email);
+
+            /*
+                manque appel à réasignation de projet
+            */
+            projectDAO.reassignProjectOfUser(email);
+
+
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();

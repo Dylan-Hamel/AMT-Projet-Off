@@ -10,9 +10,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ProjectPage extends AbstractFluentPage {
 
     private final static String buttonAddApp = "#bAddApp"; // id in the html code
-    private final static String nbOfRow = "#nbOfRow";
+    private final static String nbOfRow = "#nbProjects";
     private final static String dataTable = "#dataTable";
     private final static String nextPage = "#dataTableNext";
+    private final static String previousPage = "#dataTablePrevious";
 
     //FluentWebElement dataTable = find("table");
 
@@ -31,6 +32,13 @@ public class ProjectPage extends AbstractFluentPage {
         await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
         await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
         $(nextPage).click();
+        await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
+    }
+
+    public void clickOnPreviousPage() {
+        await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
+        await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
+        $(previousPage).click();
         await().atMost(2, TimeUnit.SECONDS).until($(dataTable)).displayed();
     }
 

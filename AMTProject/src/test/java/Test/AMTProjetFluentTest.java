@@ -32,16 +32,16 @@ The report should describe and document a concrete example (with screenshots).
      */
 
     private final String baseUrl = "http://192.168.99.100:9090/AMT-Projet";
-    private final String newUserFirstName = "test";
-    private final String newUserLastName = "test";
+    private final String newUserFirstName = "testFN";
+    private final String newUserLastName = "testLN";
     private final String newUserEmail = "test@test.test";
-    private final String newUserAddress = "test";
-    private final String newUserZip = "test";
-    private final String newUserCountry = "test";
-    private final String newUserPWD = "test";
+    private final String newUserAddress = "testAdd";
+    private final String newUserZip = "testZIP";
+    private final String newUserCountry = "testCountry";
+    private final String newUserPWD = "testPWD";
 
-    private final String newAppName = "test";
-    private final String newAppDescription = "test";
+    private final String newAppName = "testAppN";
+    private final String newAppDescription = "testAppDesc";
 
     private final String loginErrorMsg = "Error in EMAIL/PASSWORD";
     private final String accountDisabledMsg = "Account Disabled";

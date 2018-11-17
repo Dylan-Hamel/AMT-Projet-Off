@@ -5,6 +5,8 @@ import Model.Project;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.EJB;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +18,7 @@ public class ProjectDAO implements ProjectInterface {
 
     private final static String TABLE_NAME_JOIN = "t_users_projects";
     private final static String TABLE_NAME = "projects";
+    private final static String EMAIL_ASSIGN = "test";
 
 
     @Resource(lookup = "java:/jdbc/amtProject")
@@ -176,7 +179,7 @@ public class ProjectDAO implements ProjectInterface {
 
      */
     @Override
-    public Boolean checkIfProjectExist(String name) {
+    public boolean checkIfProjectExist(String name) {
         boolean ok = false;
 
         try {
@@ -228,6 +231,32 @@ public class ProjectDAO implements ProjectInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return ok;
+    }
+
+    @Override
+    public boolean reassignProjectOfUser(String email){
+        boolean ok = true;
+
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement(
+                    "UPDATE " + TABLE_NAME_JOIN +
+                            " SET email = " + EMAIL_ASSIGN +
+                            " WHERE email = ?;");
+            ps.setString(1, email);
+
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Update failed");
+            }
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        System.out.println("[ProjectDAO - reassignProjectOfUser] return - " + ok);
         return ok;
     }
 

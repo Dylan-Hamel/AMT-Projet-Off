@@ -35,13 +35,18 @@ public interface ProjectInterface {
     /*
 
      */
-    Boolean checkIfProjectExist(String name);
+    boolean checkIfProjectExist(String name);
 
     /*
      * This function will delete a project from t_user_project table and projects table
      * t_user_project is a table which join users and projects
      */
     boolean deleteProjectFromJoinTableAndProject(String name);
+
+    /*
+
+     */
+    boolean reassignProjectOfUser(String email);
 
     /*
 
