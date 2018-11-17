@@ -26,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/AMT-Projet/home">Home </a>
+                    <a class="nav-link" id="home" href="/AMT-Projet/home">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/AMT-Projet/project">Projects<span class="sr-only">(current)</span></a>
+                    <a class="nav-link disabled" id="project" href="/AMT-Projet/project">Projects<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User</a>
+                    <a class="nav-link disabled" id="administrator" href="/AMT-Projet/administrator">Manage User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/AMT-Projet/logout">Logout</a>
+                    <a class="nav-link disabled" id="logout" href="/AMT-Projet/logout">Logout</a>
                 </li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
             <br>
             <form method="get" action="/AMT-Projet/projectadd">
                 <div class="text-center">
-                    <button  class="btn btn-primary" data-toggle="modal" data-target="#appModal" type="submit">Create a new project</button>
+                    <button id="bAddApp" class="btn btn-primary" data-toggle="modal" data-target="#appModal" type="submit">Create a new project</button>
                 </div>
             </form>
             <br>

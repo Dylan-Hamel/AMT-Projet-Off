@@ -23,6 +23,7 @@ public abstract class AbstractFluentPage extends FluentPage {
      * http://www.seleniumhq.org/docs/03_webdriver.jsp#selenium-webdriver-api-commands-and-operations
      */
     private final static String menuExamples = "#menu"; // this is the HTML id of the menu
+    private final static String menuItemHome = "#home"; // this is the HTML id of the menu
     private final static String menuItemProject = "#project";
     private final static String menuItemAdministrator = "#administrator";
     private final static String menuItemLogout = "#logout";
@@ -38,18 +39,23 @@ public abstract class AbstractFluentPage extends FluentPage {
      * easier to read and more robust (if an HTML ID changes, you only need to
      * change the Page and not all the tests that use it).
      */
+    public void goToHomePageViaMenu() {
+        //$(menuExamples).click();
+        $(menuItemHome).click();
+    }
+
     public void goToProjectPageViaMenu() {
-        $(menuExamples).click();
+        //$(menuExamples).click();
         $(menuItemProject).click();
     }
 
     public void goToAdministratorPageViaMenu() {
-        $(menuExamples).click();
+        //$(menuExamples).click();
         $(menuItemAdministrator).click();
     }
 
     public void goToLogoutPageViaMenu() {
-        $(menuExamples).click();
+        //$(menuExamples).click();
         $(menuItemLogout).click();
     }
 
