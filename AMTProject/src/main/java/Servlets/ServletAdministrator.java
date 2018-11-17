@@ -45,69 +45,112 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
 
         System.out.println("[ServletAdministrator - doPost]");
 
+        String email = request.getParameter("email");
+        System.out.println("[ServletAdministrator - submited user - " + email);
         String ckEnable = request.getParameter("ckEnable");
+        System.out.println("[ServletAdministrator - submited user - " + ckEnable);
         String ckDelete = request.getParameter("ckDelete");
+        System.out.println("[ServletAdministrator - submited user - " + ckDelete);
         String ckResetPW = request.getParameter("ckResetPW");
+        System.out.println("[ServletAdministrator - submited user - " + ckResetPW);
 
         String errorMessage = "";
 
-        System.out.println("[ServletHome - doPost] ckEnable - " + ckEnable);
-        System.out.println("[ServletHome - doPost] ckDelete - " + ckDelete);
-        System.out.println("[ServletHome - doPost] ckResetPW - " + ckResetPW);
-
-        // Enable
-        if (ckEnable != null){
-            System.out.println("[ServletHome - doPost] email - " + ckEnable);
-            boolean enableSQL = userDao.enableUser(ckEnable);
-            System.out.println("[ServletHome - doPost] enableSQL - " + enableSQL);
-            if (!enableSQL) {
-                errorMessage += "Account has been not enabled \n";
-            }
-        } else {
-            if (userDao.disableUser(ckEnable)) {
-                errorMessage += "Account has been not disabled \n";
-            }
-        }
-
         // Delete
+
+
         if (ckDelete != null){
-            boolean deleteSQL = userDao.deletUser(ckDelete);
-            System.out.println("[ServletHome - doPost] deleteSQL - " + deleteSQL);
+            System.out.println("[ServletAdministrator - doPost] ckDelete - " + email);
+            boolean deleteSQL = userDao.deletUser(email);
             if(!deleteSQL) {
                 errorMessage += "Account has been not deleted \n";
-            }
-        }
-
-        // Reset Password
-        if (ckResetPW != null) {
-            // Generate new password
-            GenratePassword passwordGenerator = new GenratePassword.PasswordGeneratorBuilder()
-                    .useDigits(true)
-                    .useLower(true)
-                    .useUpper(true)
-                    .build();
-            String password = passwordGenerator.generate(8);
-
-            boolean updateSQL = userDao.updateUserPassword(ckResetPW, password);
-            System.out.println("[ServletHome - doPost] updateSQL - " + updateSQL);
-            if(!updateSQL) {
-                errorMessage += "Password has not been rested \n";
-            } else {
-
-                User user = userDao.getUserWithID(ckResetPW);
+            }else {
+                User user = userDao.getUserWithID(email);
 
                 // send confirmation Email
                 String message = "Hi " + user.getFirstname() + " " + user.getLastname() + " ,\n " +
+                        "Your account has been deleted.\n\n" +
+                        "Have a nice day. \n";
+                System.out.println(message);
+                String title = "[AMT-Project-2018] - deleted account";
+                SendEmail se = new SendEmail(email, title, message);
+                response.sendRedirect("administrator");
+            }
+        }else{
+
+            // Reset Password
+            if (ckResetPW != null) {
+                System.out.println("[ServletAdministrator - doPost] ckResetPW - " + email);
+                // Generate new password
+                GenratePassword passwordGenerator = new GenratePassword.PasswordGeneratorBuilder()
+                        .useDigits(true)
+                        .useLower(true)
+                        .useUpper(true)
+                        .build();
+                String password = passwordGenerator.generate(8);
+
+                boolean updateSQL = userDao.updateUserPassword(email, password);
+                boolean enableSQL = userDao.enableUser(email);
+                System.out.println("[ServletAdministrator - doPost] updateSQL - " + email);
+                if(!updateSQL) {
+                    errorMessage += "Password has not been rested \n";
+                } else if (!enableSQL){
+                    errorMessage += "User has not beenn enabled \n";
+                }
+
+                User user = userDao.getUserWithID(email);
+
+                // send confirmation Email
+                String message = "Hi " + user.getFirstname() + " " + user.getLastname() + " ,\n" +
                         "Your Password account has been reset. \n" +
                         "Here is your new password : \n" +
                         "Password  : " + user.getPassword() + "\n\n" +
                         "Have a nice and sunny day \n";
                 System.out.println(message);
                 String title = "[AMT-Project-2018] - Password Reset";
-                SendEmail se = new SendEmail(ckResetPW, title, message);
-                response.sendRedirect("login");
+                SendEmail se = new SendEmail(email, title, message);
+                response.sendRedirect("administrator");
+
+            }else{
+                //Enable User
+                User user = userDao.getUserWithID(email);
+                System.out.println("[ServletAdministrator - doPost] ckEnable - " + email);
+                if (ckEnable != null){
+                    boolean enableSQL = userDao.enableUser(email);
+                    if (!enableSQL) {
+                        errorMessage += "Account has been not enabled \n";
+                    } else {
+                        // send confirmation Email
+                        String message = "Hi " + user.getFirstname() + " " + user.getLastname() + " ,\n " +
+                                "Your account has been enabled.\n\n" +
+                                "Have a nice day. \n";
+                        System.out.println(message);
+                        String title = "[AMT-Project-2018] - enabled account";
+                        SendEmail se = new SendEmail(email, title, message);
+                        response.sendRedirect("administrator");
+                    }
+                } else {
+                    boolean enableSQL = userDao.disableUser(email);
+                    if (!enableSQL) {
+                        errorMessage += "Account has been not disabled \n";
+                    } else {
+                        // send confirmation Email
+                        String message = "Hi " + user.getFirstname() + " " + user.getLastname() + " ,\n " +
+                                "Your account has been disabled.\n\n" +
+                                "Have a nice day. \n";
+                        System.out.println(message);
+                        String title = "[AMT-Project-2018] - disabled account";
+                        SendEmail se = new SendEmail(email, title, message);
+                        response.sendRedirect("administrator");
+                    }
+                }
             }
+
+
+
         }
+
+
         response.sendRedirect("administrator");
     }
 }
