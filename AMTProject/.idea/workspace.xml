@@ -8,25 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e3bd6ba4-c9bd-47b4-8bce-72b43fd016a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Database/ProjectInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/ProjectInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/SendEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/SendEmailInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/SendEmailInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Database/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Database/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletAdministrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletAdministrator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletResetPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletResetPassword.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletSetNewPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Servlets/ServletSetNewPassword.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Utils/SendEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Utils/SendEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Utils/SendEmailInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/classes/Utils/SendEmailInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Database/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/pages/administrator/administrator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/AMT-Projet/WEB-INF/pages/administrator/administrator.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletAdministrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletAdministrator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletResetPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletResetPassword.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/ServletSetNewPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/ServletSetNewPassword.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/SendEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/SendEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/SendEmailInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/SendEmailInterface.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,14 +26,14 @@
     <session id="1702680070">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,9 +43,9 @@
           <entry key="css" value="4" />
           <entry key="html" value="3" />
           <entry key="iml" value="1" />
-          <entry key="java" value="200" />
+          <entry key="java" value="208" />
           <entry key="js" value="1" />
-          <entry key="jsp" value="26" />
+          <entry key="jsp" value="27" />
           <entry key="txt" value="1" />
           <entry key="xhtml" value="1" />
           <entry key="xml" value="10" />
@@ -71,8 +57,8 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="3" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="200" />
-          <entry key="JSP" value="26" />
+          <entry key="JAVA" value="208" />
+          <entry key="JSP" value="27" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="XHTML" value="1" />
@@ -85,7 +71,7 @@
           <entry key="css" value="7" />
           <entry key="dummy" value="3" />
           <entry key="html" value="39" />
-          <entry key="java" value="14321" />
+          <entry key="java" value="14430" />
           <entry key="jsp" value="1028" />
           <entry key="xhtml" value="6" />
           <entry key="xml" value="335" />
@@ -95,7 +81,7 @@
         <counts>
           <entry key="CSS" value="7" />
           <entry key="HTML" value="39" />
-          <entry key="JAVA" value="14318" />
+          <entry key="JAVA" value="14427" />
           <entry key="JSP" value="1028" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="SQL" value="3" />
@@ -152,84 +138,12 @@
     <favorites_list name="AMTProject" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-245">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/SendEmail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-538">
-              <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="184" column="27" selection-start-line="184" selection-start-column="27" selection-end-line="184" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="60">
+              <caret line="166" column="29" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -240,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1934">
-              <caret line="194" column="9" lean-forward="true" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+            <state relative-caret-position="615">
+              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -250,10 +164,61 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/SendEmailInterface.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="360">
+              <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="100" column="67" selection-start-line="100" selection-start-column="67" selection-end-line="100" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="38" column="29" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2040">
+              <caret line="145" column="16" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="37">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -295,8 +260,9 @@
       <find>col-2</find>
       <find>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&quot; integrity=&quot;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&quot; crossorigin=&quot;anonymous&quot;&gt;</find>
       <find>update</find>
-      <find>current</find>
       <find>getUserW</find>
+      <find>current</find>
+      <find>getUserWithID</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -336,13 +302,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home/home.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletProjectAdd.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletProjectEdit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/SendEmailInterface.java" />
@@ -350,6 +313,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Database/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/SendEmail.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" />
       </list>
     </option>
   </component>
@@ -444,58 +410,7 @@
               <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Servlets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AMTProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AMTProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -507,7 +422,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542047956228" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542047956248" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../RES/HEIGVD-RES-FEE-2018-Labo-00/Lab00App-build" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -631,12 +546,15 @@
       <workItem from="1541341575922" duration="437000" />
       <workItem from="1541419246868" duration="763000" />
       <workItem from="1541425249216" duration="7385000" />
-      <workItem from="1542032739892" duration="10539000" />
+      <workItem from="1542032739892" duration="10631000" />
+      <workItem from="1542065875233" duration="358000" />
+      <workItem from="1542384518737" duration="430000" />
+      <workItem from="1542453371268" duration="1700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101910000" />
+    <option name="totallyTimeSpent" value="104490000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,7 +570,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Web" order="0" sideWeight="0.50127226" side_tool="true" weight="0.23390558" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49872774" visible="true" weight="0.24606581" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49872774" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -664,7 +582,7 @@
       <window_info anchor="bottom" id="Application Servers" order="2" weight="0.32951653" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32951653" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.611588" visible="true" weight="0.1475827" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.611588" visible="true" weight="0.17430025" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -883,14 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
           <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding>
-            <element signature="e#1160#1161#0" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-            <element signature="e#2373#2374#0" expanded="true" />
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#3116#3117#0" expanded="true" />
-            <element signature="e#3147#3148#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -898,13 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="34" column="132" selection-start-line="34" selection-start-column="132" selection-end-line="34" selection-end-column="132" />
         </state>
       </provider>
     </entry>
@@ -922,16 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -946,98 +839,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProjectEdit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="281">
+          <caret line="64" column="87" selection-start-line="62" selection-start-column="11" selection-end-line="64" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        <state relative-caret-position="373">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProjectEdit.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="64" column="87" selection-start-line="62" selection-start-column="11" selection-end-line="64" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-245">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state relative-caret-position="361">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/project/project.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-538">
+        <state relative-caret-position="-501">
           <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1934">
-          <caret line="194" column="9" lean-forward="true" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="184" column="27" selection-start-line="184" selection-start-column="27" selection-end-line="184" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/SendEmailInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1048,20 +874,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
           <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/SendEmailInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletResetPassword.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="360">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="145" column="16" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/administrator/administrator.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Database/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="166" column="29" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="100" column="67" selection-start-line="100" selection-start-column="67" selection-end-line="100" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -26,13 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/AMT-Projet/home">Home</a>
+                    <a class="nav-link" href="/AMT-Projet/home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/AMT-Projet/project">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User <span class="sr-only">(current)</span></a>
+                    <a class="nav-link disabled" href="/AMT-Projet/administrator">Manage User</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/AMT-Projet/logout">Logout</a>
@@ -55,28 +55,28 @@
             <thead class="thead-light">
             <tr>
                 <th scope="col">email</th>
-				<th scope="col">Status</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
-				<th scope="col">Reset Password</th>
+                <th scope="col">Reset Password</th>
             </tr>
             </thead>
             <tbody>
-                <c:forEach items="${_users}" var="u">
-                    <tr>
-                        <form method="POST" action="/AMT-Projet/administrator">
-                            <th>${u.email}</th>
-                            <td width="30%"><input type="checkbox" name="ckEnable" value="${u.email}" ${u.enable == true ? 'checked' : ''}> isEnable</td>
-                            <td width="20%" class="text-center">
-                                <input type="checkbox" name="ckResetPW" value="${u.email}" > Reset Password
-								</br>
-                                <input type="checkbox" name="ckDelete" value="${u.email}" > Delete
-                            </td>
-                            <td width="20%" class="text-center">
-                                <button class="btn btn--radius-2 btn--blue" type="submit">Submit changes</button>
-                            </td>
-                        </form>
-                    </tr>
-                </c:forEach>
+            <c:forEach items="${_users}" var="u">
+                <tr>
+                    <form method="POST" action="/AMT-Projet/administrator">
+                        <th>${u.email}</th>
+                        <td width="30%"><input type="hidden" name="email" value="${u.email}" ><input type="checkbox" name="ckEnable" value="ckEnable" ${u.enable == true ? 'checked' : ''}> isEnable</td>
+                        <td width="20%" class="text-center">
+                            <input ${u.reset == true ? 'type="hidden"' : 'type="checkbox"'} name="ckResetPW" value="ckResetPW" > Reset Password
+                            </br>
+                            <input type="checkbox" name="ckDelete" value="ckDelete" > Delete
+                        </td>
+                        <td width="20%" class="text-center">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit changes</button>
+                        </td>
+                    </form>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
