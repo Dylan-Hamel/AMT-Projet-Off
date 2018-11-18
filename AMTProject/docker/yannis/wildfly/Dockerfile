@@ -42,21 +42,13 @@ RUN echo "=> Starting WildFly server" && \
     echo "=> Shutting down WildFly and Cleaning up" && \
       $JBOSS_CLI --connect --command=":shutdown" && \
       rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/ $JBOSS_HOME/standalone/log/* && \
-      rm -f /tmp/*.jar \
-	echo "=> Creating a new datasource" && \
-      $JBOSS_CLI --connect --command="
-
-	  
-/subsystem=mail/mail-session="java:/smtp-server":add(jndi-name="java:/smtp-server", from="noreply@acme.com")
-
-/subsystem=mail/mail-session="java:/smtp-server"/server=smtp:add(outbound-socket-binding-ref=mail-smtp,password=somepass,ssl=true,username=user@example.com)
-
-/subsystem=mail/mail-session="java:/smtp-server"/server=smtp:write-attribute(name=outbound-socket-binding-ref, value=acme-smtp)
-
-/subsystem=mail/mail-session="java:/smtp-server"/mail/Gmail
-
-/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp/:write-attribute(name=host,value=smtp.gmail.com)
-/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp/:write-attribute(name=port,value=465)
+      rm -f /tmp/*.jar && \
+	echo "=> Creating a new smtp server" && \
+      $JBOSS_CLI --connect --command="/subsystem=mail/mail-session="java:/smtp-server":add(jndi-name="java:/smtp-server", from="noreply@acme.com")" && \
+	  $JBOSS_CLI --connect --command="/subsystem=mail/mail-session="java:/smtp-server"/server=smtp:add(outbound-socket-binding-ref=mail-smtp,password=somepass,ssl=true,username=user@example.com)" && \
+	  $JBOSS_CLI --connect --command="/subsystem=mail/mail-session="java:/smtp-server"/server=smtp:write-attribute(name=outbound-socket-binding-ref, value=acme-smtp)" && \
+	  $JBOSS_CLI --connect --command="/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp/:write-attribute(name=host,value=smtp.gmail.com)" && \
+	  $JBOSS_CLI --connect --command="/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp/:write-attribute(name=port,value=465)"
 
 
 
