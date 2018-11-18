@@ -13,6 +13,16 @@ public interface ProjectInterface {
     ArrayList<Project> getAllProjectByUser(String user);
 
     /*
+     *
+     */
+    ArrayList<Project> getProjectByUser(String user, int nbOfRecords, int beginRecord);
+
+    /*
+     *
+     */
+    int countProjectByUser(String user);
+
+    /*
      * Insert into Projects table
      */
     boolean insertProjet(String name, String description, String api_key, String api_secret);
@@ -25,7 +35,7 @@ public interface ProjectInterface {
     /*
 
      */
-    Boolean checkIfProjectExist(String name);
+    boolean checkIfProjectExist(String name);
 
     /*
      * This function will delete a project from t_user_project table and projects table
@@ -36,10 +46,20 @@ public interface ProjectInterface {
     /*
 
      */
+    boolean reassignProjectOfUser(String email);
+
+    /*
+
+     */
     ArrayList<String> getAllAPIKey();
 
     /*
 
      */
     ArrayList<String> getAllAPISecret();
+
+    /*
+
+     */
+    boolean updateProjectDescription (String name, String description);
 }

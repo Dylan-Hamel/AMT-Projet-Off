@@ -5,6 +5,8 @@ import Model.Project;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.EJB;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +18,10 @@ public class ProjectDAO implements ProjectInterface {
 
     private final static String TABLE_NAME_JOIN = "t_users_projects";
     private final static String TABLE_NAME = "projects";
+    private final static String EMAIL_ASSIGN = "backup@backup.backup";
 
 
-    @Resource(lookup = "jdbc/amtProject")
+    @Resource(lookup = "java:/jdbc/amtProject")
     private DataSource database;
 
 
@@ -45,10 +48,67 @@ public class ProjectDAO implements ProjectInterface {
                         result.getString("api_secret"));
                 projects.add(project);
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return projects;
+    }
+
+
+    /*
+     *
+     */
+    @Override
+    public ArrayList<Project> getProjectByUser(String user, int nbOfRecords, int beginRecord) {
+        ArrayList<Project> projects = new ArrayList<Project>(nbOfRecords);
+        try {
+            String sql = "SELECT * FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
+                    "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
+                    "WHERE " + TABLE_NAME_JOIN + ".email = ? LIMIT ?, ?;";
+            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            ps.setString(1, user);
+            ps.setInt(2, beginRecord);
+            ps.setInt(3, nbOfRecords);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+
+                System.out.println("[ProjectDAO - findByUser] name - " + result.getString("name" ));
+
+                Project project = new Project(result.getString("name"),
+                        result.getString("description"),
+                        result.getString("api_key"),
+                        result.getString("api_secret"));
+                projects.add(project);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return projects;
+    }
+
+    /*
+     *
+     */
+    @Override
+    public int countProjectByUser(String user) {
+        int nbProjects = 0;
+        try {
+            String sql = "SELECT COUNT(*) AS nbProjets FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
+                    "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
+                    "WHERE " + TABLE_NAME_JOIN + ".email = ?;";
+            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            ps.setString(1, user);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+                nbProjects = Integer.parseInt(result.getString("nbProjets"));
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nbProjects;
     }
 
     /*
@@ -70,8 +130,10 @@ public class ProjectDAO implements ProjectInterface {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,8 +161,10 @@ public class ProjectDAO implements ProjectInterface {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -115,7 +179,7 @@ public class ProjectDAO implements ProjectInterface {
 
      */
     @Override
-    public Boolean checkIfProjectExist(String name) {
+    public boolean checkIfProjectExist(String name) {
         boolean ok = false;
 
         try {
@@ -127,6 +191,7 @@ public class ProjectDAO implements ProjectInterface {
                 System.out.println("[ProjectDAO - checkIfProjecExist]" + (result.getString("email")));
                 ok =  true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok =  true;
@@ -142,28 +207,53 @@ public class ProjectDAO implements ProjectInterface {
      */
     @Override
     public boolean deleteProjectFromJoinTableAndProject(String name) {
+        boolean ok = false;
         try {
             PreparedStatement ps = database.getConnection()
                     .prepareStatement("DELETE FROM " + TABLE_NAME_JOIN + " WHERE project = ?;");
             ps.setString(1, name);
             if (ps.executeUpdate() == 0) {
-                    return false;
+                ok = false;
             }
 
             PreparedStatement psProject = database.getConnection()
                     .prepareStatement("DELETE FROM " + TABLE_NAME + "  WHERE name = ?");
             psProject.setString(1, name);
 
-            if (psProject.executeUpdate() == 0) {
-                return false;
-            }
 
-            return true;
+            if (psProject.executeUpdate() == 0) {
+                ok = false;
+            } else {
+                ok = true;
+            }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return ok;
+    }
+
+    @Override
+    public boolean reassignProjectOfUser(String email){
+        boolean ok = true;
+
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement(
+                    "UPDATE " + TABLE_NAME_JOIN +
+                            " SET email = '" + EMAIL_ASSIGN +
+                            "' WHERE email = ?;");
+            ps.setString(1, email);
+
+            // throw new RuntimeException("Reassign failed - rollback test");
+
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        System.out.println("[ProjectDAO - reassignProjectOfUser] return - " + ok);
+        return ok;
     }
 
 
@@ -182,6 +272,7 @@ public class ProjectDAO implements ProjectInterface {
                 System.out.println("[ProjectDAO - getAllAPIKey] - " + result.getString("api_key" ));
                 allAPIKey.add(result.getString("api_key" ));
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -204,9 +295,39 @@ public class ProjectDAO implements ProjectInterface {
                 System.out.println("[ProjectDAO - getAllAPIKey] - " + result.getString("api_secret" ));
                 allAPISecret.add(result.getString("api_secret" ));
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return allAPISecret;
     }
+
+
+    @Override
+    public boolean updateProjectDescription (String name, String description) {
+        boolean ok = false;
+
+        System.out.println("[ProjectDAO - updateProjectDescription] name" + name);
+        System.out.println("[ProjectDAO - updateProjectDescription] description" + description);
+
+        try {
+
+            PreparedStatement ps = database.getConnection()
+                    .prepareStatement("UPDATE " + TABLE_NAME + " SET description=? WHERE name=?;");
+            ps.setString(1, description);
+            ps.setString(2, name);
+
+
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Updates failed");
+            }
+            ps.close();
+            ok = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ok;
+    }
+
 }

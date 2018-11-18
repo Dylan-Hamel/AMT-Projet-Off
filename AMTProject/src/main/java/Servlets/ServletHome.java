@@ -1,6 +1,5 @@
 package Servlets;
 
-import Database.UserDAO;
 import Database.UserInterface;
 import Model.User;
 

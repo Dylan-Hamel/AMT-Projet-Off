@@ -1,9 +1,7 @@
 package Servlets;
 
-import Database.ProjectDAO;
+
 import Database.ProjectInterface;
-import Database.UserDAO;
-import Model.Project;
 import Model.User;
 import Utils.GenerateAPIKey;
 
@@ -31,7 +29,7 @@ public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
     protected void doGet (javax.servlet.http.HttpServletRequest request,
                           javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("[ServletRegister - doGet]");
+        System.out.println("[ServletProjectAdd - doGet]");
 
         request.getRequestDispatcher("/WEB-INF/pages/projectadd/projectadd.jsp").forward(request, response);
     }

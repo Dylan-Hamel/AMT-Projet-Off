@@ -38,7 +38,7 @@
 						Member Login
 					</span>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email" value="<c:out value="${email}"/>">
+						<input class="input100" type="text" name="email" id="email" placeholder="Email" value="<c:out value="${email}"/>">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -46,14 +46,14 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password" id="password" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" id="bSignIn" type="submit">
 							Login
 						</button>
 					</div>
@@ -75,7 +75,7 @@
 					</div>
 				</form>
 				<form method="get" action="/AMT-Projet/login">
-					<div class="error-msg">
+					<div class="error-msg" id="error-msg">
 						<c:if test="${not empty errorMessage}">
 							<c:out value="${errorMessage}"/>
 						</c:if>

@@ -2,6 +2,7 @@ package Test.pages;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 /**
  * This class is used to test the "Home" page in the Project app. Notice that in
  * the constructor, we check if we are on the correct page by checking the HTML
@@ -13,13 +14,22 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class HomePage extends AbstractFluentPage {
 
+    String[] homePageFields = {"#firstname", "#lastname", "#email", "#address", "#zip", "#country"};
+
     @Override
     public void isAt() {
-        assertThat(title()).isEqualTo("Welcome");
+        assertThat(window().title()).isEqualTo("AMT-Project - Home");
+    }
+
+    public void checkLoggedInUserInfos(String... paramsOrdered){
+        int i = 0;
+        for (String param : paramsOrdered) {
+            assertThat($(homePageFields[i]).values().get(0)).isEqualTo(param);
+        }
     }
 
     public String getUrl() {
-        return "/";
+        return "/home";
     }
 
 }

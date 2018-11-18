@@ -1,30 +1,49 @@
 package Test.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.in;
 
 public class LoginPage extends AbstractFluentPage {
-    private final static String inputEmail = "#inputEmail"; // id in the html code
-    private final static String inputPassword = "#inputPassword"; // id in the html code
+    private final static String inputEmail = "#email"; // id in the html code
+    private final static String inputPassword = "#password"; // id in the html code
     private final static String buttonSignin = "#bSignIn"; // id in the html code
+    private final static String formSignIn = "#fSignIn";
 
     @Override
     public void isAt() {
-        assertThat(title()).isEqualTo("Login Page");
+        assertThat(window().title()).isEqualTo("AMT-Project - Login");
     }
 
     public void typeEmailAddress(String email) {
-        fill(inputEmail).with(email);
+        // await().atMost(1, TimeUnit.NANOSECONDS).untilPage().isLoaded();
+        // await().atMost(2, TimeUnit.SECONDS).until($(inputEmail)).displayed();
+        $(inputEmail).fill().with(email);
+
     }
 
     public void typePassword(String password) {
-        fill(inputPassword).with(password);
+        $(inputPassword).fill().with(password);
     }
 
     public void clickSignin() {
-        click(buttonSignin);
+        // $(formSignIn).submit();
+        $(buttonSignin).click();
+    }
+
+    public void fillAndSignIn(String... paramsOrdered){
+        $("input").fill().with(paramsOrdered);
+        // $(formSignIn).submit();
+        $(buttonSignin).click();
+    }
+
+    public String getErrorMsg(){
+        return el(".error-msg").html().trim();
+        //return $("error-msg").get(0).value();
     }
 
     public String getUrl() {
-        return "/";
+        return getBaseUrl() + "/login";
     }
 }
