@@ -5,6 +5,7 @@ import Utils.SendEmail;
 import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.io.IOException;

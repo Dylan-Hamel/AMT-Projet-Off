@@ -174,12 +174,12 @@
         </div>
     </div>
 </div>
-<!-- Jquery JS-->
-<script src="/WEB-INF/pages/home/vendor/jquery/jquery.min.js"></script>
-<!-- Vendor JS-->
-<script src="/WEB-INF/pages/home/vendor/select2/select2.min.js"></script>
-<script src="/WEB-INF/pages/home/vendor/datepicker/moment.min.js"></script>
-<script src="/WEB-INF/pages/home/vendor/datepicker/daterangepicker.js"></script>
+    <!-- Jquery JS-->
+    <script src="/WEB-INF/pages/home/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="/WEB-INF/pages/home/vendor/select2/select2.min.js"></script>
+    <script src="/WEB-INF/pages/home/vendor/datepicker/moment.min.js"></script>
+    <script src="/WEB-INF/pages/home/vendor/datepicker/daterangepicker.js"></script>
 
 <!-- Main JS-->
 <script src="/WEB-INF/pages/home/js/global.js"></script>

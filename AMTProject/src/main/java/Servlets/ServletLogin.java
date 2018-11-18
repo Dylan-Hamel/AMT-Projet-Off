@@ -29,6 +29,9 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
 
         System.out.println("[ServletLogin - doPost]");
 
+        System.out.println("[ServletLogin - doPost] - " + request.getParameter("targetUrl"));
+        System.out.println("[ServletLogin - doPost] - " + request.getAttribute("targetUrl"));
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -55,7 +58,7 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
             request.setAttribute("errorMessage", errorMessage);
             request.setAttribute("email", email);
             request.setAttribute("password", password);
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             System.out.println("[ServletLogin - doPost] Access -");
             User user = userDao.getUserWithID(email);
@@ -78,7 +81,7 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
                 errorMessage = "Account Disabled";
                 request.setAttribute("errorMessage", errorMessage);
 
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
 
             } else if (user.isReset()) {
                 System.out.println("[ServletLogin - doPost] Call NEWPASSWORD" );

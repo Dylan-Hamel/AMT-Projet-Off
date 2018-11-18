@@ -55,9 +55,9 @@
             <thead class="thead-light">
             <tr>
                 <th scope="col">email</th>
-				<th scope="col">Status</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
-				<th scope="col">Reset Password</th>
+                <th scope="col">Reset Password</th>
             </tr>
             </thead>
             <tbody>

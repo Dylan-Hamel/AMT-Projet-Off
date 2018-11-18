@@ -7,6 +7,7 @@ import Utils.SendEmail;
 import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -79,16 +80,6 @@ public class ServletSetNewPassword extends javax.servlet.http.HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/pages/setpassword/setpassword.jsp").forward(request, response);
 
             }
-
-
-
         }
-
-
-
-
-
     }
-
-
 }

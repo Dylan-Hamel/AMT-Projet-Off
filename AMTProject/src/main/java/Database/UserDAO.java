@@ -25,7 +25,7 @@ public class UserDAO implements UserInterface {
 
     private final static String TABLE_NAME = "users";
 
-    @Resource(lookup = "java:/jdbc/amtProject")
+    @Resource(lookup = "jdbc/amtProject")
     private DataSource database;
 
     /*

@@ -82,8 +82,25 @@ public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
                 String api_key = "";
                 String api_secret = "";
                 try {
+
+                    ArrayList<String> allAPIKey = projectDAO.getAllAPIKey();
+                    ArrayList<String> allAPISecret = projectDAO.getAllAPISecret();
+
+
                     api_key = gak.generate(128);
                     api_secret = gak.generate(192);
+
+                    // We check if key is unique
+                    while (allAPIKey.contains(api_key)) {
+                        api_key = gak.generate(128);
+                    }
+
+                    // We check if key if secret is unique
+                    while (allAPISecret.contains(api_secret)) {
+                        api_secret = gak.generate(192);
+                    }
+
+
                 } catch (NoSuchAlgorithmException e) {
                     e.printStackTrace();
 
