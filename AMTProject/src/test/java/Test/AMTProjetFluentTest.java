@@ -140,7 +140,7 @@ The report should describe and document a concrete example (with screenshots).
 
     // 3 - developer creates 25 pages
     @Test
-    public void itShouldBePossibleToCreateANewAppAfterSignin() {
+    public void itShouldBePossibleToCreateNewAppsAfterSignin() {
         //goTo(baseUrl + projectPage);
         //projectPage.go();
         loginPage.go();
@@ -163,7 +163,7 @@ The report should describe and document a concrete example (with screenshots).
             projectPage.clickOnCreateNewApp();
         }
 
-        // ToDo partie check si les projets ajoutés sont bien dans la liste :
+        // ToDo partie check si les projets ajoutés sont bien dans la liste
 
         /*
         takeScreenShot();
@@ -207,7 +207,7 @@ The report should describe and document a concrete example (with screenshots).
         projectPage.isAt();
         projectPage.goToLogoutPageViaMenu();
         loginPage.isAt();
-        goTo(projectPage);
+        projectPage.go();
         loginPage.isAt();
     }
 

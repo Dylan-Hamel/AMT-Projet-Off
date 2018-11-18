@@ -8,6 +8,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.EJB;
 import javax.ejb.TransactionAttributeType;
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,8 +37,8 @@ public class UserDAO implements UserInterface {
         System.out.println("[UserDAO - findIfEnableUserExist] - Start");
         boolean ok = false;
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ? AND password = ? ;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ? AND password = ? ;");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
@@ -49,6 +50,7 @@ public class UserDAO implements UserInterface {
                 ok = true;
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,8 +65,8 @@ public class UserDAO implements UserInterface {
         boolean ok = false;
 
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ?;");
             ps.setString(1, email);
             ResultSet result = ps.executeQuery();
             if (result.next()) {
@@ -72,6 +74,7 @@ public class UserDAO implements UserInterface {
                 ok =  true;
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -88,7 +91,8 @@ public class UserDAO implements UserInterface {
         boolean ok = true;
 
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement(
+            Connection conn = database.getConnection();
+			PreparedStatement ps = conn.prepareStatement(
                     "INSERT INTO " + TABLE_NAME +
                             "(`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`, `reset`)" +
                             " VALUES  (? , ? , ?, ?, ?, ?, ?, '0', '1', '0');");
@@ -103,10 +107,11 @@ public class UserDAO implements UserInterface {
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
-
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok = false;
@@ -124,14 +129,15 @@ public class UserDAO implements UserInterface {
         ArrayList<String> allEmailAdresses = new ArrayList<String>();
 
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT email FROM " + TABLE_NAME + ";");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT email FROM " + TABLE_NAME + ";");
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 allEmailAdresses.add(result.getString("email"));
                 System.out.println("[UserDAO - getAllUsersEmailAddress] - " + result.getString("email") );
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -147,18 +153,19 @@ public class UserDAO implements UserInterface {
     public boolean updateUserPassword(String email, String password) {
         boolean ok = false;
         try {
-
-            PreparedStatement ps = database.getConnection().prepareStatement
-                    ("UPDATE " + TABLE_NAME + " SET password = ? WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("UPDATE " + TABLE_NAME + " SET password = ? WHERE email = ?;");
             ps.setString(1, password);
             ps.setString(2, email);
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             } else {
                 ps.close();
+                conn.close();
                 ok = true;
             }
         } catch (SQLException e) {
@@ -175,7 +182,8 @@ public class UserDAO implements UserInterface {
     public User getUserWithID(String email) {
         User user = new User();
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE email = ?");
+            Connection conn = database.getConnection();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE email = ?");
             ps.setString(1, email);
             ResultSet result = ps.executeQuery();
             if(result.next()) {
@@ -191,9 +199,11 @@ public class UserDAO implements UserInterface {
                 user.setReset(result.getBoolean("reset"));
                 System.out.println("[UserDAO - getUserWithID] - " + user.getEmail());
                 ps.close();
+                conn.close();
                 return user;
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -216,7 +226,8 @@ public class UserDAO implements UserInterface {
                     "zip = ?, " +
                     "country = ? " +
                     "WHERE email = ?";
-            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            Connection conn = database.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, firstname);
             ps.setString(2, lastname);
             ps.setString(3, password);
@@ -228,10 +239,12 @@ public class UserDAO implements UserInterface {
             // Check Result
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             } else {
                 ok = true;
                 ps.close();
+                conn.close();
             }
 
         } catch (SQLException e) {
@@ -252,8 +265,8 @@ public class UserDAO implements UserInterface {
         List<User> usersEmailAndStatus = new LinkedList<User>();
 
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT email, enable  FROM " + TABLE_NAME + ";");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT email, enable  FROM " + TABLE_NAME + ";");
             ResultSet result = ps.executeQuery();
             while (result.next()) {
 
@@ -267,6 +280,7 @@ public class UserDAO implements UserInterface {
                 usersEmailAndStatus.add(user);
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -281,8 +295,8 @@ public class UserDAO implements UserInterface {
     public boolean checkIfUserHaveResetedPassword (String email) {
         boolean ok = false;
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT reset FROM " + TABLE_NAME +" WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT reset FROM " + TABLE_NAME +" WHERE email = ?;");
             ps.setString(1, email);
             ResultSet result = ps.executeQuery();
             if (result.next()) {
@@ -290,6 +304,7 @@ public class UserDAO implements UserInterface {
                 ok =  true;
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -304,15 +319,17 @@ public class UserDAO implements UserInterface {
     public boolean setUserResetTo0 (String email) {
         boolean ok = true;
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement
-                    ("UPDATE " + TABLE_NAME + " SET reset = 0 WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("UPDATE " + TABLE_NAME + " SET reset = 0 WHERE email = ?;");
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
+            conn.close();
             ok =  true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -329,15 +346,17 @@ public class UserDAO implements UserInterface {
     public boolean setUserResetTo1 (String email) {
         boolean ok = true;
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement
-                    ("UPDATE " + TABLE_NAME + " SET reset = 1 WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("UPDATE " + TABLE_NAME + " SET reset = 1 WHERE email = ?;");
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
+            conn.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -353,8 +372,8 @@ public class UserDAO implements UserInterface {
     public boolean deleteUser (String email) {
         boolean ok = false;
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement
-                    ("DELETE FROM " + TABLE_NAME + " WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + TABLE_NAME + " WHERE email = ?;");
             ps.setString(1, email);
 
             projectDAO.reassignProjectOfUser(email);
@@ -362,9 +381,11 @@ public class UserDAO implements UserInterface {
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Delete Failed");
             }
             ps.close();
+            conn.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -383,15 +404,17 @@ public class UserDAO implements UserInterface {
 
         boolean ok = false;
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement
-                    ("UPDATE " + TABLE_NAME + " SET enable = 1 WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("UPDATE " + TABLE_NAME + " SET enable = 1 WHERE email = ?;");
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
+            conn.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -406,15 +429,17 @@ public class UserDAO implements UserInterface {
     public boolean disableUser (String email) {
         boolean ok = false;
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement
-                    ("UPDATE " + TABLE_NAME + " SET enable = 0 WHERE email = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("UPDATE " + TABLE_NAME + " SET enable = 0 WHERE email = ?;");
             ps.setString(1, email);
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
+            conn.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();

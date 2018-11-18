@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.EJB;
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,7 +36,8 @@ public class ProjectDAO implements ProjectInterface {
             String sql = "SELECT * FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
                     "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
                     "WHERE " + TABLE_NAME_JOIN + ".email = ?;";
-            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user);
             ResultSet result = ps.executeQuery();
             while (result.next()) {
@@ -49,6 +51,7 @@ public class ProjectDAO implements ProjectInterface {
                 projects.add(project);
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -66,7 +69,8 @@ public class ProjectDAO implements ProjectInterface {
             String sql = "SELECT * FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
                     "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
                     "WHERE " + TABLE_NAME_JOIN + ".email = ? LIMIT ?, ?;";
-            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user);
             ps.setInt(2, beginRecord);
             ps.setInt(3, nbOfRecords);
@@ -82,6 +86,7 @@ public class ProjectDAO implements ProjectInterface {
                 projects.add(project);
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -98,13 +103,15 @@ public class ProjectDAO implements ProjectInterface {
             String sql = "SELECT COUNT(*) AS nbProjets FROM " + TABLE_NAME_JOIN + " INNER JOIN projects " +
                     "ON " + TABLE_NAME + ".name = " +  TABLE_NAME_JOIN + ".project " +
                     "WHERE " + TABLE_NAME_JOIN + ".email = ?;";
-            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            Connection conn = database.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user);
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 nbProjects = Integer.parseInt(result.getString("nbProjets"));
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -119,10 +126,12 @@ public class ProjectDAO implements ProjectInterface {
         boolean ok = true;
 
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement(
-                    "INSERT INTO projects " +
-                            "(`name`, `description`, `api_key`, `api_secret`)" +
-                            " VALUES  (? , ? , ?, ?);");
+            String sql = "INSERT INTO projects " +
+                    "(`name`, `description`, `api_key`, `api_secret`)" +
+                    " VALUES  (? , ? , ?, ?);";
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
             ps.setString(1, name);
             ps.setString(2, description);
             ps.setString(3, api_key);
@@ -131,10 +140,11 @@ public class ProjectDAO implements ProjectInterface {
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
-
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok = false;
@@ -152,7 +162,8 @@ public class ProjectDAO implements ProjectInterface {
         boolean ok = true;
 
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement(
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement(
                     "INSERT INTO " + TABLE_NAME_JOIN +
                             "(`email`, `project`)" +
                             " VALUES  (? , ? );");
@@ -162,10 +173,11 @@ public class ProjectDAO implements ProjectInterface {
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
-
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok = false;
@@ -183,8 +195,8 @@ public class ProjectDAO implements ProjectInterface {
         boolean ok = false;
 
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE name = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE name = ?;");
             ps.setString(1, name);
             ResultSet result = ps.executeQuery();
             if (result.next()) {
@@ -192,6 +204,7 @@ public class ProjectDAO implements ProjectInterface {
                 ok =  true;
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok =  true;
@@ -209,15 +222,14 @@ public class ProjectDAO implements ProjectInterface {
     public boolean deleteProjectFromJoinTableAndProject(String name) {
         boolean ok = false;
         try {
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("DELETE FROM " + TABLE_NAME_JOIN + " WHERE project = ?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + TABLE_NAME_JOIN + " WHERE project = ?;");
             ps.setString(1, name);
             if (ps.executeUpdate() == 0) {
                 ok = false;
             }
 
-            PreparedStatement psProject = database.getConnection()
-                    .prepareStatement("DELETE FROM " + TABLE_NAME + "  WHERE name = ?");
+            PreparedStatement psProject = conn.prepareStatement("DELETE FROM " + TABLE_NAME + "  WHERE name = ?");
             psProject.setString(1, name);
 
 
@@ -227,7 +239,7 @@ public class ProjectDAO implements ProjectInterface {
                 ok = true;
             }
             ps.close();
-
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -239,7 +251,8 @@ public class ProjectDAO implements ProjectInterface {
         boolean ok = true;
 
         try {
-            PreparedStatement ps = database.getConnection().prepareStatement(
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement(
                     "UPDATE " + TABLE_NAME_JOIN +
                             " SET email = '" + EMAIL_ASSIGN +
                             "' WHERE email = ?;");
@@ -248,6 +261,7 @@ public class ProjectDAO implements ProjectInterface {
             // throw new RuntimeException("Reassign failed - rollback test");
 
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             ok = false;
@@ -264,15 +278,15 @@ public class ProjectDAO implements ProjectInterface {
     public ArrayList<String> getAllAPIKey() {
         ArrayList<String> allAPIKey = new ArrayList<String>();
         try {
-
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT api_key FROM " + TABLE_NAME + ";" );
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT api_key FROM " + TABLE_NAME + ";" );
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 System.out.println("[ProjectDAO - getAllAPIKey] - " + result.getString("api_key" ));
                 allAPIKey.add(result.getString("api_key" ));
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -287,15 +301,15 @@ public class ProjectDAO implements ProjectInterface {
     public ArrayList<String> getAllAPISecret() {
         ArrayList<String> allAPISecret = new ArrayList<String>();
         try {
-
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT api_secret FROM " + TABLE_NAME + ";" );
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT api_secret FROM " + TABLE_NAME + ";" );
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 System.out.println("[ProjectDAO - getAllAPIKey] - " + result.getString("api_secret" ));
                 allAPISecret.add(result.getString("api_secret" ));
             }
             ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -311,18 +325,19 @@ public class ProjectDAO implements ProjectInterface {
         System.out.println("[ProjectDAO - updateProjectDescription] description" + description);
 
         try {
-
-            PreparedStatement ps = database.getConnection()
-                    .prepareStatement("UPDATE " + TABLE_NAME + " SET description=? WHERE name=?;");
+            Connection conn = database.getConnection();
+            PreparedStatement ps = conn.prepareStatement("UPDATE " + TABLE_NAME + " SET description=? WHERE name=?;");
             ps.setString(1, description);
             ps.setString(2, name);
 
 
             if (ps.executeUpdate() == 0) {
                 ps.close();
+                conn.close();
                 throw new SQLException("Updates failed");
             }
             ps.close();
+            conn.close();
             ok = true;
         } catch (SQLException e) {
             e.printStackTrace();

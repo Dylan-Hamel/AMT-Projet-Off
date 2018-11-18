@@ -91,7 +91,8 @@
             <option value="10" ${nbRecords == 10 ? 'selected' : ''}>10</option>
             <option value="15" ${nbRecords == 15 ? 'selected' : ''}>15</option>
         </select>
-        Page ${pageNum} : ${numFirst}-${numLast} / ${nbProjects}
+        <div id="pageNum">Page ${pageNum}</div>
+        ${numFirst}-${numLast} / ${nbProjects}
         <c:if test="${numFirst > 1}">
             <button id="dataTablePrevious" onclick="changePage(${pageNum - 2})">Page précédente</button>
         </c:if>
