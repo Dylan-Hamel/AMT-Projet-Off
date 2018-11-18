@@ -41,7 +41,7 @@ RUN echo "=> Starting WildFly server" && \
         --enabled=true" && \
 	echo "=> Creating a new smtp server" && \
 	  $JBOSS_CLI --connect --command="/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=mail-smtp2:add(host=smtp.gmail.com, port=25)" && \
-      $JBOSS_CLI --connect --command="/subsystem=mail/mail-session=smtp-server:add(jndi-name=smtp-server)" && \
+      $JBOSS_CLI --connect --command="/subsystem=mail/mail-session=smtp-server:add(jndi-name=java:/smtp-server)" && \
 	  $JBOSS_CLI --connect --command="/subsystem=mail/mail-session=smtp-server/server=smtp:add(outbound-socket-binding-ref=mail-smtp2,password=somepass,ssl=false,username=user@example.com)" && \
     echo "=> Shutting down WildFly and Cleaning up" && \
       $JBOSS_CLI --connect --command=":shutdown" && \

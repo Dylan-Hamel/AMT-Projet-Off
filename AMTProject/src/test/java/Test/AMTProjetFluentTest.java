@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.fluentlenium.core.annotation.Page;
 
 import javax.ejb.EJB;
+
+import static org.assertj.core.api.Assertions.assertThat;
 //import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -44,8 +46,8 @@ The report should describe and document a concrete example (with screenshots).
     private final String newUserCountry = "testCountry";
     private final String newUserPWD = "testPWD";
 
-    private final String newAppName = "testAppN";
-    private final String newAppDescription = "testAppDesc";
+    private final String newAppName = "testNAppN";
+    private final String newAppDescription = "testNAppDesc";
 
     private final String loginErrorMsg = "Error in EMAIL/PASSWORD";
     private final String accountDisabledMsg = "Account Disabled";
@@ -88,7 +90,7 @@ The report should describe and document a concrete example (with screenshots).
         */
         loginPage.fillAndSignIn("not a valid email", "any password");
         loginPage.isAt();
-        assert(loginPage.getErrorMsg().equals(loginErrorMsg));
+        assertThat(loginPage.getErrorMsg().equals(loginErrorMsg));
     }
 
     // 1 - developer creates an account
@@ -115,6 +117,9 @@ The report should describe and document a concrete example (with screenshots).
         loginPage.fillAndSignIn(newUserEmail, newUserPWD);
         homePage.isAt();
         homePage.checkLoggedInUserInfos(newUserFirstName, newUserLastName, newUserEmail, newUserAddress, newUserZip, newUserCountry);
+
+        // remove created user
+        //userDao.deleteUser(newUserEmail);
     }
 
 
@@ -138,13 +143,14 @@ The report should describe and document a concrete example (with screenshots).
     public void itShouldBePossibleToCreateANewAppAfterSignin() {
         //goTo(baseUrl + projectPage);
         //projectPage.go();
+        loginPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         /*
         loginPage.typeEmailAddress(newUserEmail);
         loginPage.typePassword(newUserPWD);
         loginPage.clickSignin();
         */
-        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        loginPage.fillAndSignIn(existingUserEmail, existingUserPWD);
         projectPage.go();
         projectPage.isAt(); // we should be redirected toward the original target after signin
         projectPage.clickOnCreateNewApp();
@@ -153,7 +159,11 @@ The report should describe and document a concrete example (with screenshots).
             projectAddPage.typeName(newAppName + i);
             projectAddPage.typeDescription(newAppDescription + i);
             projectAddPage.clickAddApp();
+            projectPage.isAt();
+            projectPage.clickOnCreateNewApp();
         }
+
+        // ToDo partie check si les projets ajoutés sont bien dans la liste :
 
         /*
         takeScreenShot();
@@ -166,18 +176,22 @@ The report should describe and document a concrete example (with screenshots).
     public void itShouldBePossibleToGetProjectsListAfterSignIn() {
         //goTo(baseUrl + projectPage);
         //projectPage.go();
+        loginPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
         /*
         loginPage.typeEmailAddress(newUserEmail);
         loginPage.typePassword(newUserPWD);
         loginPage.clickSignin();
         */
-        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        loginPage.fillAndSignIn(existingUserEmail, existingUserPWD);
         projectPage.go();
         projectPage.isAt();
         projectPage.clickOnNextPage();
+        assertThat(projectPage.getPageNumber() == 2);
         projectPage.clickOnNextPage();
+        assertThat(projectPage.getPageNumber() == 3);
         projectPage.changeNumberOfRow(5);
+        assertThat(projectPage.getNumberOfRows() == 5);
     }
 
 
@@ -188,7 +202,7 @@ The report should describe and document a concrete example (with screenshots).
         //goTo(baseUrl + projectPage);
         projectPage.go();
         loginPage.isAt(); // we have not logged in, so we should be redirected
-        loginPage.fillAndSignIn(newUserEmail, newUserPWD);
+        loginPage.fillAndSignIn(existingUserEmail, existingUserPWD);
         projectPage.go();
         projectPage.isAt();
         projectPage.goToLogoutPageViaMenu();
