@@ -37,3 +37,7 @@ Dans le cas où l'on change le type de transaction à requires_new le résultat 
 
 
 Dans le cas où aucune exception n'est levée, ses projets sont bien ré-assignés au user backup@backup.backup
+
+
+
+https://examples.javacodegeeks.com/enterprise-java/ejb3/transactions/ejb-transaction-management-example/
