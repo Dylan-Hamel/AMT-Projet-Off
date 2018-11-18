@@ -1,8 +1,7 @@
 package Servlets;
 
-import Database.ProjectDAO;
-import Database.UserDAO;
-import Model.Project;
+
+import Database.ProjectInterface;
 import Model.User;
 import Utils.GenerateAPIKey;
 
@@ -17,8 +16,8 @@ import java.util.List;
 
 public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private ProjectDAO projectDAO;
+    @EJB(beanName = "ProjectDAO")
+    ProjectInterface projectDAO;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -30,7 +29,7 @@ public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
     protected void doGet (javax.servlet.http.HttpServletRequest request,
                           javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("[ServletRegister - doGet]");
+        System.out.println("[ServletProjectAdd - doGet]");
 
         request.getRequestDispatcher("/WEB-INF/pages/projectadd/projectadd.jsp").forward(request, response);
     }
@@ -89,7 +88,7 @@ public class ServletProjectAdd extends javax.servlet.http.HttpServlet {
                     e.printStackTrace();
 
                     // if error during generation => return to page
-                    errorMessage = "Error with API generatin";
+                    errorMessage = "Error with API generation";
                     request.setAttribute("errorMessage", errorMessage);
                     request.setAttribute("name", name);
                     request.setAttribute("description", description);

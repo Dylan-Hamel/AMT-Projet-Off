@@ -4,6 +4,9 @@ import Model.User;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.EJB;
+import javax.ejb.TransactionAttributeType;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,18 +15,29 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import static javax.ejb.TransactionAttributeType.REQUIRES_NEW;
+
 @Stateless
-public class UserDAO {
+public class UserDAO implements UserInterface {
+
+    @EJB(beanName ="ProjectDAO")
+    ProjectInterface projectDAO;
 
     private final static String TABLE_NAME = "users";
 
-    @Resource(lookup = "jdbc/amtProject")
+    @Resource(lookup = "java:/jdbc/amtProject")
     private DataSource database;
 
-    public Boolean findIfEnableUserExist(String  email, String password) {
+    /*
+     *
+     */
+    @Override
+    public boolean findIfUserExist(String  email, String password) {
+        System.out.println("[UserDAO - findIfEnableUserExist] - Start");
+        boolean ok = false;
         try {
             PreparedStatement ps = database.getConnection()
-                    .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ? AND password = ? AND enable=1;");
+                    .prepareStatement("SELECT * FROM " + TABLE_NAME +" WHERE email = ? AND password = ? ;");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet result = ps.executeQuery();
@@ -32,16 +46,20 @@ public class UserDAO {
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("firstname")));
                 System.out.println("[UserDAO - findIfUserExist]" + (result.getString("lastname")));
 
-                return true;
+                ok = true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return ok;
     }
 
-    public Boolean checkIfUserExist(String  email) {
-
+    /*
+     *
+     */
+    @Override
+    public boolean checkIfUserExist(String  email) {
         boolean ok = false;
 
         try {
@@ -53,6 +71,7 @@ public class UserDAO {
                 System.out.println("[UserDAO - checkIfUserExist]" + (result.getString("email")));
                 ok =  true;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -60,6 +79,10 @@ public class UserDAO {
         return ok;
     }
 
+    /*
+     *
+     */
+    @Override
     public boolean insertUser (String firstname, String lastname, String email, String password, String address,
                                String zip, String country ) {
         boolean ok = true;
@@ -67,8 +90,8 @@ public class UserDAO {
         try {
             PreparedStatement ps = database.getConnection().prepareStatement(
                     "INSERT INTO " + TABLE_NAME +
-                            "(`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`)" +
-                            " VALUES  (? , ? , ?, ?, ?, ?, ?, '0', '1');");
+                            "(`firstname`, `lastname`, `email`, `password`, `address`, `zip`, `country`, `admin`, `enable`, `reset`)" +
+                            " VALUES  (? , ? , ?, ?, ?, ?, ?, '0', '1', '0');");
             ps.setString(1, firstname);
             ps.setString(2, lastname);
             ps.setString(3, email);
@@ -79,8 +102,10 @@ public class UserDAO {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
             }
+            ps.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -91,6 +116,10 @@ public class UserDAO {
     }
 
 
+    /*
+     *
+     */
+    @Override
     public List<String> getAllUsersEmailAddress () {
         ArrayList<String> allEmailAdresses = new ArrayList<String>();
 
@@ -102,6 +131,7 @@ public class UserDAO {
                 allEmailAdresses.add(result.getString("email"));
                 System.out.println("[UserDAO - getAllUsersEmailAddress] - " + result.getString("email") );
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -110,7 +140,12 @@ public class UserDAO {
 
     }
 
+    /*
+     *
+     */
+    @Override
     public boolean updateUserPassword(String email, String password) {
+        boolean ok = false;
         try {
 
             PreparedStatement ps = database.getConnection().prepareStatement
@@ -120,21 +155,29 @@ public class UserDAO {
 
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
+            } else {
+                ps.close();
+                ok = true;
             }
-            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
-        return false;
+        return ok;
     }
 
+    /*
+     *
+     */
+    @Override
     public User getUserWithID(String email) {
         User user = new User();
         try {
-            PreparedStatement prepare = database.getConnection().prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE email = ?");
-            prepare.setString(1, email);
-            ResultSet result = prepare.executeQuery();
+            PreparedStatement ps = database.getConnection().prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE email = ?");
+            ps.setString(1, email);
+            ResultSet result = ps.executeQuery();
             if(result.next()) {
                 user.setFirstname(result.getString("firstname"));
                 user.setLastname(result.getString("lastname"));
@@ -145,16 +188,24 @@ public class UserDAO {
                 user.setCountry(result.getString("country"));
                 user.setAdmin(result.getBoolean("admin"));
                 user.setEnable(result.getBoolean("enable"));
+                user.setReset(result.getBoolean("reset"));
                 System.out.println("[UserDAO - getUserWithID] - " + user.getEmail());
+                ps.close();
                 return user;
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
 
+    /*
+     *
+     */
+    @Override
     public boolean update(String firstname, String lastname, String email, String password, String address, String zip, String country) {
+        boolean ok = false;
         try {
             String sql = "UPDATE " +
                     TABLE_NAME +
@@ -165,28 +216,39 @@ public class UserDAO {
                     "zip = ?, " +
                     "country = ? " +
                     "WHERE email = ?";
-            PreparedStatement statement = database.getConnection().prepareStatement(sql);
-            statement.setString(1, firstname);
-            statement.setString(2, lastname);
-            statement.setString(3, password);
-            statement.setString(4, address);
-            statement.setString(5, zip);
-            statement.setString(6, country);
-            statement.setString(7, email);
+            PreparedStatement ps = database.getConnection().prepareStatement(sql);
+            ps.setString(1, firstname);
+            ps.setString(2, lastname);
+            ps.setString(3, password);
+            ps.setString(4, address);
+            ps.setString(5, zip);
+            ps.setString(6, country);
+            ps.setString(7, email);
 
             // Check Result
-            if (statement.executeUpdate() == 0) {
+            if (ps.executeUpdate() == 0) {
+                ps.close();
                 throw new SQLException("Updates failed");
+            } else {
+                ok = true;
+                ps.close();
             }
-            return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
+            ok = false;
         }
-        return false;
+        return ok;
     }
 
-
+    /*
+     *
+     */
+    @Override
     public List<User> getAllUsersEmailAndStatus () {
+
+        System.out.println("[UserDAO - getAllUsersEmailAndStatus] - Start");
+
         List<User> usersEmailAndStatus = new LinkedList<User>();
 
         try {
@@ -204,6 +266,7 @@ public class UserDAO {
                 User user = new User(email, enable);
                 usersEmailAndStatus.add(user);
             }
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -211,6 +274,154 @@ public class UserDAO {
         return usersEmailAndStatus;
     }
 
+    /*
+     *
+     */
+    @Override
+    public boolean checkIfUserHaveResetedPassword (String email) {
+        boolean ok = false;
+        try {
+            PreparedStatement ps = database.getConnection()
+                    .prepareStatement("SELECT reset FROM " + TABLE_NAME +" WHERE email = ?;");
+            ps.setString(1, email);
+            ResultSet result = ps.executeQuery();
+            if (result.next()) {
+                System.out.println("[UserDAO - checkIfUserHaveResetedPassword]" + (result.getBoolean("reset")));
+                ok =  true;
+            }
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("[UserDAO - checkIfUserHaveResetedPassword] return - " + ok);
+        return ok;
+    }
+
+    /*
+     * This function is used when a user has set his new password after a reset
+     */
+    @Override
+    public boolean setUserResetTo0 (String email) {
+        boolean ok = true;
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("UPDATE " + TABLE_NAME + " SET reset = 0 WHERE email = ?;");
+            ps.setString(1, email);
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Updates failed");
+            }
+            ps.close();
+            ok =  true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        return ok;
+    }
+
+    /*
+     * This function is used when a user "Forgot Username / Password?" feature
+     * Set reset to 1, so that user will change his password
+     */
+    @Override
+    public boolean setUserResetTo1 (String email) {
+        boolean ok = true;
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("UPDATE " + TABLE_NAME + " SET reset = 1 WHERE email = ?;");
+            ps.setString(1, email);
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Updates failed");
+            }
+            ps.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        return ok;
+    }
+
+    /*
+     *
+     */
+    //@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+    public boolean deleteUser (String email) {
+        boolean ok = false;
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("DELETE FROM " + TABLE_NAME + " WHERE email = ?;");
+            ps.setString(1, email);
+
+            projectDAO.reassignProjectOfUser(email);
+
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Delete Failed");
+            }
+            ps.close();
+            ok = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        return ok;
+    }
+
+    /*
+     *
+     */
+    public boolean enableUser (String email) {
+
+        System.out.println("[UserDAO - enableUser] - Start");
+        System.out.println("[UserDAO - enableUser] - " + email);
+
+        boolean ok = false;
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("UPDATE " + TABLE_NAME + " SET enable = 1 WHERE email = ?;");
+            ps.setString(1, email);
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Updates failed");
+            }
+            ps.close();
+            ok = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        return ok;
+    }
+
+    /*
+     *
+     */
+    public boolean disableUser (String email) {
+        boolean ok = false;
+        try {
+            PreparedStatement ps = database.getConnection().prepareStatement
+                    ("UPDATE " + TABLE_NAME + " SET enable = 0 WHERE email = ?;");
+            ps.setString(1, email);
+            // Check SQL Execution
+            if (ps.executeUpdate() == 0) {
+                ps.close();
+                throw new SQLException("Updates failed");
+            }
+            ps.close();
+            ok = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            ok = false;
+        }
+        return ok;
+    }
 
 
 }

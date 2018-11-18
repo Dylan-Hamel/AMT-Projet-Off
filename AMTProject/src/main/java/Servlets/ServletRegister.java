@@ -1,7 +1,8 @@
 package Servlets;
 
-import Database.UserDAO;
+import Database.UserInterface;
 import Utils.SendEmail;
+import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
@@ -10,8 +11,11 @@ import java.io.IOException;
 
 public class ServletRegister extends javax.servlet.http.HttpServlet {
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
+
+    @EJB(beanName ="SendEmail")
+    SendEmailInterface se;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -113,7 +117,7 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
                 errorMessage = "User already exists";
                 request.setAttribute("errorMessage", errorMessage);
                 request.getRequestDispatcher("/WEB-INF/pages/register/register.jsp").forward(request, response);
-            } else if (!userDao.insertUser(firstname,lastname,email,password,address,zip,country)) {
+            } else if (!userDao.insertUser(firstname, lastname, email, password, address, zip, country)) {
                 System.out.println("[ServletRegister - doPost] - 2");
                 errorMessage = "Error during insert";
 
@@ -137,7 +141,7 @@ public class ServletRegister extends javax.servlet.http.HttpServlet {
 
                 String title = "[AMT-Project-2018] - New Account";
 
-                SendEmail se = new SendEmail(email, title, message);
+                se.sendEmail(email, title, message);
 
                 response.sendRedirect("login");
             }

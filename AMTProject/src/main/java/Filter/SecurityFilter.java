@@ -18,70 +18,60 @@ public class SecurityFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
+
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        String path = request.getRequestURI().substring(request.getContextPath().length());
         HttpSession session = request.getSession(false);
-        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 
-        // Don't filter resources and registration page
-        System.out.println(request.getRequestURI().matches
-                (".*(ttf|eot|svg|woff|jsp|ico|css|jpg|png|gif|js|register|login|resetpassword|)$"));
-        System.out.println(request.getRequestURI());
-        if (request.getRequestURI().contains("home")) {
-            System.out.println("\n\n\n");
-            System.out.println(request.getRequestURI());
-            System.out.println(request.getRequestURI().matches
-                    (".*(ttf|eot|svg|woff|jsp|ico|css|jpg|png|gif|js|register|login|resetpassword|)$"));
-            System.out.println("\n\n\n");
+        System.out.println("[SecurityFilter - doFilter] path - " + path);
+        boolean isTargetUrlProtected = true;
+
+
+
+        if (path.startsWith("/login")) {
+            isTargetUrlProtected = false;
+        } else if (path.contains("/vendor")) {
+            isTargetUrlProtected = false;
+        } else if (path.contains("/js")) {
+            isTargetUrlProtected = false;
+        } else if (path.contains("/images")) {
+            isTargetUrlProtected = false;
+        } else if (path.contains("/css")) {
+            isTargetUrlProtected = false;
+        } else if (path.contains("/fonts")) {
+            isTargetUrlProtected = false;
+        }else if (path.startsWith("/resetpassword")) {
+            isTargetUrlProtected = false;
+        } else if ("/register".startsWith(path)) {
+            isTargetUrlProtected = false;
+        } else {
+            request.setAttribute("targetUrl", path);
         }
-        if (request.getRequestURI().matches (".*(ttf|eot|svg|woff|ico|css|jpg|png|gif|js|register|login|resetpassword|)$")) {
-            filterChain.doFilter(servletRequest, servletResponse);
-            System.out.println("[SecurityFilter - doFilter] page not filtered");
-            return;
-        }
 
+        User user = (User) request.getSession().getAttribute("user");
 
-        // We use a filter for personnal page
-        System.out.println("[SecurityFilter - doFilter] request.getAttribute(\"user\") - " + request.getAttribute("user"));
-        System.out.println("[SecurityFilter - doFilter] request.getAttribute(\"user\") - " + request.getAttribute("user"));
-        if (request.getSession().getAttribute("user") == null) {
-
-            System.out.println("[SecurityFilter - doFilter] Filter Section");
-            String loginURI = request.getContextPath() + "/login";
-
-            boolean loggedIn = session != null && session.getAttribute("email") != null;
-            boolean loginRequest = request.getRequestURI().equals(loginURI);
-
-            System.out.println("Requested URI: " + request.getRequestURI());
-
-            if (loggedIn) {
-                System.out.println("[SecurityFilter - doFilter] loggedIn ");
-
-                // Protect ADMIN area
-                if (request.getRequestURI().contains(request.getContextPath() + "/administrator")) {
-                    System.out.println("Contains : " + request.getContextPath() + "/administrator");
-                    User user = (User) session.getAttribute("user");
-                    if (user != null && user.getAdmin()) {
-                        filterChain.doFilter(request, servletResponse);
-                    } else {
-                        httpServletResponse.sendRedirect(request.getContextPath() + "/profil");
-                    }
-                } else {
-                    if (request.getRequestURI().endsWith("/"))
-                        httpServletResponse.sendRedirect(request.getContextPath() + "/profil");
-
-                    filterChain.doFilter(request, servletResponse);
+        if (user == null) {
+            System.out.println("[SecurityFilter - doFilter] user is null");
+            if (isTargetUrlProtected) {
+                request.setAttribute("targetUrl", path);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+        } else {
+            System.out.println("[SecurityFilter - doFilter] user is not null");
+            if (path.startsWith("/administrator")) {
+                System.out.println("[SecurityFilter - doFilter] Administrator PAGE ? - " + path.startsWith("/administrator"));
+                if (!user.isAdmin()) {
+                    System.out.println("[SecurityFilter - doFilter] user is not admin");
+                    // request.getRequestDispatcher("home.jsp").forward(request, response);
+                    response.sendRedirect("home");
+                    return;
                 }
-            } else if (loginRequest) {
-                System.out.println("SecurityFilter => Login request");
-                filterChain.doFilter(request, servletResponse);
-            } else {
-                System.out.println("SecurityFilter => To login");
-                httpServletResponse.sendRedirect(request.getContextPath() + "/login");
             }
         }
-
+        filterChain.doFilter(request, response);
     }
-
 
     @Override
     public void destroy() {

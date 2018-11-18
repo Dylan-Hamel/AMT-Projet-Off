@@ -21,45 +21,37 @@ Mettez vous ou vous avez envie de faire - Histoire qu'on fasse pas tous pareil.
   * Type
 
   * Structure
+* Ajouter le Champ "PasswordChange" bool  ✅🐡 
 
-* Ajouter le Champ "PasswordChange" bool
+  * Et gérer le reset de l'utilisateur ✅🐡 
 
-  * Et gérer le reset de l'utilisateur
+  * new servlet ✅🐡 
+* Message d'erreurs:blowfish:
 
-  * new servlet
-
-  * 
-
-* Message d'erreurs
-
-  * As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message.
-
+  * As an administrator, I can suspend an account. When the developer tries to login, he is blocked and sees an informative error message.:blowfish:
 * Commenter le code
+* Bouton Delete dans Project:blowfish:
 
-* Bouton Delete dans Project
+  * Créer la requête dans ProjectDAO:blowfish:
 
-  * Créer la requête dans ProjectDAO
+  * Implémenter la fonctionnalité dans DoPost:blowfish:
+* Bouton Delete dans User :octopus:
 
-  * Implémenter la fonctionnalité dans DoPost
+  * Créer la requête dans UserDAO:octopus:
 
-* Bouton Delete dans User
+  * Implémenter la fonctionnalité dans DoPost:octopus:
+* Bouton Enable dans User:octopus:
 
-  * Créer la requête dans UserDAO
+  * Créer la requête dans UserDAO:octopus:
+  * Implémenter la fonctionnalité dans DoPost:octopus:
+* Page de changement de mot de passe✅🐡 
 
-  * Implémenter la fonctionnalité dans DoPost
+  * Créer la requête dans UserDAO✅🐡 
 
-* Bouton Enable dans User
-
-  * Créer la requête dans UserDAO
-  * Implémenter la fonctionnalité dans DoPost
-
-* Page de changement de mot de passe
-
-  * Créer la requête dans UserDAO
-
-  * Implémenter la fonctionnalité dans DoPost
-
-
+  * Implémenter la fonctionnalité dans DoPost✅🐡 
+* Project quand un nouveau est créé, vérifier que les clefs n'existent pas dans le DB:blowfish:
+* Test JMETER, JUNITS:snail:
+* SecurityFilter:snail:
 
 
 ​	

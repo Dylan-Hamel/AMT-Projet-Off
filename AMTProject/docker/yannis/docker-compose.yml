@@ -1,0 +1,34 @@
+version: '3'
+services:
+  wildfly:
+    build: ./wildfly
+    restart: always
+    links:
+     - mysql:db
+    ports:
+     - "9090:8080"
+     - "9990:9990"
+    depends_on:
+     - mysql
+    
+  mysql:
+    build: ./mysql
+    restart: always
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=AMT-DB
+     - MYSQL_USER=amt
+     - MYSQL_PASSWORD=amt1234
+    ports:
+     - "3306:3306"
+     
+  adminer:
+    build: ./adminer
+    restart: always
+    ports:
+     - "6060:8080"
+    links:
+     - mysql:db
+    depends_on:
+     - mysql
+    

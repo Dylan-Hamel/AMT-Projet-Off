@@ -1,8 +1,9 @@
 package Servlets;
 
-import Database.UserDAO;
+import Database.UserInterface;
 import Utils.GenratePassword;
 import Utils.SendEmail;
+import Utils.SendEmailInterface;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletConfig;
@@ -13,8 +14,11 @@ import java.util.ArrayList;
 public class ServletResetPassword extends javax.servlet.http.HttpServlet {
 
 
-    @EJB
-    private UserDAO userDao;
+    @EJB(beanName ="UserDAO")
+    UserInterface userDao;
+
+    @EJB(beanName ="SendEmail")
+    SendEmailInterface se;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -58,10 +62,15 @@ public class ServletResetPassword extends javax.servlet.http.HttpServlet {
                     // Update password In DB
                     userDao.updateUserPassword(email, password);
                     // Send new password by email
-                    String message = "New Password : " + password;
+                    String message = "New Password : " + password +  "\n" +
+                            "This password must be changed at the next login";
                     String title = "[AMT-Project-2018] - New Password";
 
-                    SendEmail se = new SendEmail(email, title, message);
+                    se.sendEmail(email, title, message);
+
+                    // Set Reset in DB to 0
+                    userDao.setUserResetTo1(email);
+
                     break;
                 }
             }
@@ -87,5 +96,6 @@ public class ServletResetPassword extends javax.servlet.http.HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/resetpassword/resetpassword.jsp").forward(request, response);
 
     }
+
 
 }
