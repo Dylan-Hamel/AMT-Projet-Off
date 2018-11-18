@@ -61,22 +61,22 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${_users}" var="u">
-                <tr>
-                    <form method="POST" action="/AMT-Projet/administrator">
-                        <th>${u.email}</th>
-                        <td width="30%"><input type="hidden" name="email" value="${u.email}" ><input type="checkbox" name="ckEnable" value="ckEnable" ${u.enable == true ? 'checked' : ''}> isEnable</td>
-                        <td width="20%" class="text-center">
-                            <input ${u.reset == true ? 'type="hidden"' : 'type="checkbox"'} name="ckResetPW" value="ckResetPW" > Reset Password
-                            </br>
-                            <input type="checkbox" name="ckDelete" value="ckDelete" > Delete
-                        </td>
-                        <td width="20%" class="text-center">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit changes</button>
-                        </td>
-                    </form>
-                </tr>
-            </c:forEach>
+                <c:forEach items="${_users}" var="u">
+                    <tr>
+                        <form method="POST" action="/AMT-Projet/administrator">
+                            <th>${u.email}</th>
+                            <td width="30%"><input type="hidden" name="email" value="${u.email}" ><input type="checkbox" name="ckEnable" value="ckEnable" ${u.enable == true ? 'checked' : ''}> isEnable</td>
+                            <td width="20%" class="text-center">
+                                <input ${u.reset == true ? 'type="hidden"' : 'type="checkbox"'} name="ckResetPW" value="ckResetPW" > Reset Password
+								</br>
+                                <input type="checkbox" name="ckDelete" value="ckDelete" > Delete
+                            </td>
+                            <td width="20%" class="text-center">
+                                <button class="btn btn--radius-2 btn--blue" type="submit">Submit changes</button>
+                            </td>
+                        </form>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>

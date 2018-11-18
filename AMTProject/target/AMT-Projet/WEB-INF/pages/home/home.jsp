@@ -49,7 +49,7 @@
 
     <!-- Vendor CSS-->
     <!-- <link href="${pageContext.request.contextPath}/vendor/select2/select2.min.css" rel="stylesheet" media="all">-->
-     <!--<link href="${pageContext.request.contextPath}/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">-->
+    <!--<link href="${pageContext.request.contextPath}/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">-->
 
     <!-- Main CSS-->
     <style type="text/css">
@@ -61,17 +61,17 @@
 <body>
 <div class="container">
 
-	<!-- <div id="header-wrapper">
-	<div id="header" class="container">
-		<div id="menu">
-			<ul>
-				<li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
-				<li><a href="project" accesskey="2" title="">Project</a></li>
-				<li><a href="administrator" accesskey="3" title="">Manage User</a></li>
-				<li><a href="logout" accesskey="3" title="">Logout</a></li>
-			</ul>
-		</div>
-	</div> -->
+    <!-- <div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="menu">
+            <ul>
+                <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+                <li><a href="project" accesskey="2" title="">Project</a></li>
+                <li><a href="administrator" accesskey="3" title="">Manage User</a></li>
+                <li><a href="logout" accesskey="3" title="">Logout</a></li>
+            </ul>
+        </div>
+    </div> -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
@@ -96,23 +96,23 @@
             <div class="card card-4">
                 <div class="card-body">
 
-                    <h2 class="title">HOME - Profil Descritpion</h2>
-					<h4> Modify your profil - ${user.email}</h4>
-				</br>
-					<form method="get" action="/AMT-Projet/home">
-						<div class="error-msg">
-							<c:if test="${not empty esrorMessage}">
-								<c:out value="${errorMessage}"/>
-							</c:if>
-						</div>
-					</form>
+                    <h2 class="title">HOME - Profile Description</h2>
+                    <h4> Modify your profil - ${user.email}</h4>
+                    </br>
+                    <form method="get" action="/AMT-Projet/home">
+                        <div class="error-msg">
+                            <c:if test="${not empty esrorMessage}">
+                                <c:out value="${errorMessage}"/>
+                            </c:if>
+                        </div>
+                    </form>
                     <form method="POST" action="/AMT-Projet/home">
                         <div class="row row-space">
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Firstname</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="firstname" value="<c:out value="${user.firstname}"/>">
+                                        <input class="input--style-4" type="text" id="firstname" name="firstname" value="<c:out value="${user.firstname}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                                 <div class="input-group">
                                     <label class="label">Lastname</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="lastname" value="<c:out value="${user.lastname}"/>">
+                                        <input class="input--style-4" type="text" id="lastname" name="lastname" value="<c:out value="${user.lastname}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                 <div class="input-group">
                                     <label class="label">Email</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="email" name="email" disabled="disabled" value="<c:out value="${user.email}"/>">
+                                        <input class="input--style-4" type="email" id="email" name="email" disabled="disabled" value="<c:out value="${user.email}"/>">
                                     </div>
                                 </div>
                             </div>
@@ -147,13 +147,13 @@
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Address</label>
-                                    <input class="input--style-4" type="text" name="address" value="<c:out value="${user.address}"/>">
+                                    <input class="input--style-4" type="text" id="address" name="address" value="<c:out value="${user.address}"/>">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Zip</label>
-                                    <input class="input--style-4" type="text" name="zip" value="<c:out value="${user.zip}"/>">
+                                    <input class="input--style-4" type="text" id="zip" name="zip" value="<c:out value="${user.zip}"/>">
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                             <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Country</label>
-                                    <input class="input--style-4" type="text" name="country" value="<c:out value="${user.country}"/>">
+                                    <input class="input--style-4" type="text" id="country" name="country" value="<c:out value="${user.country}"/>">
                                 </div>
                             </div>
                         </div>
@@ -181,8 +181,8 @@
     <script src="/WEB-INF/pages/home/vendor/datepicker/moment.min.js"></script>
     <script src="/WEB-INF/pages/home/vendor/datepicker/daterangepicker.js"></script>
 
-    <!-- Main JS-->
-    <script src="/WEB-INF/pages/home/js/global.js"></script>
+<!-- Main JS-->
+<script src="/WEB-INF/pages/home/js/global.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

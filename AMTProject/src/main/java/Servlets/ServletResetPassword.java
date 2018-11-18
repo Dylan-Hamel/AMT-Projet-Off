@@ -20,9 +20,6 @@ public class ServletResetPassword extends javax.servlet.http.HttpServlet {
     @EJB(beanName = "SendEmail")
     SendEmailInterface se;
 
-    @EJB(beanName ="SendEmail")
-    SendEmailInterface se;
-
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
