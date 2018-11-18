@@ -18,25 +18,25 @@ Le comportement par défaut correspond à celui recherché comme prouvé avec l'
 
 On voit bien que la méthode deleteUser de UserDAO appelle une méthode reassignProjetOfUser d'un autre DAO ProjectDAO. Par défaut le transaction sera "unique/globale" pour la méthode deleteUser et si une exception est levée dans la méthode reassign, la totalité de la méthode sera rollback et donc le user existe toujours et ses projets lui sont toujours assignés.
 
-![deleteUser-defaultTransaction](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\defaultTransaction\deleteUser-defaultTransaction.jpg)
+![deleteUser-defaultTransaction](..\defaultTransaction\deleteUser-defaultTransaction.jpg)
 
-![reassignProjectOfUser-defaultTransaction](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\defaultTransaction\reassignProjectOfUser-defaultTransaction.jpg)
+![reassignProjectOfUser-defaultTransaction](..\defaultTransaction\reassignProjectOfUser-defaultTransaction.jpg)
 
-![adminer-user](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\defaultTransaction\adminer-user.png)
+![adminer-user](..\defaultTransaction\adminer-user.png)
 
-![adminer-projectuser](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\defaultTransaction\adminer-projectuser.png)
+![adminer-projectuser](..\defaultTransaction\adminer-projectuser.png)
 
 Dans le cas où l'on change le type de transaction à requires_new le résultat sera différent, en effet une transaction indépendante sera faite pour chaque appel à la BD donc la suppression de l'user sera commit avant l'appel au reassignProject qui lui va lever une exception et être rollback, du coup l'utilisateur n'existera plus mais les projets lui seront toujours assignés malgré tout.
 
-![deleteUser](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\requiresNew\deleteUser.png)
+![deleteUser](..\requiresNew\deleteUser.png)
 
-![adminer-projectuser](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\requiresNew\adminer-projectuser.png)
+![adminer-projectuser](..\requiresNew\adminer-projectuser.png)
 
-![adminer_user](D:\Bibliothèque\Yannis\Desktop\HEIG-AMT\AMT-Projet-Off\AMT-Projet-Off\requiresNew\adminer_user.png)
+![adminer_user](..\requiresNew\adminer_user.png)
 
 
 
-Dans le cas où aucune exception n'est levée, ses projets sont bien ré-assignés au user backup@backup.backup
+Dans le cas où aucune exception n'est levée, ses projets sont bien ré-assignés au user backup@backup.backup et l'utilisateur est supprimé.
 
 
 
