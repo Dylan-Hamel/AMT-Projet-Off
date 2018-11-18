@@ -25,6 +25,7 @@ public class HomePage extends AbstractFluentPage {
         int i = 0;
         for (String param : paramsOrdered) {
             assertThat($(homePageFields[i]).values().get(0)).isEqualTo(param);
+            i++;
         }
     }
 

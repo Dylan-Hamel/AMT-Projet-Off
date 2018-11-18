@@ -15,6 +15,8 @@ public class ProjectPage extends AbstractFluentPage {
     private final static String nextPage = "#dataTableNext";
     private final static String previousPage = "#dataTablePrevious";
 
+    private final static String pageNum = "#pageNum";
+
     //FluentWebElement dataTable = find("table");
 
     @Override
@@ -44,6 +46,14 @@ public class ProjectPage extends AbstractFluentPage {
 
     public void clickOnCreateNewApp() {
         $(buttonAddApp).click();
+    }
+
+    public int getPageNumber() {
+        return Integer.parseInt($(pageNum).get(0).value());
+    }
+
+    public int getNumberOfRows() {
+        return Integer.parseInt($(nbOfRow).get(0).value());
     }
 
     public String getUrl() {

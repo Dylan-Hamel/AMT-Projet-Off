@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 @Stateless
 public class SendEmail implements SendEmailInterface {
 
-    @Resource(lookup = "smtp-server")
+    @Resource(lookup = "java:/smtp-server")
     private Session session;
 
     // private static String smtp = "smtp.heig-vd.ch";
