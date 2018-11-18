@@ -49,7 +49,7 @@ public class ProjectPage extends AbstractFluentPage {
     }
 
     public int getPageNumber() {
-        return Integer.parseInt($(pageNum).get(0).value());
+        return Integer.parseInt(el(pageNum).html().trim().substring(5));
     }
 
     public int getNumberOfRows() {
