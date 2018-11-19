@@ -57,9 +57,23 @@ public class SecurityFilter implements Filter {
             if (isTargetUrlProtected) {
                 request.setAttribute("targetUrl", path);
                 request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
             }
         } else {
             System.out.println("[SecurityFilter - doFilter] user is not null");
+            System.out.println("[SecurityFilter - doFilter] user is reset ? " + user.isReset());
+            if (user.isReset()) {
+                System.out.println("[SecurityFilter - doFilter] change password");
+                response.sendRedirect("setpassword");
+                return;
+            }
+
+            if (path.startsWith("/login")) {
+                System.out.println("[SecurityFilter - doFilter] login but logged ? - ");
+                response.sendRedirect("home");
+                return;
+            }
+
             if (path.startsWith("/administrator")) {
                 System.out.println("[SecurityFilter - doFilter] Administrator PAGE ? - " + path.startsWith("/administrator"));
                 if (!user.isAdmin()) {

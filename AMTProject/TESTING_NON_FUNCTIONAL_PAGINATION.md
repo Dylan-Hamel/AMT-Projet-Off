@@ -20,7 +20,7 @@ L'impact sur les performances côté client est non négligeable et important, d
 
 ![visualvm](..\pagination\visualvm.png)
 
-Le test a été lancé à 13:53:35, on voit bien un pic du CPU à ce moment.
+Le test a été lancé à 13:53:35, on voit bien un pic du CPU à ce moment. Il aurait été intéressant de vérifier plus en détail l'impact sur les ressources du serveur mais nous ne maitrisons pas très bien visualvm et nous avions de la peine à filtrer sur ce qui nous intéresse et pas le temps de chercher plus.
 
 
 
