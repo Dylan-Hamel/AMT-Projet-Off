@@ -73,7 +73,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                 System.out.println(message);
                 String title = "[AMT-Project-2018] - deleted account";
                 se.sendEmail(email, title, message);
-                response.sendRedirect("administrator");
+                // response.sendRedirect("administrator");
             }
         }else{
             // Reset Password
@@ -108,8 +108,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                 System.out.println(message);
                 String title = "[AMT-Project-2018] - Password Reset";
                 se.sendEmail(email, title, message);
-                response.sendRedirect("administrator");
-
+                // response.sendRedirect("administrator");
             }else{
                 //Enable User
                 User user = userDao.getUserWithID(email);
@@ -126,7 +125,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                         System.out.println(message);
                         String title = "[AMT-Project-2018] - enabled account";
                         se.sendEmail(email, title, message);
-                        response.sendRedirect("administrator");
+                        // response.sendRedirect("administrator");
                     }
                 } else {
                     boolean enableSQL = userDao.disableUser(email);
@@ -140,7 +139,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                         System.out.println(message);
                         String title = "[AMT-Project-2018] - disabled account";
                         se.sendEmail(email, title, message);
-                        response.sendRedirect("administrator");
+                        // response.sendRedirect("administrator");
                     }
                 }
             }
