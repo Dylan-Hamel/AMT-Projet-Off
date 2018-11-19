@@ -6,3 +6,4 @@ AMTProject/payara5/*
 AMTProject/wildfly-14.0.1.Final/*
 AMTProject/apache-jmeter-5.0/*
 *.log
+AMTProject/target/
