@@ -8,9 +8,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57885dd6-a54d-4b77-bc72-a454ae4bd9b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBeImpossibleToGetProjectsListAfterSignOut(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBeImpossibleToGetProjectsListAfterSignOut(Test.AMTProjetFluentTest).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToCreateANewAppAfterSignin(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToCreateANewAppAfterSignin(Test.AMTProjetFluentTest).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToCreateANewUser(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToCreateANewUser(Test.AMTProjetFluentTest).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToCreateNewAppsAfterSignin(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToCreateNewAppsAfterSignin(Test.AMTProjetFluentTest).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToGetProjectsListAfterSignIn(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldBePossibleToGetProjectsListAfterSignIn(Test.AMTProjetFluentTest).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldNotBePossibleToSigninWithAnInvalidEmail(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_itShouldNotBePossibleToSigninWithAnInvalidEmail(Test.AMTProjetFluentTest).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_successfulSigninShouldBringUserToHomePage(Test.AMTProjetFluentTest).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMTProjetFluentTest_successfulSigninShouldBringUserToHomePage(Test.AMTProjetFluentTest).png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/yannis/wildfly/apps-dist/AMT-Projet.war" beforeDir="false" afterPath="$PROJECT_DIR$/docker/yannis/wildfly/apps-dist/AMT-Projet.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Filter/SecurityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/setpassword/setpassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/setpassword/setpassword.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,43 +44,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="10" />
+          <entry key="java" value="13" />
           <entry key="jsp" value="2" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="10" />
+          <entry key="JAVA" value="13" />
           <entry key="JSP" value="2" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="308" />
-          <entry key="jsp" value="5" />
+          <entry key="java" value="341" />
+          <entry key="jsp" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="308" />
-          <entry key="JSP" value="5" />
+          <entry key="JAVA" value="341" />
+          <entry key="JSP" value="23" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Test/AMTProjetFluentTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1128">
-              <caret line="142" column="37" selection-start-line="142" selection-start-column="37" selection-end-line="142" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Database/ProjectDAO.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,11 +81,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Filter/SecurityFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+            <state relative-caret-position="256">
+              <caret line="63" column="90" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+              <folding>
+                <element signature="e#1301#1302#0" expanded="true" />
+                <element signature="e#1329#1330#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,7 +123,11 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/setpassword/setpassword.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="78" column="84" selection-start-line="78" selection-start-column="84" selection-end-line="78" selection-end-column="84" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -120,26 +142,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-595">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="75" column="73" lean-forward="true" selection-start-line="75" selection-start-column="73" selection-end-line="75" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-764">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Test/pages/ProjectAddPage.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Test/pages/LoginPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="477">
+              <caret line="75" column="53" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -167,6 +189,8 @@
         <option value="$PROJECT_DIR$/src/test/java/Test/AMTProjetFluentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletAdministrator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Filter/SecurityFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/setpassword/setpassword.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java" />
       </list>
     </option>
   </component>
@@ -331,7 +355,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542634448723" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542635396725" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -529,7 +553,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542565766208</updated>
       <workItem from="1542565767600" duration="4497000" />
-      <workItem from="1542624451494" duration="3165000" />
+      <workItem from="1542624451494" duration="4166000" />
     </task>
     <servers />
   </component>
@@ -566,7 +590,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7662000" />
+    <option name="totallyTimeSpent" value="8663000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,9 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/setpassword/setpassword.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -702,17 +723,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/setpassword/setpassword.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="527">
+          <caret line="78" column="84" selection-start-line="78" selection-start-column="84" selection-end-line="78" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Filter/SecurityFilter.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="63" column="90" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding>
+            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
-          <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+          <caret line="75" column="53" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletSetNewPassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="75" column="73" lean-forward="true" selection-start-line="75" selection-start-column="73" selection-end-line="75" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ServletProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-764">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>

@@ -71,6 +71,8 @@ public class ServletSetNewPassword extends javax.servlet.http.HttpServlet {
 
                 se.sendEmail(user.getEmail(), title, message);
 
+                request.getSession().setAttribute("user", userDao.getUserWithID(user.getEmail()));
+
                 System.out.println("[ServletLogin - doPost] Call HOME" );
                 response.sendRedirect("home");
 

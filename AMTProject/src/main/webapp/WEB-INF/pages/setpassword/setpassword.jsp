@@ -66,7 +66,7 @@
                                 <div class="input-group">
                                     <label class="label">New Password</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="password1">
+                                        <input class="input--style-4" type="password" name="password1">
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 <div class="input-group">
                                     <label class="label">Re-Type</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text" name="password2">
+                                        <input class="input--style-4" type="password" name="password2">
                                     </div>
                                 </div>
                             </div>
