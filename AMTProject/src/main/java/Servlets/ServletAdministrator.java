@@ -88,13 +88,14 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                 String password = passwordGenerator.generate(8);
 
                 boolean updateSQL = userDao.updateUserPassword(email, password);
-                boolean enableSQL = userDao.enableUser(email);
+                // boolean enableSQL = userDao.enableUser(email);
+                userDao.setUserResetTo1(email);
                 System.out.println("[ServletAdministrator - doPost] updateSQL - " + email);
                 if(!updateSQL) {
                     errorMessage += "Password has not been rested \n";
-                } else if (!enableSQL){
+                }/* else if (!enableSQL){
                     errorMessage += "User has not beenn enabled \n";
-                }
+                }*/
 
                 User user = userDao.getUserWithID(email);
 

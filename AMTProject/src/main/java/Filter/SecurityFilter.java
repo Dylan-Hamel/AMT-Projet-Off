@@ -62,7 +62,7 @@ public class SecurityFilter implements Filter {
         } else {
             System.out.println("[SecurityFilter - doFilter] user is not null");
             System.out.println("[SecurityFilter - doFilter] user is reset ? " + user.isReset());
-            if (user.isReset()) {
+            if (user.isReset() && !path.contains("setpassword")) {
                 System.out.println("[SecurityFilter - doFilter] change password");
                 response.sendRedirect("setpassword");
                 return;
