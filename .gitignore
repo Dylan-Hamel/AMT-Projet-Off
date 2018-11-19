@@ -1,8 +1,8 @@
-AMTProject/.idea/workspace.xml
+!AMTProject/target/AMT-Projet.war
+!AMTProject/.idea/workspace.xml
 AMTProject/target/*
 *.class
 AMTProject/payara5/*
 AMTProject/wildfly-14.0.1.Final/*
 AMTProject/apache-jmeter-5.0/*
 *.log
-AMTProject/target/

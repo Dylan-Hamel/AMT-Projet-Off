@@ -13,17 +13,17 @@
     <hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1508707418">
+          <collectionProp name="1508597864">
             <stringProp name="1598">20</stringProp>
             <stringProp name="0">0</stringProp>
-            <stringProp name="53">5</stringProp>
+            <stringProp name="50">2</stringProp>
             <stringProp name="1572">15</stringProp>
             <stringProp name="50">2</stringProp>
           </collectionProp>
-          <collectionProp name="530005948">
+          <collectionProp name="529896394">
             <stringProp name="48625">100</stringProp>
             <stringProp name="1603">25</stringProp>
-            <stringProp name="53">5</stringProp>
+            <stringProp name="50">2</stringProp>
             <stringProp name="1572">15</stringProp>
             <stringProp name="50">2</stringProp>
           </collectionProp>
