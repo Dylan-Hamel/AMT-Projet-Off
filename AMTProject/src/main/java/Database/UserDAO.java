@@ -376,14 +376,15 @@ public class UserDAO implements UserInterface {
             PreparedStatement ps = conn.prepareStatement("DELETE FROM " + TABLE_NAME + " WHERE email = ?;");
             ps.setString(1, email);
 
-            projectDAO.reassignProjectOfUser(email);
-
             // Check SQL Execution
             if (ps.executeUpdate() == 0) {
                 ps.close();
                 conn.close();
                 throw new SQLException("Delete Failed");
             }
+
+            projectDAO.reassignProjectOfUser(email);
+
             ps.close();
             conn.close();
             ok = true;

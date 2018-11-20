@@ -94,7 +94,7 @@ public class ServletAdministrator extends javax.servlet.http.HttpServlet {
                 if(!updateSQL) {
                     errorMessage += "Password has not been rested \n";
                 }/* else if (!enableSQL){
-                    errorMessage += "User has not beenn enabled \n";
+                    errorMessage += "User has not been enabled \n";
                 }*/
 
                 User user = userDao.getUserWithID(email);

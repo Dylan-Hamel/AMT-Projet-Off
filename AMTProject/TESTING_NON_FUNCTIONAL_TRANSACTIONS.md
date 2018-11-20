@@ -18,7 +18,7 @@ Le comportement par défaut correspond à celui recherché comme prouvé avec l'
 
 On voit bien que la méthode deleteUser de UserDAO appelle une méthode reassignProjetOfUser d'un autre DAO ProjectDAO. Par défaut le transaction sera "unique/globale" pour la méthode deleteUser et si une exception est levée dans la méthode reassign, la totalité de la méthode sera rollback et donc le user existe toujours et ses projets lui sont toujours assignés.
 
-![deleteUser-defaultTransaction](..\defaultTransaction\deleteUser-defaultTransaction.jpg)
+![deleteUser-defaultTransaction](..\defaultTransaction\code.png)
 
 ![reassignProjectOfUser-defaultTransaction](..\defaultTransaction\reassignProjectOfUser-defaultTransaction.jpg)
 
